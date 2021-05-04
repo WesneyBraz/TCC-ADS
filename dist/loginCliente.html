@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="">
-    <title>Cliente</title>
+    <title>Fornecedor</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <!-- alerta css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
@@ -92,139 +94,105 @@
                     <div class="card shadow-lg border-0 rounded-lg mt-3">
                         <!-- Card header -->
                         <div class="card-header border-0 ">
-                            <h3 class="mb-2">Login:</h3>
-                            <button type="button" class="btn btn-success btn-round" data-toggle="modal"
-                                data-target="#loginModal">
-                                + Insira
-                            </button>
-                        </div>
-
-                        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header border-bottom-0">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-title text-center">
-                                            <h3>Login</h3>
-                                        </div>
-                                        <div class="d-flex flex-column mx-5 my-5">
-                                            <form name="frmCadastro" method="post" action=""
-                                                onsubmit="VerificaCPF();">
-
-                                                <div class="form-row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="mb-1" for="">Cpf:</label>
-                                                            <input class="form-control py-4" type="text" name="cpf"
-                                                                size="12" maxlength="11" placeholder="000.000.000-00" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="mb-1" for="cod">Cód:</label>
-                                                            <input class="form-control py-4 numeric" id="cod" name="cod"
-                                                                type="text" />
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <button type="button" class="btn btn-success btn-block btn-round"
-                                                    type="button" name="Submit" value="Checar" onclick="VerificaCPF();"
-                                                    >Adicionar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div>
+                                <h2>Insira o seu CPF para consultar!</h2>
                             </div>
-                        </div>
-                        <!-- Light table -->
-                        <div class="table-responsive">
-                            <table class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col" class="sort" data-sort="name">
-                                            <h4>Cód</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="name">
-                                            <h4>OS</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="budget">
-                                            <h4>Entrada</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="status">
-                                            <h4>Saida</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="status">
-                                            <h4>Status</h4>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="list">
-                                    <tr>
-                                        <th scope="row">
-
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">001</span>
-                                            </div>
-
-                                        </th>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">Esteira</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">15/04/2021</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">15/04/2021</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-dot mr-4">
-                                                <span class="status">Em manutenção</span>
-                                            </span>
-
-                                        </td>
-                                    </tr>
+                            <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="000.000.000-00" aria-label="cpf"
+                                        aria-describedby="button-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-success" type="button"
+                                            id="button-addon2">Pesquisar</button>
+                                    </div>
+                            </div>
+                            <!-- Light table -->
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col" class="sort" data-sort="name">
+                                                <h4>Cód</h4>
+                                            </th>
+                                            <th scope="col" class="sort" data-sort="name">
+                                                <h4>OS</h4>
+                                            </th>
+                                            <th scope="col" class="sort" data-sort="budget">
+                                                <h4>Entrada</h4>
+                                            </th>
+                                            <th scope="col" class="sort" data-sort="status">
+                                                <h4>Saida</h4>
+                                            </th>
+                                            <th scope="col" class="sort" data-sort="status">
+                                                <h4>Status</h4>
+                                            </th>
+                                        </tr>
                                     </thead>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div>
-                        <!-- Footer -->
-                        <footer class="footer pt-0 " style="margin: auto;width: 100%;bottom: 0; position: fixed;">
-                            <div class="row align-items-center justify-content-lg-between">
-                                <div class="col-lg-6">
-                                    <div class="copyright text-center  text-lg-left  text-muted">
-                                        &copy; 2021 <a href="index.html" class="font-weight-bold ml-1"
-                                            target="_blank">DMW</a>
-                                    </div>
-                                </div>
+                                    <tbody class="list">
+                                        <tr>
+                                            <th scope="row">
+
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">001</span>
+                                                </div>
+
+                                            </th>
+                                            <td>
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">Esteira</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">15/04/2021</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">15/04/2021</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-dot mr-4">
+                                                    <span class="status">Em manutenção</span>
+                                                </span>
+
+                                            </td>
+                                        </tr>
+                                        </thead>
+                                    </tbody>
+                                </table>
                             </div>
-                        </footer>
+                        </div>
+                        <div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Argon Scripts -->
-            <!-- Core -->
-            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-            <!-- Argon JS -->
-            <script src="../assets/js/argon.js?v=1.2.0"></script>
-            <script src="./js/loginCliente.js"></script>
+                <!-- Footer -->
+                <footer class="footer pt-0 " style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+                    <div class="row align-items-center justify-content-lg-between">
+                        <div class="col-lg-6">
+                            <div class="copyright text-center  text-lg-left  text-muted">
+                                &copy; 2021 <a href="index.html" class="font-weight-bold ml-1" target="_blank">DMW</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Scripts -->
+                <!-- Core -->
+                <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+                <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+                <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+                <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <!-- Puxando o jquery e plugin "mask" do jquery -->
+                <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+                <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+                <!-- JS -->
+                <script src="../assets/js/argon.js?v=1.2.0"></script>
+                <script src="./js/sweetalert.js"></script>
+                <script src="./js/scripts.js"></script>
+                <script src="./js/loginCliente.js"></script>
 
 </body>
 
