@@ -69,9 +69,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consultarOs.html">
+                            <a class="nav-link" href="ordemservicoEmpresa.html">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
-                                <span class="nav-link-text">Consultar OS</span>
+                                <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -127,34 +127,50 @@
                 <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
             </div>
             <div class="card-body">
-                <form method="POST" action="#" name="frmCadastro" id="frmCadastro"
-                    onsubmit="validarCadastro();">
+               <form method="POST" id="frmCadastro" onsubmit="validarProduto()">
+               <div class="form-row">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nomeProduto">Nome do produto</label>
-                        <input type="text" class="form-control" id="nomeProduto" placeholder="EX: Placa de vídeo">
+                    <label for="nomeProduto">Nome do produto</label>
+                    <input type="text" class="form-control" id="nomeProduto" placeholder="EX: Placa de vídeo">
                     </div>
+               </div>
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nomeFornecedor">Fornecedor:</label>
-                        <select class="form-control" id="nomeFornecedor">
-                        <option selected>Fornecedor</option>
-                        </select>
+                    <label for="nomeFornecedor">Fornecedor:</label>
+                    <select class="form-control" id="nomeFornecedor">
+                    <option selected>Fornecedor</option>
+                    <option value="Asus">Asus</option>
+                    </select>
                     </div>
+                </div>
+               </div>
+                <div class="form-row">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="descricao">Descrição:</label>
+                    <label for="descricao">Descrição:</label>
                         <textarea class="form-control" id="descricao" placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="nomeProduto">Estoque do produto:</label>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-group">
+                        <label for="estoque">Estoque do produto:</label>
                         <input type="number" class="form-control" id="estoque" placeholder="EX: Valor">
-                    </div>
+                   </div>
+                </div>  
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
                     <div class="form-group">
-                        <label for="nomeProduto">Valor do produto:</label>
-                        <input type="text" class="form-control" id="valorProduto" placeholder="EX: Valor">
+                        <label for="valorProduto">Valor do produto:</label>
+                        <input type="text" class="form-control valorProduto" id="valorProduto" placeholder="EX: Valor">
                     </div>
-                    <div class="form-group mt-4 mb-0 text-white"><a class="btn btn-primary btn-block"
-                            type="submit" id="botao" onclick="validarCadastro();">Criar Conta</a>
-                    </div>
-                </form>
+                </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block btn-round"
+                    id="botao" type="submit"
+                    onclick="validarProduto();">Adicionar</button>
+            </form>
             </div>
             </div>
             </div>

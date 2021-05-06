@@ -14,23 +14,23 @@ function alerta() {
 
 //Mascara para valor do produto
 $(document).ready(function () {
-    $("#valorProduto").mask('#.##0,00', { reverse: true });
+    $(".valorProduto").mask('#.##0,00', { reverse: true });
 })
 
-
-//aceita somente letras
-jQuery('.meucampo').keyup(function () {
-    this.value = this.value.replace(/[^a-zA-Z]/g, '');
-});
-
 //Validar Modal
-function validarCadastro(){
-    //nome
-    let nome = frmCadastro.nomeProduto;
-    if (nome.value == "" ||
-        nome.value == null ||
-        nome.value.length < 4) {
-        nome.focus();
+function validarProduto() {
+    //Nome do produto
+    let produto = frmCadastro.nomeProduto;
+    if (produto.value == "" ||
+        produto.value == null) {
+        produto.focus();
+        alerta();
+        return false;
+    }
+
+    //Nome do fornecedor
+    if (document.getElementById("nomeFornecedor").selectedIndex == "") {
+        nomeFornecedor.focus();
         alerta();
         return false;
     }
@@ -44,28 +44,21 @@ function validarCadastro(){
         return false;
     }
 
-    //Fornecedor
-    if(document.getElementById("nomeFornecedor").selectedIndex == ""){
-        nomeFornecedor.focus();
-        alerta();
-        return false;
-    }
-
-    //Valor do Produto
-    let valorProduto = frmCadastro.valorProduto;
-    if(valorProduto.value == ""){
-        valorProduto.focus();
-        alerta();
-        return false;
-    }
-
     //Estoque
     let estoque = frmCadastro.estoque;
-    if(estoque.value == ""){
+    if (estoque.value == "") {
         estoque.focus();
         alerta();
         return false;
     }
     
+    //Valor do Produto
+    let valor = frmCadastro.valorProduto;
+    if (valor.value == "") {
+        valor.focus();
+        alerta();
+        return false;
+    }
+
     return true;
 }

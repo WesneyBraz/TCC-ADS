@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Funcionario</title>
+    <title>Ordem de Serviço</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -50,7 +50,7 @@
                                 <span class="nav-link-text">Cliente</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="cadastroFuncionario.html">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
@@ -68,7 +68,7 @@
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="ordemservicoEmpresa.html">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
@@ -123,127 +123,115 @@
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
         <div class="card card-upgrade">
-            <div class="card-header text-left border-0 ">
-                <button type="button" class="btn btn-lg btn-success btn-round" data-toggle="modal"
-                    data-target="#loginModal">
-                    + Novo Departamento
-                </button>
-            </div>
             <div class="card-header">
-                <h3 class="text-center font-weight-light my-4">Cadastre os funcionarios:</h3>
-            </div>
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header border-bottom-0">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-title text-center">
-                                <h3>Novo Departamento</h3>
-                            </div>
-                            <div class="d-flex flex-column mx-5 my-5">
-                                <form name="frmCadastro" method="post" action="cadastraDepartamento.php"
-                                    id="frmCadastro" onsubmit="validarModal();">
-                                    <div class="form-group row ">
-                                        <label class="my-1 mr-2 for="
-                                            exampleFormControlInput1">Nome:</label>
-                                        <input type="text" class="form-control meucampo"
-                                            id="nomeDepartamento" name="nomeDepartamento"
-                                            placeholder="Nome do departamento...">
-                                    </div>
-                                    <input type="submit" class="btn btn-success btn-block btn-round"
-                                        onclick="validarModal();" value="Adicionar"></input>
-                                </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h3 class="text-center font-weight-light my-4">Adicione uma Ordem de Serviço:</h3>
             </div>
             <div class="card-body">
-                <form name="frmCadastro2" method="POST" action="#" id="frmCadastro2"
-                    onsubmit="validarCadastro();">
-                    <div class="form-row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="mb-1" for="nome">Nome:</label>
-                                <input class="form-control py-4 meucampo" id="nome" name="nome" type="text"
-                                    placeholder="Nome completo..." />
-                            </div>
-                        </div>
+               <form method="POST" id="frmCadastro" onsubmit="validarOS()">
+               <div class="form-row">
+               <div class="col-md-6">
+                 <div class="form-group">
+                    <label for="exampleFormControlTextarea1" class="">
+                        Descrição:</label>
+                    <textarea class="form-control" id="descricaoOs" rows="2"
+                        placeholder="Adicone em poucas palavras a descrição..."></textarea>
+                </div>
+               </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label for="exampleFormControlTextarea1"
+                    class="">Diagnostico:</label>
+                    <textarea class="form-control" id="diagnostico" rows="2"
+                    placeholder="Adicone em poucas palavras o diagnostico..."></textarea>
+                </div>
+                </div>
+               </div>
+                <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label class="my-1 mr-2"
+                        for="inlineFormCustomSelectPref">Departamento:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="nomeDepartamento">
+                        <option selected>Selecione...</option>
+                        <option value="1">Eletrico</option>
+                        <option value="2">TI</option>
+                    </select>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" for="cpf">CPF:</label>
-                                <input class="form-control py-4 numeric cpf" id="cpf" name="cpf" type="text"
-                                    placeholder="000.000.000-00" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" for="telefone">Telefone:</label>
-                                <input class="form-control py-4 numeric telefone" name="telefone"
-                                    id="telefone" placeholder="(00) 00000-0000" maxlength="12" />
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-group">
+                    <label class="my-1 mr-2"
+                        for="inlineFormCustomSelectPref">Funcionario:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="nomeFuncionario">
+                        <option selected>Selecione...</option>
+                        <option value="1">José</option>
+                        <option value="2">Pedro</option>
+                    </select>
+                   </div>
+                </div>  
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                    <label class="my-1 mr-2"
+                        for="inlineFormCustomSelectPref">Cliente:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="nomeCliente">
+                        <option selected>Selecione...</option>
+                        <option value="1">Maria</option>
+                        <option value="2">Lucas</option>
+                    </select>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" for="celular">Celular:</label>
-                                <input class="form-control py-4 numeric" id="celular" type="text"
-                                    placeholder="(00) 00000-0000" maxlength="12" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" >Departamento:</label>
-                                <select class="custom-select" id="nomeDepartamento">
-                                    <option selected>Selecione</option>
-                                    <option>One</option>
-                                    <option>Two</option>
-                                    <option>Three</option>
-                                </select>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label class="my-1 mr-2"
+                        for="inlineFormCustomSelectPref">Produto:</label>
+                    <select class="custom-select my-1 mr-sm-2" id="nomeProduto">
+                        <option selected>Selecione...</option>
+                        <option value="1">Placa</option>
+                        <option value="2">Tela</option>
+                    </select>
                     </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" for="inputPassword">Senha:</label>
-                                <input class="form-control py-4" id="senha" type="password"
-                                    placeholder="Digite sua senha..." />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="mb-1" for="inputConfirmPassword">Confirme
-                                    sua senha:
-                                </label>
-                                <input class="form-control py-4" id="confirma_senha" type="password"
-                                    placeholder="Digite novamente a senha..." />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <strong>
-                                Minímo 8 digitos e máximo de 10 contendo uma letra maiúscula e minúscula, um número e um
-                                caractere especial.
-                                </strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group mt-4 mb-0 text-white"><a class="btn btn-primary btn-block"
-                            type="submit" id="botao" onclick="validarCadastro();">Criar Conta</a>
-                    </div>
-                </form>
+                </div>
+                </div>
+                <div class="form-row">
+                 <div class="col-md-6">
+                       <div class="form-group">
+                        <label for="example-datetime-local-input"
+                        class=" my-1 mr-2">Entrada:</label>
+                        <input class="form-control" type="datetime-local"
+                        value="2018-11-23T10:30:00" id="dataEntrada">
+                       </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-group">
+                    <label for="example-datetime-local-input"
+                    class=" my-1 mr-2">Saída:</label>
+                    <input class="form-control" type="datetime-local"
+                    value="2018-11-23T10:30:00" id="dataSaida">
+                   </div>
+                </div>
+                </div>
+                <div class="form-row">
+                 <div class="col-md-6">
+                   <div class="form-group">
+                   <label for="dinheiro">Custo:</label><input type="text" id="valorOs"
+                    name="valorOs" class="form-control valor"
+                    style="display:inline-block" />
+                   </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="form-group">
+                    <label for="dinheiro">Lucro:</label><input type="text" id="lucro"
+                    name="lucro" class="form-control valor"
+                    style="display:inline-block" />
+                   </div>
+                </div>
+                </div>
+                <button type="button" class="btn btn-primary btn-block btn-round"
+                    id="botao" type="submit"
+                    onclick="validarOS();">Adicionar</button>
+            </form>
             </div>
             </div>
             </div>
@@ -274,7 +262,7 @@
     <!-- JS -->
     <script src="./js/sweetalert.js"></script>
     <script src="./js/scripts.js"></script>
-    <script src="./js/cadastroFuncionario.js"></script>
+    <script src="./js/ordemservicoEmpresa.js"></script>
 
 </body>
 

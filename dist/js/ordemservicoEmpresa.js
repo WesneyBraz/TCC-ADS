@@ -1,8 +1,3 @@
-var capturando = "";
-function capturar () {
-    capturando = document.getElementById('valor').value;
-    document.getElementById('valorDigitado').innerHTML = capturando;
-}
 //Alerta
 function alerta() {
     Swal.fire({
@@ -17,13 +12,13 @@ function alerta() {
     })
 }
 
-//Mascara para valor do produto
+//Mascara para valor
 $(document).ready(function () {
     $(".valor").mask('#.##0,00', { reverse: true });
 })
 
 //Validar Modal
-function validarModal() {
+function validarOS() {
     //Descrição
     let descricao = frmCadastro.descricaoOs;
     if (descricao.value == "" ||
@@ -70,7 +65,7 @@ function validarModal() {
         return false;
     }
 
-    //Valor do Produto
+    //Valor
     let valor = frmCadastro.valorOs;
     if (valor.value == "") {
         valor.focus();
