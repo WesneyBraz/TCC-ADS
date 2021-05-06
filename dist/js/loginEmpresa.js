@@ -15,16 +15,16 @@ function alerta() {
 //Validação do form
 function checkForm() {
   //email
-    let email = document.getElementById('email').value;
-    let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
-    if (email.value == "") {
-        alerta();
-        return false;
-    }
-    else if (!validationEmail.test(email)) {
-        alerta();
-        return false;
-    }
+  let email = document.getElementById('email').value;
+  let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
+  if (email.value == "") {
+    alerta();
+    return false;
+  }
+  else if (!validationEmail.test(email)) {
+    alerta();
+    return false;
+  }
   //Validação da senha
   // Pelo menos uma letra maiúscula
   // Pelo menos uma letra minúscula

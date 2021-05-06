@@ -24,7 +24,7 @@ jQuery('.meucampo').keyup(function () {
 });
 
 //Validar Modal
-function validarModal() {
+function validarCadastro(){
     //nome
     let nome = frmCadastro.nomeProduto;
     if (nome.value == "" ||
@@ -45,15 +45,8 @@ function validarModal() {
     }
 
     //Fornecedor
-    if (document.getElementById("nomeFornecedor").selectedIndex == "") {
+    if(document.getElementById("nomeFornecedor").selectedIndex == ""){
         nomeFornecedor.focus();
-        alerta();
-        return false;
-    }
-
-    //Departamento
-    if (document.getElementById("nomeDepartamento").selectedIndex == "") {
-        nomeDepartamento.focus();
         alerta();
         return false;
     }

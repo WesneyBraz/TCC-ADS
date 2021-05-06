@@ -34,7 +34,6 @@ jQuery('.meucampo').keyup(function () {
     this.value = this.value.replace(/[^a-zA-Z]/g, '');
 });
 
-
 //validar cadastro
 function validarCadastro() {
     //nome

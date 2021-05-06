@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="">
     <title>Funcionario</title>
-     <!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- Argon CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
-
 <body>
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -88,56 +84,51 @@
         <!-- Page content -->
         <div class="container-fluid mt--6">
             <div class="row mt--5">
-                <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card card-upgrade">
-                        <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
+        <div class="col-md-10 ml-auto mr-auto">
+        <div class="card card-upgrade">
+            <div class="card-header">
+                <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="" name="frmCadastro" onsubmit="checkForm();">
+                    <div class="form-group">
+                        <label class="small mb-1" for="inputEmailAddress">Email</label>
+                        <input class="form-control py-4" id="email" name="email" type="email"
+                            placeholder="Coloque seu melhor email..." />
+                    </div>
+                    <div class="form-group">
+                        <label class="small mb-1" for="inputPassword">Senha</label>
+                        <input class="form-control py-4" id="senha" name="senha" type="password"
+                            placeholder="Informe sua senha..." />
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" id="rememberPasswordCheck"
+                                type="checkbox" />
+                            <label class="custom-control-label" for="rememberPasswordCheck">Lembrar
+                                da Senha</label>
                         </div>
-                        <div class="card-body">
-                            <form method="POST" action="" name="frmCadastro" onsubmit="checkForm();">
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                    <input class="form-control py-4" id="email" name="email" type="email"
-                                        placeholder="Coloque seu melhor email..." />
-                                </div>
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputPassword">Senha</label>
-                                    <input class="form-control py-4" id="senha" name="senha" type="password"
-                                        placeholder="Informe sua senha..." />
-                                </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" id="rememberPasswordCheck"
-                                            type="checkbox" />
-                                        <label class="custom-control-label" for="rememberPasswordCheck">Lembrar
-                                            da Senha</label>
-                                    </div>
-                                </div>
-                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <a class="small" href="password.html">Esqueci minha Senha</a>
-                                    <a class="btn btn-primary"  id="botao" type="submit"
-                                        onclick="checkForm()" ;>Login</a>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="card-footer text-center">
-                            <div class="small"><a href="index.html">Home</a></div>
-                        </div>
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                        <a class="small" href="password.html">Esqueci minha Senha</a>
+                        <a class="btn btn-primary text-white"  id="botao" type="submit"
+                            onclick="checkForm()">Login</a>
+                    </div>
+                </form>
+               </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer -->
+        <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6">
+                    <div class="copyright text-center  text-lg-left  text-muted">
+                        &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
                     </div>
                 </div>
             </div>
-            <!-- Footer -->
-            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6">
-                        <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
-    </div>
+        </footer>
     <!-- Scripts -->
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>

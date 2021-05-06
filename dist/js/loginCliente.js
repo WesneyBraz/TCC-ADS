@@ -1,28 +1,51 @@
-//Verifica o Cpf do cliente:
-function VerificaCPF() {
-    if (vercpf(document.frmCadastro.cpf.value)) { document.frmCadastro.submit(); } else {
-        errors = "1"; if (errors) alert('Por favor,insira um cpf válido');
-        document.retorno = (errors == '');
-    }
+//Alerta
+function alerta() {
+    Swal.fire({
+        title: 'Preencha o CPF!',
+        icon: 'error',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
 }
-function vercpf(cpf) {
-    if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999")
-        return false;
-    add = 0;
-    for (i = 0; i < 9; i++)
-        add += parseInt(cpf.charAt(i)) * (10 - i);
-    rev = 11 - (add % 11);
-    if (rev == 10 || rev == 11)
-        rev = 0;
-    if (rev != parseInt(cpf.charAt(9)))
-        return false;
-    add = 0;
-    for (i = 0; i < 10; i++)
-        add += parseInt(cpf.charAt(i)) * (11 - i);
-    rev = 11 - (add % 11);
-    if (rev == 10 || rev == 11)
-        rev = 0;
-    if (rev != parseInt(cpf.charAt(10)))
-        return false;
+
+//Máscaras, puxadas pelos id dos inputs>
+$(document).ready(function () {
+    $("#cpf").mask("000.000.000-00");
+})
+
+//Verifica o Cpf do cliente:
+function validarCPF() {
+    //cpf
+    let cpf = document.getElementById("cpf").value;
+    if (typeof cpf !== "string") return false
+    cpf = cpf.replace(/[\s.-]*/igm, '')
+    if (
+        cpf.length !== 11 || !Array.from(cpf).filter(e => e !== cpf[0]).length
+    ) {
+        alerta();
+        return false
+    }
+    let soma = 0
+    let resto
+    for (let i = 1; i <= 9; i++)
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i)
+    resto = (soma * 10) % 11
+    if ((resto == 10) || (resto == 11)) resto = 0
+    if (resto != parseInt(cpf.substring(9, 10))) return false
+    soma = 0
+    for (let i = 1; i <= 10; i++)
+        soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i)
+    resto = (soma * 10) % 11
+    if ((resto == 10) || (resto == 11)) resto = 0
+    if (resto != parseInt(cpf.substring(10, 11))) return false;
+
     return true;
 }
+
+
+
+

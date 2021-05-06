@@ -143,6 +143,13 @@ function validarCadastro() {
         return false;
 
     }
+
+    //Departamento
+    if (document.getElementById("nomeDepartamento").selectedIndex == "") {
+        nomeDepartamento.focus();
+        alerta();
+        return false;
+    }
     
     //Validação da senha
     // Pelo menos uma letra maiúscula
