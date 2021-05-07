@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="">
     <title>Produto</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- Argon CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
-
 <body>
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -45,13 +41,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produtoFuncionario.html">
+                            <a class="nav-link active"" href="produtoFuncionario.html">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produtos</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ordemServico.html">
+                            <a class="nav-link"href="ordemservicoFuncionario.html">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
@@ -70,7 +66,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
                                 data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
@@ -83,7 +79,6 @@
                 </div>
             </div>
         </nav>
-        <!-- Header -->
         <!-- Header -->
         <div class="header bg-primary pb-6">
             <div class="container-fluid">
@@ -98,236 +93,187 @@
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card shadow-lg border-0 rounded-lg mt-3">
-                        <!-- Card header -->
-                        <div class="card-header border-0">
-                            <h3 class="mb-0">Consultar Produtos:</h3>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group h2">
-                                <input name="data[search]" class="form-control" id="search" type="text"
-                                    placeholder="Pesquisar Itens">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary" type="submit">
-                                        <span class="ni ni-active-40 text-dark"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                    <!-- Card header -->
+                    <div class="card-header  border-0">
+                        <h2 class="mb-0">Consultar Produtos:</h2>
+                    </div>
+                    <!-- Light table -->
+                    <div class="input-group mb-3 p-2">
+                        <input type="text" class="form-control" 
+                        placeholder="Pesquisar" 
+                        aria-label="Recipient's username" 
+                        aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <span class="ni ni-active-40">
+                        </button>
+                    </div>
+                    </div>
+                    <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Cód</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Estoque</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">001</th>
+                        <td>Placa de video</td>
+                        <td>TI</td>
+                        <td>13</td>
+                        <td>
+                        <!-- Modal Editar -->
+                        <span class="badge badge-dot mr-4">
+                        <button class="btn-sm btn-group btn-primary" data-toggle="modal"
+                            data-target="#verModal">
+                            + Ver
+                        </button>
+                        <div class="modal fade" id="verModal" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header border-bottom-0">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <div class="form-title text-center">
-                                            <h3>Novo Produto</h3>
+                                        <div class="text-center">
+                                            <h3>Produto</h3>
                                         </div>
                                         <div class="d-flex flex-column mx-5 my-5">
-                                            <form>
-                                                <div class="form-group row ">
-                                                    <label for="exampleFormControlTextarea1" class="">
-                                                        Descrição:</label>
-                                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                        rows="2"
-                                                        placeholder="Adicone em poucas palavras a descrição..."></textarea>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="my-1 mr-2"
-                                                        for="inlineFormCustomSelectPref">Fornecedor:</label>
-                                                    <select class="custom-select my-1 mr-sm-2"
-                                                        id="inlineFormCustomSelectPref">
-                                                        <option selected>Selecione...</option>
-                                                        <option value="1">Eletrico</option>
-                                                        <option value="2">TI</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label class="my-1 mr-2"
-                                                        for="inlineFormCustomSelectPref">Departamento:</label>
-                                                    <select class="custom-select my-1 mr-sm-2"
-                                                        id="inlineFormCustomSelectPref">
-                                                        <option selected>Selecione...</option>
-                                                        <option value="1">Placa</option>
-                                                        <option value="2">Tela</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="example-datetime-local-input"
-                                                        class=" my-1 mr-2">Entrada:</label>
+                                        <div class="row">
+                                            <h4>Descrição: </h4>
+                                            <p>Placa de video Processador Intel® Core™
+                                                i7
+                                            </p>
+                                            <p>Windows 10 Home
+                                                Placa de vídeo NVIDIA® GTX 1660 Ti</p>
+                                            <p>
+                                                Tela Full HD de 15.6"
+                                                SSD de 512GB
+                                                Memória de 16GB
 
-                                                    <input class="form-control" type="datetime-local"
-                                                        value="2018-11-23T10:30:00" id="example-datetime-local-input">
-
-                                                </div>
-                                                <div class="form-group row ">
-
-                                                    <label for="dinheiro">Valor:</label><input type="text" id="dinheiro"
-                                                        name="dinheiro" class="dinheiro form-control"
-                                                        style="display:inline-block" />
-
-                                                </div>
-                                                <div class="form-group row ">
-
-                                                    <label for="number">Estoque:</label><input type="number"
-                                                        id="estoque" name="estoque" class="estoque form-control"
-                                                        style="display:inline-block" />
-
-                                                </div>
-                                                <button type="button"
-                                                    class="btn btn-success btn-block btn-round">Adicionar</button>
-                                            </form>
+                                            </p>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Light table -->
-                        <div class="table-responsive">
-                            <table class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th scope="col" class="sort" data-sort="name">
-                                            <h4>Cód</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="name">
-                                            <h4>Descrição</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="name">
-                                            <h4>Departamento</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="status">
-                                            <h4>Estoque</h4>
-                                        </th>
-                                        <th scope="col" class="sort" data-sort="status">
-                                            <h4>Ações</h4>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="list">
-                                    <tr>
-                                        <th scope="row">
-
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">001</span>
-                                            </div>
-
-                                        </th>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">Placa de video......</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">TI</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="media-body">
-                                                <span class="name mb-0 text-sm">13</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-dot mr-4">
-                                                <button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                                    data-target="#verModal">
-                                                    + Ver
-                                                </button>
-                                                <div class="modal fade" id="verModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header border-bottom-0">
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="text-center">
-                                                                    <h3>Produto</h3>
-                                                                </div>
-                                                                <div class="d-flex flex-column mx-5 my-5">
-                                                                        <div class="row">
-                                                                            <h4>Descrição: </h4>
-                                                                            <p>Placa de video Processador Intel® Core™
-                                                                                i7
-                                                                            </p>
-                                                                            <p>Windows 10 Home
-                                                                                Placa de vídeo NVIDIA® GTX 1660 Ti</p>
-                                                                            <p>
-                                                                                Tela Full HD de 15.6"
-                                                                                SSD de 512GB
-                                                                                Memória de 16GB
-
-                                                                            </p>
-                                                                        </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    </thead>
-                            </table>
-                        </div>
-                        <!-- Card footer -->
-                        <div class="card-footer py-4">
-                            <nav aria-label="...">
-                                <ul class="pagination justify-content-end mb-0">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1">
-                                            <i class="fas fa-angle-left"></i>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <i class="fas fa-angle-right"></i>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                    </span>
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">001</th>
+                    <td>Placa de video</td>
+                    <td>TI</td>
+                    <td>13</td>
+                    <td>
+                    <!-- Modal Editar -->
+                    <span class="badge badge-dot mr-4">
+                    <button class="btn-sm btn-group btn-primary" data-toggle="modal"
+                        data-target="#verModal">
+                        + Ver
+                    </button>
+                    <div class="modal fade" id="verModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header border-bottom-0">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="text-center">
+                                        <h3>Produto</h3>
+                                    </div>
+                                    <div class="d-flex flex-column mx-5 my-5">
+                                    <div class="row">
+                                        <h4>Descrição: </h4>
+                                        <p>Placa de video Processador Intel® Core™
+                                            i7
+                                        </p>
+                                        <p>Windows 10 Home
+                                            Placa de vídeo NVIDIA® GTX 1660 Ti</p>
+                                        <p>
+                                            Tela Full HD de 15.6"
+                                            SSD de 512GB
+                                            Memória de 16GB
+                                        </p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </span>
+                </td>
+                </div>
+                </div>
+                </div>
+                </span></td>
+                </tr>
+                </tbody>
+                </table>
+                <!-- Card footer -->
+                <div class="card-footer py-4">
+                    <nav aria-label="...">
+                        <ul class="pagination justify-content-end mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">
+                                    <i class="fas fa-angle-left"></i>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">
+                                    <i class="fas fa-angle-right"></i>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
             <!-- Footer -->
-            <footer class="footer" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2021 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                            &copy; 2021 <a href="index.html" class="font-weight-bold ml-1"
                                 target="_blank">DMW</a>
                         </div>
                     </div>
                 </div>
             </footer>
+            </div>
         </div>
     </div>
-    <!-- Argon Scripts -->
+</div>
+</div>
+    <!-- Scripts -->
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
     <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Argon JS -->
+    <!-- JS -->
     <script src="../assets/js/argon.js?v=1.2.0"></script>
 </body>
-
 </html>
