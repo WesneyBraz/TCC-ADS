@@ -44,6 +44,15 @@ function validarProduto() {
         return false;
     }
 
+     //Nome categoria
+    let categoria = frmCadastro.categoria;
+    if (categoria.value == "" ||
+        categoria.value == null) {
+        categoria.focus();
+        alerta();
+        return false;
+    }
+
     //Estoque
     let estoque = frmCadastro.estoque;
     if (estoque.value == "") {
