@@ -9,7 +9,7 @@
 </head>
 
 <body bgcolor="lightgreen">
-<h3> <a href="cadastroCliente.html">VOLTAR</a></h3>
+<h3> <a href="ordemservicoEmpresa.html">VOLTAR</a></h3>
 
 
 <?php
@@ -19,55 +19,49 @@
 
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
-    // FALTA AJUSTAR COM OS INPUTS DO FORM
-    
-    $vdata=$_POST["nome"];
-    $vdiagnostico=$_POST["email"];
-    $vdescricao=$_POST["cnpj"];
-    $vstatus=$_POST["telefone"];
-    //$vcelular=$_POST["celular"];
-    //$vcep=$_POST["cep"];
-    //$vrua=$_POST["rua"];
-    //$vcomplemento=$_POST["complemento"];
-    //$vnumero=$_POST["numero"];
-    //$vbairro=$_POST["bairro"];
-    //$vcidade=$_POST["cidade"];
-    //$vestado=$_POST["estado"];
-    //$vpais=$_POST["pais"];
+    $vinicio=$_POST["dataEntrada"];
+    $vdescricao=$_POST["descricaoOs"];
+    $vdiagnostico=$_POST["diagnostico"];
+    $vproduto=$_POST["produto"];
+
 
     //----------------------------------FIM---------------------------------------------
 
     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
     //mysqli_query = consulta a base de dados 
     //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT CNPJ_FOR FROM TBL_FORNECEDOR WHERE CNPJ_FOR = '$vcnpj'");
+     $verifica = ("SELECT DIAGNOSTICO FROM TBL_ORDEM_DE_SERVICO WHERE DIAGNOSTICO = '$vdiagnostico'");
 
      $resultadoVerifica = mysqli_query ($conn, $verifica );
 
      $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
-     //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
+     ///-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
      if($erroResultadoVerifica > 0)
-     {
-        echo "CNPJ JA CADASTRADO <br/>";
+     { 
+      echo "
+      Inicio: ".$vinicio."<br/> 
+      Descrição: ".$vdescricao."<br/>
+      Diagnostico: ".$vdiagnostico."<br/>
+      Produto: ".$vproduto."<br/> 
+      "; 
+  
 
         return false;
-     }
+    }
      //----------------------------------FIM---------------------------------------------
 
 
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_FORNECEDOR
-     (CNPJ_FOR, NOME_FANTASIA_FOR)
+     $sql = $conn->prepare(" INSERT INTO TBL_ORDEM_DE_SERVICO
+     (DATA_INICIO, DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, PRODUTO)
      VALUES
-     (?, ?) ");
+     (?, ?, ?, ?) ");
 
+     $sql -> bind_param("ssss", $vinicio, $vdescricao, $vdiagnostico, $vproduto);
 
-     $sql -> bind_param("ss", $vnome, $vcnpj);
-
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
-
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
 
      //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
@@ -83,8 +77,11 @@
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
      echo "
-      Nome Fantasia:".$vnome."<br/>
-      CNPJ: ".$vcnpj."<br/>"; 
+        Inicio: ".$vinicio."<br/> 
+        Descrição: ".$vdescricao."<br/>
+        Diagnostico: ".$vdiagnostico."<br/>
+        Produto: ".$vproduto."<br/> 
+        "; 
 
      exit();
      //----------------------------------FIM---------------------------------------------

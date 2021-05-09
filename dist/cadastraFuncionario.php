@@ -17,15 +17,29 @@
     include_once 'conexao.php';
     //----------------------------------FIM---------------------------------------------
 
-
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vnome=$_POST["nome"];
     $vcpf=$_POST["cpf"];
-    $vsobrenome=$_POST["sobrenome"];
+    //$vsobrenome=$_POST["sobrenome"];
+    //$vtelefone=$_POST["telefone"];
     $vcelular=$_POST["celular"];
-    //$vusuario=$_POST["usuario"]; falta colocar na html
-   // $vsenha=$_POST["senha"]; falta colocar na html
+    //$vusuario=$_POST["usuario"]; 
+    $vsenha1=$_POST["senha1"]; 
+    $vsenha2=$_POST["senha2"]; 
 
+    //-----------------------------VERIFICANDO SENHAS------------------------------------
+    $vusuario=$vnome;
+
+    if($vsenha1!=$vsenha2)
+    {
+     echo "SENHAS DIVERGENTES, FAVOR CORRIGIR <br/> 
+      SENHA: ".$vsenha1."<br/>
+      CONFIRMAÇÃO: ".$vsenha2."<br/>
+
+      ";
+
+      return false;
+   }
 
     //----------------------------------FIM---------------------------------------------
 
@@ -50,12 +64,13 @@
 
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
-     (NOME_FUN, CPF_FUN, SOBRENOME_FUN, TELEFONE_MOVEL_FUN)
-     VALUES
-     (?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssss", $vnome, $vcpf, $vsobrenome, $vcelular);
+     $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
+     (CPF_FUN,NOME_FUN,USUARIO_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN)
+     VALUES
+     (?, ?, ?, ?, ?) ");
+
+     $sql -> bind_param("sssss", $vcpf,$vnome,$vusuario,$vsenha1,$vcelular);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
@@ -75,7 +90,8 @@
      echo "
         Nome: ".$vnome."<br/>
         CPF: ".$vcpf."<br/>
-        Sobrenome: ".$vsobrenome."<br/> 
+        Usuario: ".$vusuario."<br/> 
+        Senha: ".$vsenha1."<br/>
         Celular: ".$vcelular."<br/>
 
         "; 

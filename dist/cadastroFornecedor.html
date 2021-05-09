@@ -128,8 +128,11 @@
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Cadastre seus Fornecedores!</h3>
                         </div>
+
+
                         <div class="card-body">
-                            <form name="frmCadastro" method="post" id="frmCadastro" onsubmit="validarCadastro()">
+                            <form name="frmCadastro" method="post" action="cadastraFornecedor.php" id="frmCadastro"
+                                onsubmit="validarCadastro()">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -160,8 +163,7 @@
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
                                             <input class="form-control py-4 numeric" id="telefone" name="telefone"
-                                                type="text" placeholder="(00) 00000-0000"
-                                                 />
+                                                type="text" placeholder="(00) 00000-0000" />
                                         </div>
 
                                     </div>
@@ -170,16 +172,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="celular">Celular:</label>
-                                            <input class="form-control py-4" id="celular" type="text"
-                                                name="celular" 
+                                            <input class="form-control py-4" id="celular" type="text" name="celular"
                                                 placeholder="(00) 00000-0000" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cep">Cep:</label>
-                                            <input class="form-control py-4" name="cep" type="text" id="cep"
-                                                value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"
+                                            <input class="form-control py-4" name="cep" type="text" id="cep" value=""
+                                                size="10" maxlength="9" onblur="pesquisacep(this.value);"
                                                 placeholder="00.000-000" />
                                         </div>
                                     </div>
@@ -204,7 +205,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class=" mb-1" for="numero">N°:</label>
-                                            <input class="form-control py-4" id="numero" type="number"  />
+                                            <input class="form-control py-4" id="numero" type="number" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -252,11 +253,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-4 mb-0 text-white"><a class="btn btn-primary btn-block"
-                                        id="botao" type="submit" onclick="validarCadastro();">Criar Conta</a>
+                                <div class="form-group mt-4 mb-0 text-white">
+                                    <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar"
+                                        onclick="validarCadastro();">
+                                    </input>
                                 </div>
                             </form>
                         </div>
+
+
                         <div class="card-footer text-center">
                             <div class="small"><a href="produto.html">Possui uma conta? Vá para o Adicionar
                                     Produto!</a>

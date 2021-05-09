@@ -19,11 +19,11 @@
 
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
-    $vnome=$_POST["nome"];
-    $vdescricao=$_POST["exampleFormControlTextarea1"];
+    $vnome=$_POST["nomeProduto"];
+    $vdescricao=$_POST["descricao"];
     $vcategoria=$_POST["categoria"];
-    $vdinheiro=$_POST["dinheiro"];
     $vestoque=$_POST["estoque"];
+    $vvalor=$_POST["valorProduto"];
 
 
     //----------------------------------FIM---------------------------------------------
@@ -54,7 +54,7 @@
      VALUES
      (?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssss", $vnome, $vcategoria, $vdescricao, $vdinheiro, $vestoque);
+     $sql -> bind_param("sssss", $vnome, $vcategoria, $vdescricao, $vestoque, $vvalor);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
@@ -75,8 +75,8 @@
         Nome: ".$vnome."<br/>
         Categoria: ".$vcategoria."<br/>
         Descrição: ".$vdescricao."<br/> 
-        Valor: ".$vdinheiro."<br/>
         Estoque: ".$vestoque."<br/> 
+        Valor: ".$vvalor."<br/>
 
         "; 
 

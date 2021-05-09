@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +17,7 @@
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
+
 <body>
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -122,64 +124,73 @@
         <div class="container-fluid mt--6">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-        <div class="card card-upgrade">
-            <div class="card-header">
-                <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
-            </div>
-            <div class="card-body">
-               <form method="POST" id="frmCadastro" onsubmit="validarProduto()">
-               <div class="form-row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="nomeProduto">Nome do produto</label>
-                    <input type="text" class="form-control" id="nomeProduto" placeholder="EX: Placa de vídeo">
+                    <div class="card card-upgrade">
+                        <div class="card-header">
+                            <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <form method="POST" action="cadastraProduto.php" id="frmCadastro"
+                                onsubmit="validarProduto()">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nomeProduto">Nome do produto</label>
+                                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto"
+                                                placeholder="EX: Placa de vídeo">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nomeFornecedor">Fornecedor:</label>
+                                            <select class="form-control" id="nomeFornecedor">
+                                                <option selected>Fornecedor</option>
+                                                <option value="Asus">Asus</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="descricao">Descrição:</label>
+                                            <textarea class="form-control" id="descricao" name="descricao"
+                                                placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nomeProduto">Categoria:</label>
+                                            <input type="text" class="form-control" id="categoria" name="categoria"
+                                                placeholder="EX: Nome da categoria do Produto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="valorProduto">Valor do produto:</label>
+                                            <input type="text" class="form-control valorProduto" id="valorProduto"
+                                                name="valorProduto" placeholder="EX: Valor">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="estoque">Estoque do produto:</label>
+                                            <input type="number" class="form-control" id="estoque" name="estoque"
+                                                placeholder="EX: Valor">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
+                                    type="submit" onclick="validarProduto();" value="Cadastrar"></input>
+                            </form>
+
+
+
+                        </div>
                     </div>
-               </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="nomeFornecedor">Fornecedor:</label>
-                    <select class="form-control" id="nomeFornecedor">
-                    <option selected>Fornecedor</option>
-                    <option value="Asus">Asus</option>
-                    </select>
-                    </div>
                 </div>
-               </div>
-                <div class="form-row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="descricao">Descrição:</label>
-                        <textarea class="form-control" id="descricao" placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                   <div class="form-group">
-                    <label for="nomeProduto">Categoria:</label>
-                    <input type="text" class="form-control" id="categoria" placeholder="EX: Nome da categoria do Produto">
-                   </div>
-                </div>  
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="valorProduto">Valor do produto:</label>
-                        <input type="text" class="form-control valorProduto" id="valorProduto" placeholder="EX: Valor">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                   <div class="form-group">
-                        <label for="estoque">Estoque do produto:</label>
-                        <input type="number" class="form-control" id="estoque" placeholder="EX: Valor">
-                   </div>
-                </div>
-                </div>
-                <button type="button" class="btn btn-primary btn-block btn-round"
-                    id="botao" type="submit"
-                    onclick="validarProduto();">Adicionar</button>
-            </form>
-            </div>
-            </div>
-            </div>
             </div>
             <!-- Footer -->
             <footer class="footer pt-0">
