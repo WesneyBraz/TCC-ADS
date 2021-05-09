@@ -30,7 +30,6 @@ $(document).ready(function () {
     $("#cpf").mask("000.000.000-00");
     $("#cep").mask("00000-000");
     $("#celular").mask("(00) 00000-0009");
-    $("#telefone").mask("(00) 0000-0000");
     //Função reconhece se será nr com o "9" na frente ou não
     $("#celular").blur(function (event) {
         if ($(this).val().length == 15) {
@@ -96,30 +95,6 @@ function validarCadastro() {
     resto = (soma * 10) % 11
     if ((resto == 10) || (resto == 11)) resto = 0
     if (resto != parseInt(cpf.substring(10, 11))) return false;
-
-
-    //telefone
-    let telefone = frmCadastro2.telefone;
-    if (telefone.value == "" || telefone.value == null) {
-        telefone.focus();
-        alerta();
-        return false;
-
-    } else if (telefone.value == "00000000000" ||
-        telefone.value == "11111111111" ||
-        telefone.value == "22222222222" ||
-        telefone.value == "33333333333" ||
-        telefone.value == "44444444444" ||
-        telefone.value == "55555555555" ||
-        telefone.value == "66666666666" ||
-        telefone.value == "77777777777" ||
-        telefone.value == "88888888888" ||
-        telefone.value == "99999999999") {
-
-        telefone.focus();
-        alerta();
-        return false;
-    }
 
     //Celular
     let celular = frmCadastro2.celular;

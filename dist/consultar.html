@@ -4,13 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Consultar</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- CSS -->
+    <!---CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <!-- alerta css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
     <!-- Sidenav -->
@@ -265,7 +269,7 @@
                                     <option value="2">Em processo</option>
                                 </select>
                             </div>
-                                <button type="button"
+                                <button type="button" onclick="excluir"
                                     class="btn btn-primary btn-block btn-round">Salvar</button>
                         </form>
                         </div>
@@ -273,128 +277,9 @@
                 </div>
                 </div>
                 </div>
-                </span></td>
-                </tr>
-                <tr>
-                    <th scope="row">Esteira Parou</th>
-                    <td>05/04/2021</td>
-                    <td>05/04/2021</td>
-                    <td>Atrasado</td>
-                    <td>
-                    <!-- Modal Editar -->
-                    <span class="badge badge-dot mr-4">
-                    <button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                        data-target="#editarModal">
-                        + Editar
-                    </button>
-                    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header border-bottom-0">
-                        <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="form-title text-center">
-                        <h3>Editar Ordem de Serviço</h3>
-                    </div>
-                    <div class="d-flex flex-column mx-5 my-5">
-                    <form>
-                        <div class="form-group row ">
-                        <label for="exampleFormControlTextarea1"
-                            class="">
-                            Descrição:</label>
-                        <textarea class="form-control"
-                            id="exampleFormControlTextarea1"
-                            rows="2"
-                            placeholder="Esteira Parou,o equipamento se encontra em pessimo estado ..."></textarea>
-                        </div>
-                        <div class="form-group row ">
-                            <label for="exampleFormControlTextarea1"
-                                class="">Diagnostico:</label>
-                            <textarea class="form-control"
-                                id="exampleFormControlTextarea1"
-                                rows="2"
-                                placeholder="O diagnostico foi feito de acordo com........"></textarea>
-                        </div>
-                        <div class="form-group row">
-                            <label class="my-1 mr-2"
-                                for="inlineFormCustomSelectPref">Departamento:</label>
-                            <select class="custom-select my-1 mr-sm-2"
-                                id="inlineFormCustomSelectPref">
-                                <option selected>Eletrico...</option>
-                                <option value="1">Mecanico</option>
-                                <option value="2">TI</option>
-                            </select>
-                        </div>
-                        <div class="form-group row">
-                            <label class="my-1 mr-2"
-                                for="inlineFormCustomSelectPref">Funcionario:</label>
-                            <select class="custom-select my-1 mr-sm-2"
-                                id="inlineFormCustomSelectPref">
-                                <option selected>José...</option>
-                                <option value="1">João</option>
-                                <option value="2">Pedro</option>
-                            </select>
-                        </div>
-                        <div class="form-group row">
-                            <label class="my-1 mr-2"
-                                for="inlineFormCustomSelectPref">Cliente:</label>
-                            <select class="custom-select my-1 mr-sm-2"
-                                id="inlineFormCustomSelectPref">
-                                <option selected>Alice...</option>
-                                <option value="1">Maria</option>
-                                <option value="2">Lucas</option>
-                            </select>
-                            </div>
-                            <div class="form-group row">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">Produto:</label>
-                                <select class="custom-select my-1 mr-sm-2"
-                                    id="inlineFormCustomSelectPref">
-                                    <option selected>Esteira...</option>
-                                    <option value="1">Placa</option>
-                                    <option value="2">Tela</option>
-                                </select>
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-datetime-local-input"
-                                    class=" my-1 mr-2">Entrada:</label>
-                                <input class="form-control"
-                                    type="datetime-local"
-                                    value="2018-11-23T10:30:00"
-                                    id="example-datetime-local-input">
-                            </div>
-                            <div class="form-group row">
-                                <label for="example-datetime-local-input"
-                                    class=" my-1 mr-2">Saída:</label>
-                                <input class="form-control"
-                                    type="datetime-local"
-                                    value="2018-11-23T10:30:00"
-                                    id="example-datetime-local-input">
-                            </div>
-                            <div class="form-group row">
-                                <label class="my-1 mr-2"
-                                    for="inlineFormCustomSelectPref">Status:</label>
-                                <select class="custom-select my-1 mr-sm-2"
-                                    id="inlineFormCustomSelectPref">
-                                    <option selected>Atrasado</option>
-                                    <option value="1">Concluido</option>
-                                    <option value="2">Em processo</option>
-                                </select>
-                            </div>
-                                <button type="button"
-                                    class="btn btn-primary btn-block btn-round">Salvar</button>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-                </span></td>
+                </span>
+                     <button class="btn-sm  btn-primary" id="excluir" onclick="excluir();">+ Excluir</button>
+                </td>     
                 </tr>
                 </tbody>
                 </table>
@@ -448,7 +333,13 @@
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
     <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Puxando o jquery e plugin "mask" do jquery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="../assets/js/argon.js?v=1.2.0"></script>
+    <script src="./js/sweetalert.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/consultar.js"></script>
 </body>
 </html>

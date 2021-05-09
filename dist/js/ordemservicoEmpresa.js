@@ -81,5 +81,14 @@ function validarOS() {
         return false;
     }
 
+    //Status
+    let status = frmCadastro.status;
+    if (status.value == "" ||
+        status.value == null) {
+        status.focus();
+        alerta();
+        return false;
+    }
+
     return true;
 }
