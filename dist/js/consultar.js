@@ -7,7 +7,7 @@ function alerta() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sim,exclua!'
+        confirmButtonText: 'Sim, exclua!'
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire(
