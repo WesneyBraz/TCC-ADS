@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang-"pt-br">
-
-<head>
-    <meta charset="UFT-8">
-    <meta name="viewport" content="width=device-width, initial-scale">
-    <title>Formulario</title>
-
-</head>
-
-<body bgcolor="lightgreen">
-<h3> <a href="cadastroFuncionario.html">VOLTAR</a></h3>
-
-
 <?php
+
+if($_POST){
+
+   //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
+   if(empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['celular']) || empty($_POST['senha1']) || empty($_POST['senha2'])){
+      echo ("<script>
+      $(document).ready(function(){ 
+          Swal.fire({
+              icon: 'error',
+              text: 'Campo vazio!'
+            })   
+      });
+      </script>");
+   }
+
+   else {
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conexao.php';
     //----------------------------------FIM---------------------------------------------
@@ -32,11 +34,14 @@
 
     if($vsenha1!=$vsenha2)
     {
-     echo "SENHAS DIVERGENTES, FAVOR CORRIGIR <br/> 
-      SENHA: ".$vsenha1."<br/>
-      CONFIRMAÇÃO: ".$vsenha2."<br/>
-
-      ";
+     echo ("<script>
+     $(document).ready(function(){ 
+         Swal.fire({
+             icon: 'error',
+             text: 'Senhas divergem!'
+           })   
+     });
+     </script>");
 
       return false;
    }
@@ -55,7 +60,14 @@
      //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
      if($erroResultadoVerifica > 0)
      {
-        echo "FUNCIONARIO JA CADASTRADO <br/>";
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Usuário já cadastrado!'
+              })   
+        });
+        </script>");
 
         return false;
      }
@@ -79,27 +91,23 @@
 
      $sql -> execute() or exit("ErroBanco1");
 
-
-     echo "Sucesso no Cadastro <br/>";
-
      $sql -> close();
      $conn -> close();
      //----------------------------------FIM---------------------------------------------
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
-     echo "
-        Nome: ".$vnome."<br/>
-        CPF: ".$vcpf."<br/>
-        Usuario: ".$vusuario."<br/> 
-        Senha: ".$vsenha1."<br/>
-        Celular: ".$vcelular."<br/>
-
-        "; 
+     
+     echo ("<script>
+     $(document).ready(function(){ 
+         Swal.fire({
+             icon: 'success',
+             text: 'Cadastrado com sucesso!'
+           })   
+     });
+     </script>");
 
      exit();
      //----------------------------------FIM---------------------------------------------
-     ?>
-
-</body>
-
-</html>
+   }
+}
+?>
