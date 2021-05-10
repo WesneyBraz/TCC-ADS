@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html lang-"pt-br">
-
-<head>
-    <meta charset="UFT-8">
-    <meta name="viewport" content="width=device-width, initial-scale">
-    <title>Formulario</title>
-
-</head>
-
-<body bgcolor="lightgreen">
-<h3> <a href="cadastroFuncionario.html">VOLTAR</a></h3>
-
-
 <?php
-    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+
+if($_POST){
+    //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
+    if(empty($_POST['nomeDepartamento'])){
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Campo vazio!'
+              })   
+        });
+        </script>");
+    }
+    
+    else {
+
+        //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conexao.php';
     //----------------------------------FIM---------------------------------------------
 
@@ -36,7 +38,14 @@
      //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
      if($erroResultadoVerifica > 0)
      {
-        echo "DEPARTAMENTO JA CADASTRADO <br/>";
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Departamento já existe!'
+              })   
+        });
+        </script>");
 
         return false;
      }
@@ -59,21 +68,22 @@
 
      $sql -> execute() or exit("ErroBanco1");
 
-
-     echo "Sucesso no Cadastro <br/>";
-
      $sql -> close();
      $conn -> close();
      //----------------------------------FIM---------------------------------------------
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
-     echo "
-        Nome: ".$vnome."<br/> "; 
+     echo ("<script>
+     $(document).ready(function(){ 
+         Swal.fire({
+             icon: 'success',
+             text: 'Departamento cadastrado com sucesso!'
+           })   
+     });
+     </script>");
 
      exit();
-     //----------------------------------FIM---------------------------------------------
-     ?>
+    }
+}
 
-</body>
-
-</html>
+?>
