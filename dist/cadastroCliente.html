@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -129,7 +132,7 @@
                         </div>
                         <div class="card-body">
                             <!-- Form Cadastro -->
-                            <form name="frmCadastro" method="POST" action="cadastraCliente.php"
+                            <form name="frmCadastro" method="POST" action="" class="formCli"
                                 onsubmit="validarCadastro();">
                                 <div class="form-row">
                                     <div class="col-md-6">
@@ -257,7 +260,24 @@
             </footer>
         </div>
     </div>
+    <div class="cli"></div>
     <!-- Core -->
+    <script>
+        //Função ajax
+            $(function(){
+                $('.formCli').submit(function(){ //Linha para submit, quando o usuário apertar o botão
+                    $.ajax({
+                        url: 'cadastraCliente.php', //Arquivo php que fará as validações
+                        type: 'post', //Método utilizado
+                        data: $('.formCli').serialize(), //Pega as informações inseridas
+                        success: function(data){
+                            $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        }
+                    });
+                    return false;
+                });
+            });    
+    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
