@@ -19,9 +19,9 @@
 
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
-    $vnome=$_POST["nomeProduto"];
-    $vdescricao=$_POST["descricao"];
+    $vnome_produto=$_POST["nomeProduto"];
     $vcategoria=$_POST["categoria"];
+    $vdescricao=$_POST["descricao"];
     $vestoque=$_POST["estoque"];
     $vvalor=$_POST["valorProduto"];
 
@@ -31,9 +31,9 @@
     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
     //mysqli_query = consulta a base de dados 
     //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT NOME_PROD FROM TBL_PRODUTO WHERE NOME_PROD = '$vnome'");
+     $verifica = ("SELECT NOME_PROD FROM TBL_PRODUTO WHERE NOME_PROD = '$vnome_produto'");
 
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
+     $resultadoVerifica = mysqli_query ($conn, $verifica);
 
      $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
@@ -54,7 +54,7 @@
      VALUES
      (?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssss", $vnome, $vcategoria, $vdescricao, $vestoque, $vvalor);
+     $sql -> bind_param("sssii", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
@@ -72,7 +72,7 @@
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
      echo "
-        Nome: ".$vnome."<br/>
+        Nome: ".$vnome_produto."<br/>
         Categoria: ".$vcategoria."<br/>
         Descrição: ".$vdescricao."<br/> 
         Estoque: ".$vestoque."<br/> 
