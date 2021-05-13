@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -132,7 +135,7 @@
 
 
                         <div class="card-body">
-                            <form method="POST" action="cadastraOS.php" id="frmCadastro" onsubmit="validarOS()">
+                            <form method="POST" action="" class="formOS" id="frmCadastro" onsubmit="validarOS()">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -209,7 +212,7 @@
                                                 value="2018-11-23T10:30:00" id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -258,8 +261,25 @@
             </footer>
         </div>
     </div>
+    <div class="os"></div>
     <!-- Scripts -->
     <!-- Core -->
+    <script> 
+        //Função ajax
+            $(function(){
+                $('.formOS').submit(function(){ //Linha para submit, quando o usuário apertar o botão
+                    $.ajax({
+                        url: 'cadastraOS.php', //Arquivo php que fará as validações
+                        type: 'post', //Método utilizado
+                        data: $('.formOS').serialize(), //Pega as informações inseridas
+                        success: function(data){
+                            $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        }
+                    });
+                    return false;
+                });
+            });    
+    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>

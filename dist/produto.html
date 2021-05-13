@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -130,7 +133,7 @@
                         </div>
                         <!-- Cadastro Produto -->
                         <div class="card-body">
-                            <form method="POST" action="cadastraProduto.php" id="frmCadastro"
+                            <form method="POST" action="" class="formPro" id="frmCadastro"
                                 onsubmit="validarProduto()">
                                 <div class="form-row">
                                     <div class="col-md-6">
@@ -173,7 +176,7 @@
                                             <input type="text" class="form-control valorProduto" id="valorProduto"
                                                 name="valorProduto" placeholder="EX: Valor">
                                         </div>
-                                    </div>
+                                    </div> 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="estoque">Estoque do produto:</label>
@@ -201,8 +204,25 @@
             </footer>
         </div>
     </div>
+    <div class="pro"></div>
     <!-- Scripts -->
     <!-- Core -->
+    <script>
+        //Função ajax
+            $(function(){
+                $('.formPro').submit(function(){ //Linha para submit, quando o usuário apertar o botão
+                    $.ajax({
+                        url: 'cadastraProduto.php', //Arquivo php que fará as validações
+                        type: 'post', //Método utilizado
+                        data: $('.formPro').serialize(), //Pega as informações inseridas
+                        success: function(data){
+                            $('.pro').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        }
+                    });
+                    return false;
+                });
+            });    
+    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>

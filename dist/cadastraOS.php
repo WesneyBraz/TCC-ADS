@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang-"pt-br">
-
-<head>
-    <meta charset="UFT-8">
-    <meta name="viewport" content="width=device-width, initial-scale">
-    <title>Formulario</title>
-
-</head>
-
-<body bgcolor="lightgreen">
-<h3> <a href="ordemservicoEmpresa.html">VOLTAR</a></h3>
-
-
 <?php
+if($_POST){
+    //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
+    if(empty($_POST['dataEntrada']) || empty($_POST['descricaoOs']) || empty($_POST['diagnostico']) || empty($_POST['produto'])){
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Campo vazio!'
+              })   
+        });
+        </script>");
+    }
+    
+    else {
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conexao.php';
     //----------------------------------FIM---------------------------------------------
@@ -39,12 +39,14 @@
      ///-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
      if($erroResultadoVerifica > 0)
      { 
-      echo "
-      Inicio: ".$vinicio."<br/> 
-      Descrição: ".$vdescricao."<br/>
-      Diagnostico: ".$vdiagnostico."<br/>
-      Produto: ".$vproduto."<br/> 
-      "; 
+      echo ("<script>
+      $(document).ready(function(){ 
+          Swal.fire({
+              icon: 'error',
+              text: 'Ordem de serviço já cadastrado!'
+            })   
+      });
+      </script>"); 
   
 
         return false;
@@ -76,17 +78,17 @@
      //----------------------------------FIM---------------------------------------------
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
-     echo "
-        Inicio: ".$vinicio."<br/> 
-        Descrição: ".$vdescricao."<br/>
-        Diagnostico: ".$vdiagnostico."<br/>
-        Produto: ".$vproduto."<br/> 
-        "; 
+     echo ("<script>
+     $(document).ready(function(){ 
+         Swal.fire({
+             icon: 'success',
+             text: 'Ordem de serviço cadastrada com sucesso!'
+           })   
+     });
+     </script>"); 
 
      exit();
      //----------------------------------FIM---------------------------------------------
+    }
+    }
      ?>
-
-</body>
-
-</html>

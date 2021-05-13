@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -129,9 +132,9 @@
                             <h3 class="text-center font-weight-light my-4">Cadastre seus Fornecedores!</h3>
                         </div>
 
-
+ 
                         <div class="card-body">
-                            <form name="frmCadastro" method="post" action="cadastraFornecedor.php" id="frmCadastro"
+                            <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro"
                                 onsubmit="validarCadastro()">
                                 <div class="form-row">
                                     <div class="col-md-6">
@@ -282,7 +285,24 @@
             </footer>
         </div>
     </div>
+    <div class="for"></div>
     <!-- Core -->
+    <script>
+        //Função ajax
+            $(function(){
+                $('.formFor').submit(function(){ //Linha para submit, quando o usuário apertar o botão
+                    $.ajax({
+                        url: 'cadastraFornecedor.php', //Arquivo php que fará as validações
+                        type: 'post', //Método utilizado
+                        data: $('.formFor').serialize(), //Pega as informações inseridas
+                        success: function(data){
+                            $('.for').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        }
+                    });
+                    return false;
+                });
+            });    
+    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>

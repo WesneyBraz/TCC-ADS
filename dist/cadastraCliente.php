@@ -21,7 +21,7 @@ if($_POST){
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vnome=$_POST["nome"];
-    //$vmail=$_POST["email"];
+    //$vmail=$_POST["email"]; 
     $vcpf=$_POST["cpf"];
     //$vtelefone=$_POST["telefone"];
     // $vcelular=$_POST["celular"];
