@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroFuncionario.html">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consultar.html">
+                            <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
@@ -132,7 +132,7 @@
                             <h3 class="text-center font-weight-light my-4">Cadastre seus Fornecedores!</h3>
                         </div>
 
- 
+
                         <div class="card-body">
                             <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro"
                                 onsubmit="validarCadastro()">
@@ -289,19 +289,19 @@
     <!-- Core -->
     <script>
         //Função ajax
-            $(function(){
-                $('.formFor').submit(function(){ //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraFornecedor.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formFor').serialize(), //Pega as informações inseridas
-                        success: function(data){
-                            $('.for').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+        $(function () {
+            $('.formFor').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraFornecedor.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formFor').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.for').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
-            });    
+                return false;
+            });
+        });
     </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Produto</title>
+    <title>Consultar</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -16,9 +16,6 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -61,7 +58,7 @@
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="produto.html">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produtos</span>
@@ -79,13 +76,12 @@
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -127,101 +123,97 @@
         <div class="container-fluid mt--6">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card card-upgrade">
-                        <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
+                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                        <!-- Card header -->
+                        <div class="input-group-append p-2 mt-2">
+                            <h2 class="px-2">Consultar:</h2>
+                            <button class="btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Filtro2</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Cliente</a>
+                                <a class="dropdown-item" href="#">Departamento</a>
+                                <a class="dropdown-item" href="#">Funcionario</a>
+                                <a class="dropdown-item" href="#">Produtos</a>
+                                <a class="dropdown-item" href="#">Fornecedor</a>
+                                <a class="dropdown-item" href="#">Ordem de Serviço</a>
+                            </div>
                         </div>
-                        <!-- Cadastro Produto -->
-                        <div class="card-body">
-                            <form method="POST" action="" class="formPro" id="frmCadastro" onsubmit="validarProduto()">
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="nomeProduto">Nome do produto</label>
-                                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto"
-                                                placeholder="EX: Placa de vídeo">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="nomeFornecedor">Fornecedor:</label>
-                                            <select class="form-control" id="nomeFornecedor">
-                                                <option selected>Fornecedor</option>
-                                                <option value="Asus">Asus</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="descricao">Descrição:</label>
-                                            <textarea class="form-control" id="descricao" name="descricao"
-                                                placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="nomeProduto">Categoria:</label>
-                                            <input type="text" class="form-control" id="categoria" name="categoria"
-                                                placeholder="EX: Nome da categoria do Produto">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="valorProduto">Valor do produto:</label>
-                                            <input type="text" class="form-control valorProduto" id="valorProduto"
-                                                name="valorProduto" placeholder="EX: Valor">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="estoque">Estoque do produto:</label>
-                                            <input type="number" class="form-control" id="estoque" name="estoque"
-                                                placeholder="EX: Valor">
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
-                                    onclick="validarProduto();" value="Cadastrar"></input>
-                            </form>
+                        <div class="input-group mb-3 p-2">
+                            <input type="text" class="form-control" placeholder="Pesquisar"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <span class="ni ni-active-40">
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Light table -->
+
+
+
+
+                        <table>
+                            <tr>
+                                <th title="id">COD</th>
+                                <th title="user">NOME</th>
+                                <!--  <th title="mail">EMP</th>  -->
+                            </tr>
+
+                            <?php
+                                //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------
+                                include_once 'retorno.php';
+                                // -----------------------------------FIM--------------------------------------------
+                            ?>
+
+                        </table>
+
+
+
+                        <!-- Card footer -->
+                        <div class="card-footer py-4">
+                            <nav aria-label="...">
+                                <ul class="pagination justify-content-end mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">
+                                            <i class="fas fa-angle-left"></i>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">
+                                            <i class="fas fa-angle-right"></i>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
+                    <!-- Footer -->
+                    <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-lg-6">
+                                <div class="copyright text-center  text-lg-left  text-muted">
+                                    &copy; 2021 <a href="index.html" class="font-weight-bold ml-1"
+                                        target="_blank">DMW</a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
             </div>
-            <!-- Footer -->
-            <footer class="footer pt-0">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6">
-                        <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2021 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
-    <div class="pro"></div>
+    </div>
     <!-- Scripts -->
     <!-- Core -->
-    <script>
-        //Função ajax
-        $(function () {
-            $('.formPro').submit(function () { //Linha para submit, quando o usuário apertar o botão
-                $.ajax({
-                    url: 'cadastraProduto.php', //Arquivo php que fará as validações
-                    type: 'post', //Método utilizado
-                    data: $('.formPro').serialize(), //Pega as informações inseridas
-                    success: function (data) {
-                        $('.pro').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                    }
-                });
-                return false;
-            });
-        });
-    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
@@ -234,8 +226,7 @@
     <!-- JS -->
     <script src="./js/sweetalert.js"></script>
     <script src="./js/scripts.js"></script>
-    <script src="./js/produto.js"></script>
-
+    <script src="./js/consultar.js"></script>
 </body>
 
 </html>

@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consultar.html">
+                            <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
@@ -151,7 +151,8 @@
                                             <h3>Novo Departamento</h3>
                                         </div>
                                         <div class="d-flex flex-column mx-5 my-5">
-                                            <form name="frmCadastro" method="post" action="" class="formDep" id="frmCadastro" onsubmit="validarModal();">
+                                            <form name="frmCadastro" method="post" action="" class="formDep"
+                                                id="frmCadastro" onsubmit="validarModal();">
                                                 <div class="form-group row ">
                                                     <label class="my-1 mr-2 for="
                                                         exampleFormControlInput1">Nome:</label>
@@ -201,13 +202,16 @@
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                          <label class="mb-1">Departamento:</label>
+                                            <label class="mb-1">Departamento:</label>
                                             <select class="custom-select" id="nomeDepartamento">
                                                 <option selected>Selecione</option>
-                                                <option>One</option>
-                                                <option>Two</option>
-                                                <option>Three</option>
-                                            </select>  
+                                                <?php
+                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                    include_once 'listaDepartamento.php';
+                                                    //----------------------------------FIM---------------------------------------------
+
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -270,34 +274,34 @@
     <!-- Core -->
     <script>
         //Função ajax
-            $(function(){
-                $('.formDep').submit(function(){ //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraDepartamento.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formDep').serialize(), //Pega as informações inseridas
-                        success: function(data){
-                            $('.dep').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+        $(function () {
+            $('.formDep').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraDepartamento.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formDep').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.dep').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
-            });    
-            //Função ajax
-            $(function(){
-                $('.formFun').submit(function(){ //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraFuncionario.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formFun').serialize(), //Pega as informações inseridas
-                        success: function(data){
-                            $('.fun').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+                return false;
+            });
+        });
+        //Função ajax
+        $(function () {
+            $('.formFun').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraFuncionario.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formFun').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.fun').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
-            });            
-        </script>
+                return false;
+            });
+        });
+    </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>

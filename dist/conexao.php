@@ -5,7 +5,7 @@
 //mysqli_query = efetua uma consulta a base de dados
 $servidor = "localhost";
 $usuario = "root";
-$senha = "bancodedados01";
+$senha = "etec2020";
 $dbname = "BD_TCC";
 
 

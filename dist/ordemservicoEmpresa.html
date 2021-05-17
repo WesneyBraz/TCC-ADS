@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroFuncionario.html">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consultar.html">
+                            <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
@@ -212,7 +212,7 @@
                                                 value="2018-11-23T10:30:00" id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -223,24 +223,22 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="lucro">Lucro:</label><input type="text" id="lucro"
-                                                name="lucro" class="form-control valor" style="display:inline-block" />
+                                            <label for="lucro">Lucro:</label><input type="text" id="lucro" name="lucro"
+                                                class="form-control valor" style="display:inline-block" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="my-1 mr-2"
-                                            for="inlineFormCustomSelectPref">Status:</label>
-                                        <select class="custom-select my-1 mr-sm-2"
-                                            id="status">
-                                            <option selected>Atrasado</option>
-                                            <option value="1">Concluido</option>
-                                            <option value="2">Em processo</option>
-                                        </select>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Status:</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="status">
+                                                <option selected>Atrasado</option>
+                                                <option value="1">Concluido</option>
+                                                <option value="2">Em processo</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                                 <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
                                     value="Adicionar" onclick="validarOS();"></input>
@@ -264,21 +262,21 @@
     <div class="os"></div>
     <!-- Scripts -->
     <!-- Core -->
-    <script> 
+    <script>
         //Função ajax
-            $(function(){
-                $('.formOS').submit(function(){ //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraOS.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formOS').serialize(), //Pega as informações inseridas
-                        success: function(data){
-                            $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+        $(function () {
+            $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraOS.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formOS').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
-            });    
+                return false;
+            });
+        });
     </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

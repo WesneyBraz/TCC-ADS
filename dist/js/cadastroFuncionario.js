@@ -125,7 +125,7 @@ function validarCadastro() {
         alerta();
         return false;
     }
-    
+
     //Validação da senha
     // Pelo menos uma letra maiúscula
     // Pelo menos uma letra minúscula

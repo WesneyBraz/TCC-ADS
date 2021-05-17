@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroFuncionario.html">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="consultar.html">
+                            <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
@@ -262,21 +262,21 @@
     </div>
     <div class="cli"></div>
     <!-- Core -->
-    <script> 
+    <script>
         //Função ajax
-            $(function(){
-                $('.formCli').submit(function(){ //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraCliente.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formCli').serialize(), //Pega as informações inseridas
-                        success: function(data){
-                            $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+        $(function () {
+            $('.formCli').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraCliente.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formCli').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
-            });    
+                return false;
+            });
+        });
     </script>
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

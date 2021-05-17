@@ -24,6 +24,7 @@ if($_POST){
     $vcpf=$_POST["cpf"];
     //$vsobrenome=$_POST["sobrenome"];
     //$vtelefone=$_POST["telefone"];
+    //$vdepartamento=$_POST["nomeDepartamento"];
     $vcelular=$_POST["celular"];
     //$vusuario=$_POST["usuario"]; 
     $vsenha1=$_POST["senha1"]; 
