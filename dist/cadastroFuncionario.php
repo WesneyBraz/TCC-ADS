@@ -163,21 +163,12 @@
                                                 <input type="submit" class="btn btn-success btn-block btn-round"
                                                     onclick="validarModal();" value="Adicionar"></input>
                                             </form>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-
-
-
-
-
-
-
-
                             <form name="frmCadastro2" method="POST" action="" id="frmCadastro2" class="formFun"
                                 onsubmit="">
                                 <div class="form-row">
@@ -255,13 +246,6 @@
                                     onclick="" value="Cadastrar"></input>
                                 </div>
                             </form>
-
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
