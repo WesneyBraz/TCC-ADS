@@ -25,6 +25,8 @@ if($_POST){
     $vdescricao=$_POST["descricao"];
     $vestoque=$_POST["estoque"];
     $vvalor=$_POST["valorProduto"];
+    $vfornecedor=$_POST["nomeFornecedor"];
+
 
 
     //----------------------------------FIM---------------------------------------------
@@ -58,11 +60,11 @@ if($_POST){
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
      $sql = $conn->prepare(" INSERT INTO TBL_PRODUTO
-     (NOME_PROD, CATEGORIA_PROD, DESCRICAO_PROD, ESTOQUE_PROD, VALOR_PROD)
+     (NOME_PROD, CATEGORIA_PROD, DESCRICAO_PROD, ESTOQUE_PROD, VALOR_PROD,COD_FOR)
      VALUES
-     (?, ?, ?, ?, ?) ");
+     (?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssii", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor);
+     $sql -> bind_param("ssssss", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor, $vfornecedor);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
@@ -81,6 +83,7 @@ if($_POST){
          Swal.fire({
              icon: 'success',
              text: 'Produto cadastrado com sucesso!'
+
            })   
      });
      </script>");
