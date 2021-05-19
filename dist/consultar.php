@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produto.html">
+                            <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produtos</span>
                             </a>
@@ -128,7 +128,7 @@
                         <div class="input-group-append p-2 mt-2">
                             <h2 class="px-2">Consultar:</h2>
                             <button class="btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Filtro2</button>
+                                aria-haspopup="true" aria-expanded="false">Filtro</button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Cliente</a>
                                 <a class="dropdown-item" href="#">Departamento</a>

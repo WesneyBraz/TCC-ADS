@@ -6,7 +6,7 @@
 
     // ------------------ EFETUA A CONSULTA A BASE DE DADOS ----------------------------
 
-        $sql = $conn->prepare(" SELECT COD_DEP, NOME_DEP FROM TBL_DEPARTAMENTO ");
+        $sql = $conn->prepare(" SELECT DATA_INICIO,DATA_FIM,DESCRICAO_DA_ATIVIDADE,DIAGNOSTICO,STATOS FROM TBL_ORDEM_DE_SERVICO ");
         
         $sql -> execute() or exit("ErroBanco2");
 
@@ -20,7 +20,7 @@
                
             echo '
 
-            <option value="' . $row['COD_DEP']. '">'.$row['NOME_DEP'].'</option>
+               "<option>"'.$row['NOME_DEP'].'"</option>
                ';
                
                                 

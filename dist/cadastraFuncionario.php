@@ -22,11 +22,8 @@ if($_POST){
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vnome=$_POST["nome"];
     $vcpf=$_POST["cpf"];
-    //$vsobrenome=$_POST["sobrenome"];
-    //$vtelefone=$_POST["telefone"];
-    //$vdepartamento=$_POST["nomeDepartamento"];
+    $vdepartamento=$_POST["nomeDepartamento"];
     $vcelular=$_POST["celular"];
-    //$vusuario=$_POST["usuario"]; 
     $vsenha1=$_POST["senha1"]; 
     $vsenha2=$_POST["senha2"]; 
 
@@ -73,17 +70,28 @@ if($_POST){
         return false;
      }
      //----------------------------------FIM---------------------------------------------
+     //
+     //$verifica = ("SELECT COD_DEP FROM TBL_DEPARTAMENTO WHERE NOME_DEP = '$vdepartamento'");
+
+     //$resultadoVerifica = mysqli_query ($conn, $verifica );
+
+     //$erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
+
+
+
+
+     //
 
 
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
-     (CPF_FUN,NOME_FUN,USUARIO_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN)
+     (CPF_FUN,NOME_FUN,USUARIO_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN, COD_DEP)
      VALUES
-     (?, ?, ?, ?, ?) ");
+     (?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssss", $vcpf,$vnome,$vusuario,$vsenha1,$vcelular);
+     $sql -> bind_param("ssssss", $vcpf,$vnome,$vusuario,$vsenha1,$vcelular,$vdepartamento);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 

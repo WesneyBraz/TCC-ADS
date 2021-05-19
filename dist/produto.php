@@ -145,9 +145,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nomeFornecedor">Fornecedor:</label>
-                                            <select class="form-control" id="nomeFornecedor">
-                                                <option selected>Fornecedor</option>
-                                                <option value="Asus">Asus</option>
+                                            <select class="form-control" id="nomeFornecedor" name="nomeFornecedor">
+                                                <option selected>Selecione</option>
+                                                <?php
+                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                include_once 'listaFornecedor.php';
+                                                //----------------------------------FIM---------------------------------------------
+
+                                                ?>
                                             </select>
                                         </div>
                                     </div>

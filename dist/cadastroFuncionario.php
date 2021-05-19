@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produto.html">
+                            <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produtos</span>
                             </a>
@@ -172,8 +172,14 @@
                         <div class="card-body">
 
 
+
+
+
+
+
+
                             <form name="frmCadastro2" method="POST" action="" id="frmCadastro2" class="formFun"
-                                onsubmit="validarCadastro();">
+                                onsubmit="">
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -203,7 +209,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="mb-1">Departamento:</label>
-                                            <select class="custom-select" id="nomeDepartamento">
+                                            <select name="nomeDepartamento" class="custom-select" id="nomeDepartamento">
                                                 <option selected>Selecione</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
@@ -245,11 +251,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white">
-                                    <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar"
-                                        onclick="validarCadastro();">
-                                    </input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
+                                    onclick="" value="Cadastrar"></input>
                                 </div>
                             </form>
+
+
+
+
+
 
 
                         </div>
