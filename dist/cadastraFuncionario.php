@@ -78,12 +78,6 @@ if($_POST){
      //$erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
 
-
-
-     //
-
-
-
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO

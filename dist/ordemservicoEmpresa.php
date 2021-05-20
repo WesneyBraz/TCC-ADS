@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="ordemservicoEmpresa.html">
+                            <a class="nav-link" href="ordemservicoEmpresa.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
@@ -166,11 +166,16 @@
                                         <div class="form-group">
                                             <label class="my-1 mr-2"
                                                 for="inlineFormCustomSelectPref">Funcionario:</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="nomeFuncionario">
+                                            <select name="nomeFuncionario" class="custom-select my-1 mr-sm-2" id="nomeFuncionario">
                                                 <option selected>Selecione...</option>
-                                                <option value="1">José</option>
-                                                <option value="2">Pedro</option>
+                                                <?php
+                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                    include_once 'listaFuncionario.php';
+                                                    //----------------------------------FIM---------------------------------------------
+
+                                                ?>
                                             </select>
+
                                         </div>
                                     </div>
                                 </div>

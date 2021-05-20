@@ -74,7 +74,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="ordemservicoEmpresa.html">
+                            <a class="nav-link" href="ordemservicoEmpresa.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
@@ -170,7 +170,7 @@
                         </div>
                         <div class="card-body">
                             <form name="frmCadastro2" method="POST" action="" id="frmCadastro2" class="formFun"
-                                onsubmit="">
+                                onsubmit="validarCadastro();">
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -243,7 +243,7 @@
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white">
                                 <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
-                                    onclick="" value="Cadastrar"></input>
+                                    onclick="validarCadastro();" value="Cadastrar"></input>
                                 </div>
                             </form>
                         </div>
