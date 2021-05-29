@@ -20,7 +20,7 @@
                
             echo '
 
-            <option value="' . $row['COD_DEP']. '">'.$row['NOME_DEP'].'</option>
+                <option value="' . $row['COD_DEP']. '">'.$row['NOME_DEP'].'</option>
                ';
                
                                 

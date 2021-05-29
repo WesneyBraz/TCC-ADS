@@ -110,10 +110,38 @@ insert into tbl_departamento
 (COD_DEP, NOME_DEP) VALUES ('01','TESTE' );
 
 
+ SELECT DATA_INICIO,DATA_FIM,DIAGNOSTICO,STATOS FROM TBL_ORDEM_DE_SERVICO;
+
 select COD_DEP, NOME_DEP from tbl_departamento;
 select *from tbl_fornecedor ;
+select *from tbl_cliente ;
 select*from tbl_departamento;
 select*from tbl_funcionario;
 SELECT *FROM TBL_PRODUTO;
+SELECT *FROM TBL_ORDEM_DE_SERVICO;
 DELETE FROM tbl_funcionario WHERE cod_fun > 1;
 SELECT NOME_PROD FROM TBL_PRODUTO WHERE NOME_PROD = 'PARAFUSO';
+
+#---------------------------------
+
+#OS-CLIENTE 
+SELECT CPF_CLI, NOME_CLI, DATA_INICIO, DATA_FIM, DIAGNOSTICO, STATOS
+FROM TBL_ORDEM_DE_SERVICO OS
+INNER JOIN TBL_CLIENTE CL ON CL.COD_CLI = OS.COD_CLI
+WHERE CPF_CLI = '108.096.764-86';
+
+
+#---------------------------------
+
+
+
+SELECT CATEGORIA_NOME, PRODUTO_NOME, FORNECEDOR_NOME
+FROM TB_CATEGORIA CT
+INNER JOIN TB_PRODUTO PR ON PR.PRODUTO_ID_CATEGORIA = CT.CATEGORIA_ID
+INNER JOIN TB_FORNECEDOR FR ON FR.FORNECEDOR_ID = PR.PRODUTO_ID_FORNECEDOR
+WHERE CATEGORIA_NOME = 'Celular';
+
+
+
+insert into tbl_ordem_de_servico
+(data_inicio, data_fim,diagnostico,statos,produto,cod_fun,cod_cli) VALUES ('2021-05-28','2021-05-28','teste5','teste5','teste5','1','1' );

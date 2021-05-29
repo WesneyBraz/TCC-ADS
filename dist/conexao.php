@@ -3,9 +3,9 @@
 //--------------------REALIZA A COMUNICAÇÃO COM MINHA BASE DE DADOS LOCAL ----------------
 //mysqli_connect = efetua a conexão com a base de dados
 //mysqli_query = efetua uma consulta a base de dados
-$servidor = "localhost:3307";
+$servidor = "localhost";
 $usuario = "root";
-$senha = "root";
+$senha = "etec2020";
 $dbname = "BD_TCC";
 
 

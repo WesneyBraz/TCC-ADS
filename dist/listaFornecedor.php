@@ -18,10 +18,7 @@
 
                 //NÃO ESQUECER O " >" NO FINAL DA TAG 
                
-                echo '<option value="' . $row['COD_FOR']. '">'.$row['NOME_FANTASIA_FOR'].'</option> ';
-
-               
-                                
+                echo '<option value="' . $row['COD_FOR']. '">'.$row['NOME_FANTASIA_FOR'].'</option> ';                              
 
             }
 
