@@ -58,7 +58,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
-                                <span class="nav-link-text">Produtos</span>
+                                <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">

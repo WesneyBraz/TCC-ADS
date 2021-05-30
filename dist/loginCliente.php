@@ -112,7 +112,7 @@
                                         <th scope="col">ENTRADA</th>
                                         <th scope="col">SAÍDA</th>
                                         <th scope="col">DIAGNOSTICO</th>
-                                        <th scope="col">STATOS</th>
+                                        <th scope="col">STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>

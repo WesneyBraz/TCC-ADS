@@ -58,7 +58,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="produto.html">
                                 <i class="ni ni-cart text-primary"></i>
-                                <span class="nav-link-text">Produtos</span>
+                                <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -126,7 +126,8 @@
         <div class="container-fluid mt--6">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card card-upgrade">
+                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                    <!-- card header -->
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
                         </div>
@@ -196,7 +197,7 @@
                 </div>
             </div>
             <!-- Footer -->
-            <footer class="footer pt-0">
+            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">

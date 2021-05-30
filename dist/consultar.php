@@ -55,7 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
-                                <span class="nav-link-text">Produtos</span>
+                                <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -133,7 +133,7 @@
                                 <a class="dropdown-item" href="#">Cliente</a>
                                 <a class="dropdown-item" href="#">Departamento</a>
                                 <a class="dropdown-item" href="#">Funcionario</a>
-                                <a class="dropdown-item" href="#">Produtos</a>
+                                <a class="dropdown-item" href="#">Produto</a>
                                 <a class="dropdown-item" href="#">Fornecedor</a>
                                 <a class="dropdown-item" href="#">Ordem de Serviço</a>
                             </div>
