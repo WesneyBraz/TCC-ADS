@@ -9,7 +9,7 @@ function alerta(){
             confirmButtonText: 'Sair'
 }).then((result) => {
   if (result.isConfirmed) {
-   location.href = "http://localhost/tcc/TCC-ADS/dist/";
+   location.href = "sairSessao.php";
   }
 })
  };

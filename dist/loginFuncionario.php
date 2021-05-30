@@ -90,7 +90,7 @@
                 <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
             </div>
             <div class="card-body">
-                <form method="POST" action="" name="frmCadastro" onsubmit="checkForm();">
+                <form method="POST" action="verificaloginFuncionario.php" name="frmCadastro" onsubmit="checkForm();">
                     <div class="form-group">
                         <label class="small mb-1" for="inputEmailAddress">Email</label>
                         <input class="form-control py-4" id="email" name="email" type="email"
@@ -111,8 +111,8 @@
                     </div>
                     <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                         <a class="small" href="password.html">Esqueci minha Senha</a>
-                        <a class="btn btn-primary text-white"  id="botao" type="submit"
-                            onclick="checkForm()">Login</a>
+                        <input class="btn btn-primary text-white" id="botao" type="submit" 
+                            onclick="checkForm()" value="Entrar"></input>
                     </div>
                 </form>
                </div>

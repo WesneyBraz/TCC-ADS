@@ -1,3 +1,6 @@
+<?php
+include('verificaSessao.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,13 +38,13 @@
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link"href="ordemservicoFuncionario.html">
+                            <a class="nav-link"href="ordemservicoFuncionario.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
-                                <span class="nav-link-text">Minhas Ordems de Serviço</span>
+                                <span class="nav-link-text">Minhas Ordens de Serviço</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"" href="produtoFuncionario.html">
+                            <a class="nav-link active"" href="produtoFuncionario.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
