@@ -131,6 +131,7 @@ function validarCadastro() {
     // Pelo menos uma letra minúscula
     // Pelo menos um dígito
     // Pelo menos um caractere especial
+
     let senha = document.getElementById('senha').value;
     let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     if (senha.value == "") {
@@ -154,6 +155,7 @@ function validarCadastro() {
     if (senha != confirma_senha)
         alertaSenha();
     return true;
+
 }
 
 

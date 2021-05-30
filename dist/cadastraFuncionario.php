@@ -3,7 +3,7 @@
 if($_POST){
 
    //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
-   if(empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['celular']) || empty($_POST['senha1']) || empty($_POST['senha2'])){
+   if(empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['senha']) || empty($_POST['mail'])){
       echo ("<script>
       $(document).ready(function(){ 
           Swal.fire({
@@ -22,13 +22,14 @@ if($_POST){
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vnome=$_POST["nome"];
     $vcpf=$_POST["cpf"];
+    $vmail=$_POST["mail"];
     $vdepartamento=$_POST["nomeDepartamento"];
     $vcelular=$_POST["celular"];
-    $vsenha1=$_POST["senha1"]; 
+    $vsenha1=$_POST["senha"]; 
     $vsenha2=$_POST["senha2"]; 
 
     //-----------------------------VERIFICANDO SENHAS------------------------------------
-    $vusuario=$vnome;
+    
 
     if($vsenha1!=$vsenha2)
     {
@@ -81,11 +82,11 @@ if($_POST){
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
-     (CPF_FUN,NOME_FUN,USUARIO_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN, COD_DEP)
+     (CPF_FUN,NOME_FUN,EMAIL_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN, COD_DEP)
      VALUES
      (?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssssss", $vcpf,$vnome,$vusuario,$vsenha1,$vcelular,$vdepartamento);
+     $sql -> bind_param("ssssss", $vcpf,$vnome,$vmail,$vsenha1,$vcelular,$vdepartamento);
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 

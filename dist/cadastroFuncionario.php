@@ -177,6 +177,11 @@
                                             <input class="form-control py-4 meucampo" id="nome" name="nome" type="text"
                                                 placeholder="Nome completo..." />
                                         </div>
+                                        <div class="form-group">
+                                            <label class="mb-1" for="#">E-mail:</label>
+                                            <input class="form-control py-4" id="mail" name="mail" type="email"
+                                            aria-describedby="emailHelp" placeholder="contato@domínio.com.br" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -215,7 +220,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="inputPassword">Senha:</label>
-                                            <input class="form-control py-4" id="senha1" name="senha1" type="password"
+                                            <input class="form-control py-4" id="senha" name="senha" type="password"
                                                 placeholder="Digite sua senha..." />
                                         </div>
                                     </div>

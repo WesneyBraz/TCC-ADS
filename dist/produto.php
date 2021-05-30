@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="produto.html">
+                            <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
