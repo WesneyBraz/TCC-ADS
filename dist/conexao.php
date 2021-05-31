@@ -3,13 +3,33 @@
 //--------------------REALIZA A COMUNICAÇÃO COM MINHA BASE DE DADOS LOCAL ----------------
 //mysqli_connect = efetua a conexão com a base de dados
 //mysqli_query = efetua uma consulta a base de dados
-
-/* MURILO 
-$servidor = "localhost";
-$usuario = "root";
-$senha = "bancodedados01";
-$dbname = "BD_TCC";
-*/
+//$i = usuario
+$i = 2;
+switch ($i) {
+    case 0:
+        //DUANY
+        $servidor = "localhost:3307";
+        $usuario = "root";
+        $senha = "root";
+        $dbname = "BD_TCC";
+        break;
+    case 1:
+        //MURILO
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "bancodedados01";
+        $dbname = "BD_TCC";
+        break;
+    case 2:
+        //WESNEY
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "etec2020";
+        $dbname = "BD_TCC";
+        break;
+    default:
+    echo"<script>alert('SEM ACESSO AO BANCO DE DADOS');</script>";
+}
 
 /* DUANY
 $servidor = "localhost:3307";
@@ -18,11 +38,21 @@ $senha = "root";
 $dbname = "BD_TCC";
 */
 
-/* WESNEY*/
+/* MURILO 
+$servidor = "localhost";
+$usuario = "root";
+$senha = "bancodedados01";
+$dbname = "BD_TCC";
+*/
+
+
+
+/* WESNEY
 $servidor = "localhost";
 $usuario = "root";
 $senha = "etec2020";
 $dbname = "BD_TCC";
+*/
 
 
 
