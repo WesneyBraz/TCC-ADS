@@ -20,6 +20,7 @@ if($_POST){
 
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
+
     $vnome=$_POST["nome"];
     $vcpf=$_POST["cpf"];
 
@@ -35,6 +36,10 @@ if($_POST){
     $vcidade=$_POST["cidade"];
     $vestado=$_POST["uf"];
     $vpais=$_POST["pais"];
+
+    $vcat=$vcpf;
+
+
 
     //----------------------------------FIM---------------------------------------------
 
@@ -63,38 +68,48 @@ if($_POST){
      }
      //----------------------------------FIM---------------------------------------------
 
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
+
+     $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
+     (COD_CAT, NOME_CAT)
+     VALUES
+     (?, ?) ");
+
+     $sql -> bind_param("ss", $vcat,$vnome );
+
+     $sql -> execute() or exit("ErroBanco ");
 
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
      $sql = $conn->prepare(" INSERT INTO TBL_CLIENTE
-     (CPF_CLI, NOME_CLI)
+     (CPF_CLI, NOME_CLI, COD_CAT)
      VALUES
-     (?, ?) ");
+     (?, ?, ?) ");
 
 
-     $sql -> bind_param("ss", $vcpf , $vnome );
+     $sql -> bind_param("sss", $vcpf , $vnome, $vcat);
 
      $sql -> execute() or exit("ErroBanco1 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
-     (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL)
+     (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL, COD_CAT)
      VALUES
-     (?, ?, ?) ");
+     (?, ?, ?, ?) ");
 
-     $sql -> bind_param("sss", $vcelular, $vtelefone,  $vmail );
+     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
 
      $sql -> execute() or exit("ErroBanco2 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
-     (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO)
+     (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
      VALUES
-     (?, ?, ?, ?, ?, ?, ?, ?) ");
+     (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento );
+     $sql -> bind_param("sssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
 
      $sql -> execute() or exit("ErroBanco3 ");
 
