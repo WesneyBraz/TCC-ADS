@@ -6,7 +6,7 @@
 
     // ------------------ EFETUA A CONSULTA A BASE DE DADOS ----------------------------
 
-        $sql = $conn->prepare(" SELECT COD_FUN, NOME_FUN FROM TBL_FUNCIONARIO ");
+        $sql = $conn->prepare(" SELECT COD_CLI, NOME_CLI FROM TBL_CLIENTE ");
         
         $sql -> execute() or exit("ErroBanco2");
 
@@ -18,10 +18,15 @@
 
                 //NÃO ESQUECER O " >" NO FINAL DA TAG 
                
-                echo '<option value="' . $row['COD_FUN']. '">'.$row['NOME_FUN'].'</option> ';
+            echo '
+
+                <option value="' . $row['COD_CLI']. '">'.$row['NOME_CLI'].'</option>
+              ';                        
+
             }
 
         }
+
 
     // -----------------------------------FIM-------------------------------------------
 ?>

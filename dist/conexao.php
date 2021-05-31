@@ -18,12 +18,12 @@ $senha = "root";
 $dbname = "BD_TCC";
 */
 
-/* WESNEY
+/* WESNEY*/
 $servidor = "localhost";
 $usuario = "root";
 $senha = "etec2020";
 $dbname = "BD_TCC";
-*/
+
 
 
 

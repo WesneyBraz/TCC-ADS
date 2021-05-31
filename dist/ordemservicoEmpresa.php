@@ -151,13 +151,12 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="my-1 mr-2"
-                                                for="inlineFormCustomSelectPref">Departamento:</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="nomeDepartamento">
-                                                <option selected>Selecione...</option>
-                                                <option value="1">Eletrico</option>
-                                                <option value="2">TI</option>
+                                    <div class="form-group">
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Status:</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="status" name="status">
+                                                <option selected value="Atrasado">Atrasado</option>
+                                                <option value="Concluido">Concluido</option>
+                                                <option value="Em processo">Em processo</option>
                                             </select>
                                         </div>
                                     </div>
@@ -182,10 +181,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Cliente:</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="nomeCliente">
+                                            <select class="custom-select my-1 mr-sm-2" id="nomeCliente" name="nomeCliente">
                                                 <option selected>Selecione...</option>
-                                                <option value="1">Maria</option>
-                                                <option value="2">Lucas</option>
+                                                <?php
+                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                    include_once 'listaCliente.php';
+                                                    //----------------------------------FIM---------------------------------------------
+
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -226,18 +229,6 @@
                                         <div class="form-group">
                                             <label for="lucro">Lucro:</label><input type="text" id="lucro" name="lucro"
                                                 class="form-control valor" style="display:inline-block" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Status:</label>
-                                            <select class="custom-select my-1 mr-sm-2" id="status">
-                                                <option selected>Atrasado</option>
-                                                <option value="1">Concluido</option>
-                                                <option value="2">Em processo</option>
-                                            </select>
                                         </div>
                                     </div>
                                 </div>

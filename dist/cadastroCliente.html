@@ -80,10 +80,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                           <button type="button" id="sair" class="text-dark nav-link" style="background-color: transparent;
+                            <button type="button" id="sair" class="text-dark nav-link"
+                                style="background-color: transparent;
                             border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
-                             <i  class="ni ni-ui-04 text-danger"></i>
-                             Sair</button>
+                                <i class="ni ni-ui-04 text-danger"></i>
+                                Sair</button>
                         </li>
                     </ul>
                 </div>
@@ -226,7 +227,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
-                                            <input class="form-control py-4" id="estado" name="estado" type="text"
+                                            <input class="form-control py-4" id="uf" name="uf" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
@@ -243,12 +244,12 @@
                                 </input>
                             </form>
                         </div>
-                        </div>
                     </div>
                 </div>
-                <!-- Footer -->
-                <footer class="footer pt-0">
-                    <div class="row align-items-center justify-content-lg-between">
+            </div>
+            <!-- Footer -->
+            <footer class="footer pt-0">
+                <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
                             &copy; 2021 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
@@ -256,39 +257,39 @@
                     </div>
                 </div>
             </footer>
-            </div>
         </div>
-        <div class="cli"></div>
-        <!-- Core -->
-        <script>
-            //Função ajax
-            $(function () {
-                $('.formCli').submit(function () { //Linha para submit, quando o usuário apertar o botão
-                    $.ajax({
-                        url: 'cadastraCliente.php', //Arquivo php que fará as validações
-                        type: 'post', //Método utilizado
-                        data: $('.formCli').serialize(), //Pega as informações inseridas
-                        success: function (data) {
-                            $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                        }
-                    });
-                    return false;
+    </div>
+    <div class="cli"></div>
+    <!-- Core -->
+    <script>
+        //Função ajax
+        $(function () {
+            $('.formCli').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraCliente.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formCli').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
                 });
+                return false;
             });
-        </script>
-        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <!-- Puxando o jquery e plugin "mask" do jquery -->
-        <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-        <!-- JS -->
-        <script src="./js/sweetalert.js"></script>
-        <script src="./js/cadastroCliente.js"></script>
-        <script src="./js/sair.js"></script>
+        });
+    </script>
+    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Puxando o jquery e plugin "mask" do jquery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <!-- JS -->
+    <script src="./js/sweetalert.js"></script>
+    <script src="./js/cadastroCliente.js"></script>
+    <script src="./js/sair.js"></script>
 </body>
 
 </html>

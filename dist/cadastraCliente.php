@@ -21,18 +21,20 @@ if($_POST){
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vnome=$_POST["nome"];
-    //$vmail=$_POST["email"]; 
     $vcpf=$_POST["cpf"];
-    //$vtelefone=$_POST["telefone"];
-    // $vcelular=$_POST["celular"];
-    //$vcep=$_POST["cep"];
-    //$vrua=$_POST["rua"];
-    //$vcomplemento=$_POST["complemento"];
-    //$vnumero=$_POST["numero"];
-    //$vbairro=$_POST["bairro"];
-    //$vcidade=$_POST["cidade"];
-    //$vestado=$_POST["estado"];
-    //$vpais=$_POST["pais"];
+
+    $vmail=$_POST["email"]; 
+    $vtelefone=$_POST["telefone"];
+    $vcelular=$_POST["celular"];
+    
+    $vcep=$_POST["cep"];
+    $vrua=$_POST["rua"];
+    $vcomplemento=$_POST["complemento"];
+    $vnumero=$_POST["numero"];
+    $vbairro=$_POST["bairro"];
+    $vcidade=$_POST["cidade"];
+    $vestado=$_POST["uf"];
+    $vpais=$_POST["pais"];
 
     //----------------------------------FIM---------------------------------------------
 
@@ -72,13 +74,31 @@ if($_POST){
 
      $sql -> bind_param("ss", $vcpf , $vnome );
 
+     $sql -> execute() or exit("ErroBanco1 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
+     $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
+     (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL)
+     VALUES
+     (?, ?, ?) ");
 
-     //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
+     $sql -> bind_param("sss", $vcelular, $vtelefone,  $vmail );
 
-     $sql -> execute() or exit("ErroBanco1 ");
+     $sql -> execute() or exit("ErroBanco2 ");
+
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
+
+     $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
+     (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO)
+     VALUES
+     (?, ?, ?, ?, ?, ?, ?, ?) ");
+
+     $sql -> bind_param("ssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento );
+
+     $sql -> execute() or exit("ErroBanco3 ");
+
+
 
      $sql -> close();
      $conn -> close();

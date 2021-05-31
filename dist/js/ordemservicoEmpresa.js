@@ -38,11 +38,11 @@ function validarOS() {
     }
 
     //Departamento
-    if (document.getElementById("nomeDepartamento").selectedIndex == "") {
-        nomeDepartamento.focus();
-        alerta();
-        return false;
-    }
+    //if (document.getElementById("nomeDepartamento").selectedIndex == "") {
+    //   nomeDepartamento.focus();
+    //    alerta();
+    //   return false;
+    //}
 
     //Funcionario
     if (document.getElementById("nomeFuncionario").selectedIndex == "") {
@@ -59,7 +59,7 @@ function validarOS() {
     }
 
     //Produto
-    if (document.getElementById("nomeProduto").selectedIndex == "") {
+    if (document.getElementById("produto").selectedIndex == "") {
         nomeProduto.focus();
         alerta();
         return false;
