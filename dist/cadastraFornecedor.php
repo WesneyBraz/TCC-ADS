@@ -23,19 +23,21 @@ if($_POST){
     
     $vnome_fantasia=$_POST["nome"];
     $vcnpj=$_POST["cnpj"];
-    //$vdata=$_POST["nome"];
-    //$vdiagnostico=$_POST["email"];
-    //$vdescricao=$_POST["cnpj"];
-    //$vstatus=$_POST["telefone"];
-    //$vcelular=$_POST["celular"];
-    //$vcep=$_POST["cep"];
-    //$vrua=$_POST["rua"];
-    //$vcomplemento=$_POST["complemento"];
-    //$vnumero=$_POST["numero"];
-    //$vbairro=$_POST["bairro"];
-    //$vcidade=$_POST["cidade"];
-    //$vestado=$_POST["estado"];
-    //$vpais=$_POST["pais"];
+
+    $vmail=$_POST["email"];
+    $vtelefone=$_POST["telefone"];
+    $vcelular=$_POST["celular"];
+
+    $vcep=$_POST["cep"];
+    $vlougradouro=$_POST["rua"];
+    $vcomplemento=$_POST["complemento"];
+    $vnumero=$_POST["numero"];
+    $vbairro=$_POST["bairro"];
+    $vcidade=$_POST["cidade"];
+    $vestado=$_POST["uf"];
+    $vpais=$_POST["pais"];
+
+    $vcat=$vcnpj;
 
     //----------------------------------FIM---------------------------------------------
 
@@ -65,23 +67,54 @@ if($_POST){
      //----------------------------------FIM---------------------------------------------
 
 
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_FORNECEDOR
-     (NOME_FANTASIA_FOR, CNPJ_FOR)
+     $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
+     (COD_CAT, NOME_CAT)
      VALUES
      (?, ?) ");
 
+     $sql -> bind_param("ss", $vcat,$vnome_fantasia );
 
-     $sql -> bind_param("ss", $vnome_fantasia, $vcnpj);
+     $sql -> execute() or exit("ErroBanco 00 ");
+
+
+     
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ---------------------- 
+     $sql = $conn->prepare(" INSERT INTO TBL_FORNECEDOR
+     (NOME_FANTASIA_FOR, CNPJ_FOR, COD_CAT)
+     VALUES
+     (?, ?, ?) ");
+
+
+     $sql -> bind_param("sss", $vnome_fantasia, $vcnpj, $vcat);
+
+     $sql -> execute() or exit("ErroBanco 10 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
+     $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
+     (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL, COD_CAT)
+     VALUES
+     (?, ?, ?, ?) ");
+
+     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
+
+     $sql -> execute() or exit("ErroBanco 20 ");
 
 
-     //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
+    //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
 
-     $sql -> execute() or exit("ErroBanco1");
+     $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
+     (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
+     VALUES
+     (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+
+     $sql -> bind_param("sssssssss", $vlougradouro, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
+
+     $sql -> execute() or exit("ErroBanco 30 ");
+
+
 
      $sql -> close();
      $conn -> close();

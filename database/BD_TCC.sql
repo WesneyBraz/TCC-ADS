@@ -99,8 +99,12 @@ CONSTRAINT FK_OS_CLIENTE FOREIGN KEY (COD_CLI) REFERENCES TBL_CLIENTE (COD_CLI))
 
 
 SELECT *FROM TBL_FUNCIONARIO;
+SELECT *FROM TBL_PRODUTO;
 select *from tbl_cliente;
+select *from tbl_fornecedor;
 select *from tbl_contato;
 select *from tbl_endereco;
 select *from tbl_categoria;
 select *from tbl_ordem_de_servico;
+delete  FROM tbl_fornecedor WHERE cod_for = '1';
+UPDATE tbl_fornecedor set nome_fantasia_for = 'ACESSORIO' where cod_for = '01'; 

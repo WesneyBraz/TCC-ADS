@@ -145,7 +145,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="#">Email:</label>
-                                            <input class="form-control py-4" id="email" type="email"
+                                            <input class="form-control py-4" id="email" name="email" type="email"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Coloque seu melhor email..." />
                                         </div>
@@ -204,7 +204,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class=" mb-1" for="numero">N°:</label>
-                                            <input class="form-control py-4" id="numero" type="number" />
+                                            <input class="form-control py-4" id="numero" name="numero" type="number" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -226,16 +226,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="estado" type="text"
+                                            <input class="form-control py-4" id="uf" name="uf" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="">País:</label>
-                                            <select class="custom-select disabled value=" Brasil">
-                                                <option selected>Brasil</option>
-                                            </select>
+                                            <label class=" mb-1" for="">País:</label>
+                                            <input class="form-control py-4" id="pais" name="pais" type="text"
+                                                placeholder="Digite seu País..." />
                                         </div>
                                     </div>
                                 </div>
@@ -263,22 +262,6 @@
     </div>
     <div class="for"></div>
     <!-- Core -->
-    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- Puxando o jquery e plugin "mask" do jquery -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-    <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/cadastroFornecedor.js"></script>
-    <script src="./js/sair.js"></script>
-
-
     <script>
         //Função ajax
         $(function () {
@@ -295,6 +278,22 @@
             });
         });
     </script>
+
+
+    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Puxando o jquery e plugin "mask" do jquery -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <!-- JS -->
+    <script src="./js/sweetalert.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/cadastroFornecedor.js"></script>
+    <script src="./js/sair.js"></script>
 
 
 </body>

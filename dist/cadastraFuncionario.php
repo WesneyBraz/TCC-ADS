@@ -25,7 +25,11 @@ if($_POST){
     $vmail=$_POST["mail"];
     $vdepartamento=$_POST["nomeDepartamento"];
     $vcelular=$_POST["celular"];
+
+    
     $vsenha1=$_POST["senha"]; 
+
+
     $vsenhaf1 = md5($vsenha1);
     $vsenha2=$_POST["senha2"]; 
     $vsenhaf2 = md5($vsenha2);
