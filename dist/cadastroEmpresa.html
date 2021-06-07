@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Fornecedor</title>
+    <title>Cadastro Empresa</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -80,7 +83,8 @@
                             <h3 class="text-center font-weight-light my-4">Cadastre sua Empresa!</h3>
                         </div>
                         <div class="card-body">
-                            <form  method="POST" id="frmCadastro" onsubmit="validarCadastro();">
+                            <form method="POST" id="frmCadastro" name="frmCadastro" class="formEmp" action=""
+                                onsubmit="validarCadastro();">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -92,7 +96,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="#">Email:</label>
-                                            <input class="form-control py-4" id="email" type="email"
+                                            <input class="form-control py-4" id="email" name="email" type="email"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Coloque seu melhor email..." />
                                         </div>
@@ -153,7 +157,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class=" mb-1" for="numero">N°:</label>
-                                            <input class="form-control py-4" id="numero" type="number" />
+                                            <input class="form-control py-4" id="numero" name="numero" type="number" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -175,16 +179,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="estado" type="text"
+                                            <input class="form-control py-4" id="uf" name="uf" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="">País:</label>
-                                            <select class="custom-select disabled value=" Brasil">
-                                                <option selected>Brasil</option>
-                                            </select>
+                                            <label class=" mb-1" for="">País:</label>
+                                            <input class="form-control py-4" id="pais" name="pais" type="text"
+                                                placeholder="Digite seu País..." />
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +195,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="inputPassword">Senha:</label>
-                                            <input class="form-control py-4" id="senha" type="password"
+                                            <input class="form-control py-4" id="senha" name="senha" type="password"
                                                 placeholder="Digite sua senha..." />
                                         </div>
                                     </div>
@@ -201,8 +204,8 @@
                                             <label class="mb-1" for="inputConfirmPassword">Confirme
                                                 sua senha:
                                             </label>
-                                            <input class="form-control py-4" id="confirma_senha" type="password"
-                                                placeholder="Digite novamente a senha..." />
+                                            <input class="form-control py-4" id="confirma_senha" name="confirma_senha"
+                                                type="password" placeholder="Digite novamente a senha..." />
                                         </div>
                                     </div>
                                 </div>
@@ -210,14 +213,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <strong>
-                                                Minímo 8 digitos e máximo de 10 contendo uma letra maiúscula e minúscula, um número e um
+                                                Minímo 8 digitos e máximo de 10 contendo uma letra maiúscula e
+                                                minúscula, um número e um
                                                 caractere especial.
                                             </strong>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-4 mb-0 text-white"><a class="btn btn-primary btn-block"
-                                        id="botao" type="submit" onclick="validarCadastro();">Criar Conta</a>
+                                <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block"
+                                        id="botao" type="submit" onclick="validarCadastro();"
+                                        value="Criar Conta"></input>
                                 </div>
                             </form>
                         </div>
@@ -240,6 +245,27 @@
             </footer>
         </div>
     </div>
+
+    <!--  teste -->
+    <div class="emp"></div>
+    <!-- Core -->
+    <script>
+        //Função ajax
+        $(function () {
+            $('.formEmp').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'cadastraEmpresa.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formEmp').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.emp').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+    <!--  teste -->
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

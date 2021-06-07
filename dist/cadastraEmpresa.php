@@ -37,15 +37,36 @@ if($_POST){
     $vcidade=$_POST["cidade"];
     $vestado=$_POST["uf"];
     $vpais=$_POST["pais"];
+    
+    $vsenha=$_POST["senha"];
+    $vconfirma=$_POST["confirma_senha"];
 
+    $vusuario=$vmail;
     $vcat=$vcnpj;
 
-    //----------------------------------FIM---------------------------------------------
+    //-----------------------------VERIFICANDO SENHAS------------------------------------
+    
 
-    //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
-    //mysqli_query = consulta a base de dados 
-    //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT CNPJ_FOR FROM TBL_FORNECEDOR WHERE CNPJ_FOR = '$vcnpj'");
+    if($vsenha!=$vconfirma)
+    {
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Senhas divergem!'
+              })   
+        });
+        </script>");
+
+      return false;
+   }
+
+     //----------------------------------FIM---------------------------------------------
+
+     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
+     //mysqli_query = consulta a base de dados 
+     //mysqli_num_rows = efetua a contagem de array/registros obtidos
+     $verifica = ("SELECT CNPJ_EMP FROM TBL_EMPRESA WHERE CNPJ_EMP = '$vcnpj'");
 
      $resultadoVerifica = mysqli_query ($conn, $verifica );
 
@@ -58,11 +79,10 @@ if($_POST){
         $(document).ready(function(){ 
             Swal.fire({
                 icon: 'error',
-                text: 'Fornecedor já cadastrado!'
+                text: 'Empresa já cadastrada!'
               })   
         });
         </script>");
- 
         return false;
      }
      //----------------------------------FIM---------------------------------------------
@@ -77,20 +97,19 @@ if($_POST){
 
      $sql -> bind_param("ss", $vcat,$vnome_fantasia );
 
-     $sql -> execute() or exit("ErroBanco 00 ");
+     $sql -> execute() or exit("ErroBanco 01 ");
 
 
      
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_FORNECEDOR
-     (NOME_FANTASIA_FOR, CNPJ_FOR, COD_CAT)
+     $sql = $conn->prepare(" INSERT INTO TBL_EMPRESA
+     (NOME_FANTASIA_EMP, CNPJ_EMP, USUARIO_EMP, SENHA_EMP, COD_CAT)
      VALUES
-     (?, ?, ?) ");
+     (?, ?, ?, ?, ?) ");
 
+     $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vusuario, $vsenha, $vcat);
 
-     $sql -> bind_param("sss", $vnome_fantasia, $vcnpj, $vcat);
-
-     $sql -> execute() or exit("ErroBanco 10 ");
+     $sql -> execute() or exit("ErroBanco 11 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
@@ -101,10 +120,10 @@ if($_POST){
 
      $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
 
-     $sql -> execute() or exit("ErroBanco 20 ");
+     $sql -> execute() or exit("ErroBanco 21 ");
 
 
-    //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
      (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
@@ -113,23 +132,27 @@ if($_POST){
 
      $sql -> bind_param("sssssssss", $vlougradouro, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
 
-     $sql -> execute() or exit("ErroBanco 30 ");
+     $sql -> execute() or exit("ErroBanco 31 ");
 
 
-
+     
      $sql -> close();
      $conn -> close();
+
      //----------------------------------FIM---------------------------------------------
 
      //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
+
+     
      echo ("<script>
      $(document).ready(function(){ 
          Swal.fire({
              icon: 'success',
-             text: 'Fornecedor cadastrado com sucesso!'
+             text: 'Empresa cadastrada com sucesso!'
            })   
      });
      </script>");
+     
 
      exit();
      //----------------------------------FIM---------------------------------------------

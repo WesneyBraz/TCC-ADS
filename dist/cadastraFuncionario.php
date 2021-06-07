@@ -69,7 +69,7 @@ if($_POST){
         $(document).ready(function(){ 
             Swal.fire({
                 icon: 'error',
-                text: 'Usuário já cadastrado!'
+                text: 'Funcionario já cadastrado!'
               })   
         });
         </script>");
@@ -77,12 +77,6 @@ if($_POST){
         return false;
      }
      //----------------------------------FIM---------------------------------------------
-     //
-     //$verifica = ("SELECT COD_DEP FROM TBL_DEPARTAMENTO WHERE NOME_DEP = '$vdepartamento'");
-
-     //$resultadoVerifica = mysqli_query ($conn, $verifica );
-
-     //$erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 

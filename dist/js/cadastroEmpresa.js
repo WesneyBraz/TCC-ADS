@@ -73,7 +73,7 @@ function validarCadastro() {
         return false;
     }
 
-   //CNPJ
+    //CNPJ
     let cnpj = document.getElementById("cnpj").value;
     cnpj = cnpj.replace(/[^\d]+/g, '');
     if (cnpj == '') {
@@ -220,14 +220,14 @@ function validarCadastro() {
         alerta();
         return false;
     }
-    var confirma_senha = frmCadastro2.confirma_senha;
+    var confirma_senha = frmCadastro.confirma_senha;
     if (confirma_senha.value == "" || confirma_senha.value == null) {
         confirma_senha.focus();
         alertaSenha();
         return false;
 
     }
-    senha = document.frmCadastro2.senha.value;
+    senha = document.frmCadastro.senha.value;
     confirma_senha = document.frmCadastro.confirma_senha.value;
 
     if (senha != confirma_senha)
@@ -304,6 +304,3 @@ function pesquisacep(valor) {
         limpa_formulário_cep();
     }
 };
-
-
-
