@@ -61,7 +61,7 @@
         else
         {
             echo'
-            '.$vcpf.' 
+            Eeste CPF:'.$vcpf.' não tem OS cadastrada 
             ';
         }
 

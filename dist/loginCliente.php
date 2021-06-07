@@ -93,7 +93,7 @@
                                 <h3>Informe seu CPF:</h3>
                             </div>
                             <!-- form -->
-                            <form action="teste.php" name="frmCliente" method="POST" onsubmit="validarCPF()">
+                            <form action="" name="frmCliente" method="POST" onsubmit="validarCPF()">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" placeholder="EX: 000.000.000-00"
                                         aria-label="Recipient's username" aria-describedby="button-addon2" id="cpf"
@@ -109,17 +109,20 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
+                                        <th scope="col">CPF</th>
+                                        <th scope="col">CLIENTE</th>
                                         <th scope="col">ENTRADA</th>
                                         <th scope="col">SAÍDA</th>
-                                        <th scope="col">DIAGNOSTICO</th>
-                                        <th scope="col">STATUS</th>
+                                        <th scope="COL">DIAGNOSTICO</th>
+                                        <th scope="COL">STATUS</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <?php
                                         //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------
-                                        //include_once 'retornoCliente.php';
+                                        include_once 'teste.php';
                                         // -----------------------------------FIM--------------------------------------------
                                         ?>
 
