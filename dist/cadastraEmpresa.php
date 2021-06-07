@@ -38,8 +38,12 @@ if($_POST){
     $vestado=$_POST["uf"];
     $vpais=$_POST["pais"];
     
-    $vsenha=$_POST["senha"];
-    $vconfirma=$_POST["confirma_senha"];
+    $vsenha1=$_POST["senha"];
+    $vsenha = md5($vsenha1);
+    $vconfirma1=$_POST["confirma_senha"];
+    $vconfirma = md5($vconfirma1);
+
+
 
     $vusuario=$vmail;
     $vcat=$vcnpj;

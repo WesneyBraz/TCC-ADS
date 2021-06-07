@@ -28,8 +28,6 @@ if($_POST){
 
     
     $vsenha1=$_POST["senha"]; 
-
-
     $vsenhaf1 = md5($vsenha1);
     $vsenha2=$_POST["senha2"]; 
     $vsenhaf2 = md5($vsenha2);

@@ -5,8 +5,8 @@ include('conexao.php');
 
 //Verifica se não é sql injection
 $Email = mysqli_real_escape_string($conn, $_POST['email']);
-$Senha = mysqli_real_escape_string($conn, $_POST['senha']);
-//$vsenha = md5($Senha);
+$Senha1 = mysqli_real_escape_string($conn, $_POST['senha']);
+$Senha = md5($Senha1);
 
 
 //Verifica se tem cadastro no banco de dados

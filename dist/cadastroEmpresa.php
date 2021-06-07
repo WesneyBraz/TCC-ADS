@@ -1,6 +1,3 @@
-<?php
-include('verificaSessao2.php');
-?>
 <!DOCTYPE html>
 <html>
 
