@@ -1,10 +1,13 @@
+<?php
+include('verificaSessao2.php');
+?>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cadastro Fornecedor</title>
+    <title>Cadastro Cliente</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -44,7 +47,7 @@
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroCliente.html">
+                            <a class="nav-link active" href="cadastroCliente.php">
                                 <i class="ni ni-single-02 text-primary"></i>
                                 <span class="nav-link-text">Cliente</span>
                             </a>
@@ -62,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="cadastroFornecedor.html">
+                            <a class="nav-link" href="cadastroFornecedor.php">
                                 <i class="ni ni-delivery-fast text-primary"></i>
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>
@@ -80,7 +83,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <button id="sair" type="button" class="text-dark nav-link"
+                            <button type="button" id="sair" class="text-dark nav-link"
                                 style="background-color: transparent;
                             border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
                                 <i class="ni ni-ui-04 text-danger"></i>
@@ -129,41 +132,41 @@
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card shadow-lg border-0 rounded-lg mt-3">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Cadastre seus Fornecedores!</h3>
+                            <h3 class="text-center font-weight-light my-4">Cadastre seus Clientes!</h3>
                         </div>
                         <div class="card-body">
-                            <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro"
-                                onsubmit="validarCadastro()">
+                            <!-- Form Cadastro -->
+                            <form name="frmCadastro" method="POST" action="" class="formCli"
+                                onsubmit="validarCadastro();">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="">Nome:</label>
-                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text"
-                                                placeholder="Nome fantasia..." />
+                                            <label class="mb-1" for="">Nome Completo:</label>
+                                            <input class="form-control py-4 meucampo" id="nome" name="nome" type="text"
+                                                placeholder="Nome Completo..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="#">Email:</label>
-                                            <input class="form-control py-4" id="email" name="email" type="email"
-                                                aria-describedby="emailHelp"
-                                                placeholder="Coloque seu melhor email..." />
+                                            <input class="form-control py-4" id="email" type="email" name="email"
+                                                aria-describedby="emailHelp" placeholder="contato@domínio.com.br" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="cnpj">CNPJ:</label>
-                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text"
-                                                placeholder="00.000.000/0000-00" />
+                                            <label class="mb-1" for="">CPF:</label>
+                                            <input class="form-control py-4" type="text" name="cpf" id="cpf"
+                                                placeholder="000.000.000-00" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
-                                            <input class="form-control py-4 numeric" id="telefone" name="telefone"
-                                                type="text" placeholder="(00) 00000-0000" />
+                                            <input class="form-control py-4" id="telefone" name="telefone" type="text"
+                                                placeholder="(00) 00000-0000" />
                                         </div>
                                     </div>
                                 </div>
@@ -204,7 +207,8 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class=" mb-1" for="numero">N°:</label>
-                                            <input class="form-control py-4" id="numero" name="numero" type="number" />
+                                            <input class="form-control py-4" id="numero" name="numero" type="number"
+                                                value="" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -238,11 +242,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-4 mb-0 text-white">
-                                    <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar"
-                                        onclick="validarCadastro();">
-                                    </input>
-                                </div>
+                                <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar"
+                                    onclick="validarCadastro();">
+                                </input>
                             </form>
                         </div>
                     </div>
@@ -253,33 +255,31 @@
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2021 <a href="index.html" class="font-weight-bold ml-1" target="_blank">DMW</a>
+                            &copy; 2021 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
-    <div class="for"></div>
+    <div class="cli"></div>
     <!-- Core -->
     <script>
         //Função ajax
         $(function () {
-            $('.formFor').submit(function () { //Linha para submit, quando o usuário apertar o botão
+            $('.formCli').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraFornecedor.php', //Arquivo php que fará as validações
+                    url: 'cadastraCliente.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
-                    data: $('.formFor').serialize(), //Pega as informações inseridas
+                    data: $('.formCli').serialize(), //Pega as informações inseridas
                     success: function (data) {
-                        $('.for').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
                 return false;
             });
         });
     </script>
-
-
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
@@ -291,11 +291,8 @@
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
     <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/cadastroFornecedor.js"></script>
+    <script src="./js/cadastroCliente.js"></script>
     <script src="./js/sair.js"></script>
-
-
 </body>
 
 </html>

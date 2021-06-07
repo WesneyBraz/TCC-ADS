@@ -73,7 +73,7 @@
                             <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" name="frmCadastro">
+                            <form method="POST" name="frmCadastro" action="verificaLoginEmpresa.php">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
                                     <input class="form-control py-4" id="email" name="email" type="email"
@@ -94,11 +94,11 @@
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-3">
                                     <a class="small" href="password.html">Esqueci minha Senha</a>
-                                    <a class="btn btn-primary text-white" id="botao" type="submit"
-                                        onclick="checkForm()">Login</a>
+                                    <input class="btn btn-primary text-white" id="botao" type="submit" value="Login"
+                                        onclick="checkForm()"></input>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <div class="small"><a href="cadastroEmpresa.html">Cadastrar empresa</a>
+                                    <div class="small"><a href="cadastroEmpresa.php">Cadastrar empresa</a>
                                     </div>
                                 </div>
                             </form>

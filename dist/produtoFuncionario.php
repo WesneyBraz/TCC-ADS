@@ -44,7 +44,7 @@ include('verificaSessao.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"" href="produtoFuncionario.php">
+                            <a class="nav-link active" href="produtoFuncionario.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>

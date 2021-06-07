@@ -1,3 +1,6 @@
+<?php
+include('verificaSessao2.php');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,7 +44,7 @@
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroCliente.html">
+                            <a class="nav-link" href="cadastroCliente.php">
                                 <i class="ni ni-single-02 text-primary"></i>
                                 <span class="nav-link-text">Cliente</span>
                             </a>
@@ -59,7 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroFornecedor.html">
+                            <a class="nav-link" href="cadastroFornecedor.php">
                                 <i class="ni ni-delivery-fast text-primary"></i>
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>

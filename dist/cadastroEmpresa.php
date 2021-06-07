@@ -1,3 +1,6 @@
+<?php
+include('verificaSessao2.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -227,7 +230,7 @@
                             </form>
                         </div>
                         <div class="card-footer text-center">
-                            <div class="small"><a href="loginEmpresa.html">Possui uma conta? Vá para o login!</a>
+                            <div class="small"><a href="loginEmpresa.php">Possui uma conta? Vá para o login!</a>
                             </div>
                         </div>
                     </div>
