@@ -3,6 +3,7 @@
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conexao.php';
     // -----------------------------------FIM-------------------------------------------
+    if($_POST){
     $vcpf=$_POST["cpf"];
 
     //VERIFICA SE O CAMPO EXISTE
@@ -34,14 +35,6 @@
                 //NÃO ESQUECER O " >" NO FINAL DA TAG 
                
             echo '
-            <tr>
-                <td scope="col">CPF_CLI</td>
-                <td scope="col">NOME_CLI</td>
-                <td scope="col">ENTRADA</td>
-                <td scope="col">SAÍDA</td>
-                <td scope="col">DIAGNOSTICO</td>
-                <td scope="col">STATOS</td>
-            </tr>
             <br>
             <tr>
                 <td title="'.$row['CPF_CLI'].'">'.$row['CPF_CLI'].'</td>
@@ -53,20 +46,16 @@
             </tr>
                ';
                
-                                
-
             }
 
         }
         else
         {
-            echo'
-            Eeste CPF:'.$vcpf.' não tem OS cadastrada 
-            ';
+            echo'Não tem OS cadastrada neste CPF:'.$vcpf.' ';
         }
 
         $sql -> close();
         $conn -> close();
 
-    // -----------------------------------FIM-------------------------------------------
+      }  // -----------------------------------FIM-------------------------------------------
 ?>

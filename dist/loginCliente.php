@@ -122,7 +122,7 @@
                                     <tr>
                                         <?php
                                         //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------
-                                        include_once 'teste.php';
+                                        include_once 'retornoCliente.php';
                                         // -----------------------------------FIM--------------------------------------------
                                         ?>
 

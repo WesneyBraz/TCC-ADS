@@ -7,6 +7,8 @@ include('verificaSessao.php');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Produto</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -14,6 +16,8 @@ include('verificaSessao.php');
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <!-- alerta css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
     <!-- Sidenav -->
@@ -102,74 +106,44 @@ include('verificaSessao.php');
                         <h2 class="mb-0">Consultar Produtos:</h2>
                     </div>
                     <!-- Light table -->
+
+                    <form name="frmProd" class="frmProd" id="frmProd" action="" method="POST"> 
                     <div class="input-group mb-3 p-2">
-                        <input type="text" class="form-control" 
+                        <input type="text" class="form-control" id="nomeProd" name="nomeProd" 
                         placeholder="Pesquisar" 
                         aria-label="Recipient's username" 
-                        aria-describedby="basic-addon2">
+                        aria-describedby="basic-addon2"></input>
                         <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">
-                            <span class="ni ni-active-40">
-                        </button>
-                    </div>
-                    </div>
+                            <input class="btn btn-primary btn-block btn-round" type="submit" 
+                            value="Checar"></input>
+                        </div>
+                        </div>
+                     </form>
+
+
                     <table class="table table-hover">
                     <thead>
+
                     <tr>
                         <th scope="col">Cód</th>
+                        <th scope="col">Nome</th>
                         <th scope="col">Descrição</th>
-                        <th scope="col">Departamento</th>
+                        <th scope="col">Categoria</th>
                         <th scope="col">Estoque</th>
-                        <th scope="col">Ações</th>
+                        <th scope="col">Fornecedor</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">001</th>
-                        <td>Placa de video</td>
-                        <td>TI</td>
-                        <td>13</td>
-                        <td>
-                        <!-- Modal Editar -->
-                        <span class="badge badge-dot mr-4">
-                        <button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                            data-target="#verModal">
-                            + Ver
-                        </button>
-                        <div class="modal fade" id="verModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                   <div class="modal-body">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title row">Produto:</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Fechar">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                    <div class="modal-body">
-                                        <h4 class="row">Cód:</h4>
-                                        <p class="row">001</p>
-                                        <h4 class="row">Descrição: </h4>
-                                        <p class="row">Placa de video Processador Intel® Core™
-                                            i7..
-                                        </p>
-                                        <h4 class="row">Departamento:</h4>
-                                        <p class="row">TI</p>
-                                        <h4 class="row">Estoque:</h4>
-                                        <p class="row">13</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button  type="button" class="btn btn-danger"
-                                            data-dismiss="modal">Fechar</button>
-                                    </div>
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </span>
-                    </td>
+                        <?php
+                            include_once 'detalhesProduto.php'
+
+                        ?>
+                        <?php
+                        //retorno produtos
+                        //include_once 'listaProdutoFuncionario.php';
+                        ?>
+     
                     </tr>
                 </tbody>
                 </table>
@@ -216,7 +190,25 @@ include('verificaSessao.php');
     </div>
 </div>
 </div>
-    <!-- Scripts -->
+    <!-- Scripts 
+    <div class="prod"></div>
+    <script>
+        //Função ajax
+        $(function () {
+            $('.formProd').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'detalhesProduto.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formProd').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.prod').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
+                });
+                return false;
+            });
+        });
+    </script>-->
+
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
