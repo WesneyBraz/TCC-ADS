@@ -128,39 +128,34 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card shadow-lg border-0 rounded-lg mt-3">
                         <!-- Card header -->
-                        <div class="input-group-append p-2 mt-2">
-                            <h2 class="px-2">Consultar:</h2>
-                            <button class="btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Filtro</button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Cliente</a>
-                                <a class="dropdown-item" href="#">Departamento</a>
-                                <a class="dropdown-item" href="#">Funcionario</a>
-                                <a class="dropdown-item" href="#">Produto</a>
-                                <a class="dropdown-item" href="#">Fornecedor</a>
-                                <a class="dropdown-item" href="#">Ordem de Serviço</a>
+
+                        <form action="" method="POST" id="retorno" name="retorno" class="formCon">  
+                            <div class="input-group-append p-2 mt-2">
+                                <h2 class="px-2">Consultar:</h2>
+                                <select name="consulta" id="consulta" class="btn-sm btn-primary dropdown-toggle" type="submit" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <option selected>Selecione</option>
+                                    <option class="dropdown-item" value="Cliente" href="#">Cliente</option>
+                                    <option class="dropdown-item" value="Departamento" href="#">Departamento</option>
+                                    <option class="dropdown-item" value="Funcionario" href="#">Funcionario</option>
+                                    <option class="dropdown-item" value="Produto" href="#">Produto</option>
+                                    <option class="dropdown-item" value="Fornecedor" href="#">Fornecedor</option>
+                                    <option class="dropdown-item" value="Ordem_de_Servico" href="#">Ordem de Serviço</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="input-group mb-3 p-2">
-                            <input type="text" class="form-control" placeholder="Pesquisar"
-                                aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">
-                                    <span class="ni ni-active-40">
-                                </button>
+                            <div class="input-group mb-3 p-2">
+                                <input type="text" class="form-control" placeholder="Pesquisar"
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <input class="btn btn-primary" value="Checar" type="submit">
+                                        
+                                    </input>
+                                </div>
                             </div>
-                        </div>
+                        </form>
+                        
                         <!-- Light table -->
-
-
-
-
                         <table>
-                            <tr>
-                                <th title="id">COD</th>
-                                <th title="user">NOME</th>
-                                <!--  <th title="mail">EMP</th>  -->
-                            </tr>
 
                             <?php
                                 //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------
@@ -169,9 +164,6 @@ include('verificaSessao2.php');
                             ?>
 
                         </table>
-
-
-
                         <!-- Card footer -->
                         <div class="card-footer py-4">
                             <nav aria-label="...">
