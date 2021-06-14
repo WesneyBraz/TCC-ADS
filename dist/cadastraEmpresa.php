@@ -22,16 +22,16 @@ if($_POST){
       
       if (strlen($vnome_fantasia <= 3)) {
         echo ("<script>
-      Swal.fire({
-        title: 'Mínimo três dígitos no campo nome!',
-        icon: 'error',
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-        }
-      })
+        Swal.fire({
+          title: 'Mínimo três dígitos no campo nome!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
       </script>"); 
       }
     }
@@ -74,12 +74,16 @@ if($_POST){
     if($vsenha!=$vconfirma)
     {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Senhas divergem!'
-              })   
-        });
+        Swal.fire({
+          title: 'Senhas divergem!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         </script>");
 
       return false;
@@ -98,12 +102,16 @@ if($_POST){
      if($erroResultadoVerifica > 0)
      {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Email já cadastrado!'
-              })   
-        });
+        Swal.fire({
+          title: 'Email já cadastrado!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         </script>");
         return false;
      }
@@ -125,12 +133,16 @@ if($_POST){
      if($erroResultadoVerifica > 0)
      {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'CNPJ já cadastrado!'
-              })   
-        });
+        Swal.fire({
+          title: 'CNPJ já cadastrado!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         </script>");
         return false;
      }
@@ -189,12 +201,16 @@ if($_POST){
      //----------------- EXIBE NA TELA OS DADOS CADASTRADOS -----------------
 
      echo ("<script>
-     $(document).ready(function(){ 
-         Swal.fire({
-             icon: 'success',
-             text: 'Empresa cadastrada com sucesso!'
-           })   
-     });
+     Swal.fire({
+      title: 'Empresa cadastrada com sucesso!',
+      icon: 'error',
+      showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
      </script>");
      
      exit();
