@@ -16,33 +16,14 @@ if($_POST){
             popup: 'animate__animated animate__fadeOutUp'
         }
       })
-      </script>"); 
-
-      //Nome
-      $vnome_fantasia=$_POST["nome"];
-
-      if (strlen($vnome_fantasia) <= 3) {
-        echo ("<script>
-        Swal.fire({
-          title: 'Necessário no mínimo três dígitos no campo nome!',
-          icon: 'error',
-          showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-          },
-          hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-          }
-      })
-      </script>"); 
-      }
-      
+      </script>");       
     }
 
     else {
     //------------------ CHAMA O PROGRAMA DE CONEXÃO COM A BASE DE DADOS -------------------
 
     include_once 'conexao.php';
-    
+
     //----------------- FIM -----------------
 
     //ATRIBUÍDO DADOS INSERIDOS NOS CAMPOS AS VARIÁVEIS CORRESPONDENTES    
@@ -89,6 +70,29 @@ if($_POST){
 
      //----------------- FIM -----------------
 
+     $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vusuario'");
+
+     $resultadoVerifica = mysqli_query ($conn, $verifica );
+
+     $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
+
+     //----------------- CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ----------------- 
+
+     if($erroResultadoVerifica > 0)
+     {
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Email já cadastrado!'
+              })   
+        });
+        </script>");
+        return false;
+     }
+
+     //----------------- FIM -----------------
+
      //----------------- VERIFICA SE O CAMPO JÁ FOI INSERIDO -----------------
      //mysqli_query = consulta a base de dados 
      //mysqli_num_rows = efetua a contagem de array/registros obtidos
@@ -107,7 +111,7 @@ if($_POST){
         $(document).ready(function(){ 
             Swal.fire({
                 icon: 'error',
-                text: 'Empresa já cadastrada!'
+                text: 'CNPJ já cadastrado!'
               })   
         });
         </script>");
@@ -123,14 +127,14 @@ if($_POST){
      VALUES
      (?, ?) ");
 
-     $sql -> bind_param("ss", $vcat,$vnome_fantasia );
+     $sql -> bind_param("ss", $vcat, $vnome_fantasia);
 
      $sql -> execute() or exit("ErroBanco 01 ");
 
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_EMPRESA
-     (NOME_FANTASIA_EMP, CNPJ_EMP, USUARIO_EMP, SENHA_EMP, COD_CAT)
+     (NOME_FANTASIA_EMP, CNPJ_EMP, EMAIL_EMP, SENHA_EMP, COD_CAT)
      VALUES
      (?, ?, ?, ?, ?) ");
 
@@ -145,7 +149,7 @@ if($_POST){
      VALUES
      (?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
+     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vusuario , $vcat);
 
      $sql -> execute() or exit("ErroBanco 21 ");
 
