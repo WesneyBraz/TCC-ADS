@@ -40,10 +40,13 @@ if($_POST){
 
     else {
     //------------------ CHAMA O PROGRAMA DE CONEXÃO COM A BASE DE DADOS -------------------
+
     include_once 'conexao.php';
+    
     //----------------- FIM -----------------
 
-    //ATRIBUÍDO DADOS INSERIDOS NOS CAMPOS AS VARIÁVEIS CORRESPONDENTES     
+    //ATRIBUÍDO DADOS INSERIDOS NOS CAMPOS AS VARIÁVEIS CORRESPONDENTES    
+
     $vnome_fantasia=$_POST["nome"];
     $vcnpj=$_POST["cnpj"];
 
@@ -68,9 +71,8 @@ if($_POST){
     $vusuario=$vmail;
     $vcat=$vcnpj;
 
-    //-----------------------------VERIFICANDO SENHAS------------------------------------
+    //----------------- VERIFICANDO SENHAS -----------------
     
-
     if($vsenha!=$vconfirma)
     {
         echo ("<script>
@@ -175,6 +177,7 @@ if($_POST){
      </script>");
      
      exit();
+
      //----------------- FIM -----------------
     }
   }
