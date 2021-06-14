@@ -1,27 +1,49 @@
 <?php
 if($_POST){
-    //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
+    //Campos vazios
     if(empty($_POST['nome']) || empty($_POST['cnpj']) || empty($_POST['email']) || empty($_POST['telefone']) 
     || empty($_POST['celular']) || empty($_POST['cep']) || empty($_POST['rua']) || empty($_POST['cidade']) 
     || empty($_POST['numero']) || empty($_POST['bairro']) || empty($_POST['uf']) || empty($_POST['pais']) )
     {
+      echo ("<script>
+      Swal.fire({
+        title: 'Preencha os campos vazios!',
+        icon: 'error',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+      </script>"); 
+
+      //Nome
+      $vnome_fantasia=$_POST["nome"];
+
+      if (strlen($vnome_fantasia) <= 3) {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Campo vazio!'
-              })   
-        });
-        </script>");
+        Swal.fire({
+          title: 'Necessário no mínimo três dígitos no campo nome!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+      })
+      </script>"); 
+      }
+      
     }
 
     else {
-    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+    //------------------ CHAMA O PROGRAMA DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conexao.php';
-    //----------------------------------FIM---------------------------------------------
+    //----------------- FIM -----------------
 
-
-    //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES     
+    //ATRIBUÍDO DADOS INSERIDOS NOS CAMPOS AS VARIÁVEIS CORRESPONDENTES     
     $vnome_fantasia=$_POST["nome"];
     $vcnpj=$_POST["cnpj"];
 
@@ -43,8 +65,6 @@ if($_POST){
     $vconfirma1=$_POST["confirma_senha"];
     $vconfirma = md5($vconfirma1);
 
-
-
     $vusuario=$vmail;
     $vcat=$vcnpj;
 
@@ -65,18 +85,20 @@ if($_POST){
       return false;
    }
 
-     //----------------------------------FIM---------------------------------------------
+     //----------------- FIM -----------------
 
-     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
+     //----------------- VERIFICA SE O CAMPO JÁ FOI INSERIDO -----------------
      //mysqli_query = consulta a base de dados 
      //mysqli_num_rows = efetua a contagem de array/registros obtidos
+
      $verifica = ("SELECT CNPJ_EMP FROM TBL_EMPRESA WHERE CNPJ_EMP = '$vcnpj'");
 
      $resultadoVerifica = mysqli_query ($conn, $verifica );
 
      $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
-     //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
+     //----------------- CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ----------------- 
+
      if($erroResultadoVerifica > 0)
      {
         echo ("<script>
@@ -89,10 +111,10 @@ if($_POST){
         </script>");
         return false;
      }
-     //----------------------------------FIM---------------------------------------------
 
+     //----------------- FIM -----------------
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
+     //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
      (COD_CAT, NOME_CAT)
@@ -103,9 +125,8 @@ if($_POST){
 
      $sql -> execute() or exit("ErroBanco 01 ");
 
+     //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ----------------- 
 
-     
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ---------------------- 
      $sql = $conn->prepare(" INSERT INTO TBL_EMPRESA
      (NOME_FANTASIA_EMP, CNPJ_EMP, USUARIO_EMP, SENHA_EMP, COD_CAT)
      VALUES
@@ -115,7 +136,7 @@ if($_POST){
 
      $sql -> execute() or exit("ErroBanco 11 ");
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
+     //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
      (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL, COD_CAT)
@@ -126,8 +147,7 @@ if($_POST){
 
      $sql -> execute() or exit("ErroBanco 21 ");
 
-
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
+     //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
      (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
@@ -138,16 +158,13 @@ if($_POST){
 
      $sql -> execute() or exit("ErroBanco 31 ");
 
-
-     
      $sql -> close();
      $conn -> close();
 
-     //----------------------------------FIM---------------------------------------------
+     //----------------- FIM -----------------
 
-     //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
+     //----------------- EXIBE NA TELA OS DADOS CADASTRADOS -----------------
 
-     
      echo ("<script>
      $(document).ready(function(){ 
          Swal.fire({
@@ -157,9 +174,8 @@ if($_POST){
      });
      </script>");
      
-
      exit();
-     //----------------------------------FIM---------------------------------------------
+     //----------------- FIM -----------------
     }
-    }
-     ?>
+  }
+?>

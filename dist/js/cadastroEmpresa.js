@@ -51,16 +51,6 @@ jQuery('.meucampo').keyup(function () {
 
 //validar cadastro
 function validarCadastro() {
-    //nome
-    let nome = frmCadastro.nome;
-    if (nome.value == "" ||
-        nome.value == null ||
-        nome.value.length < 4) {
-        nome.focus();
-        alerta();
-        return false;
-    }
-
     //email
     let email = document.getElementById('email').value;
     let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
@@ -76,10 +66,6 @@ function validarCadastro() {
     //CNPJ
     let cnpj = document.getElementById("cnpj").value;
     cnpj = cnpj.replace(/[^\d]+/g, '');
-    if (cnpj == '') {
-        alerta();
-        return false;
-    }
 
     if (cnpj.length != 14) {
         alerta();
