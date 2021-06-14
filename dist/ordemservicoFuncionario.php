@@ -128,12 +128,13 @@ include('verificaSessao.php');
                     </thead>
                     <tbody>
                         <tr>
-                        <th scope="row">Esteira Parou</th>
-                        <td>05/04/2021</td>
-                        <td>05/04/2021</td>
-                        <td>Atrasado</td>
+                        <?php
+                        include_once 'retornoOsFuncionario.php';
+
+                        ?>
                         <td>
-                        <!-- Modal Ver -->
+                        <!-- 
+                        <--## Modal Ver 
                         <span class="badge badge-dot mr-4">
                             <button class="btn-sm btn-group btn-primary" data-toggle="modal"
                                 data-target="#verModa">
@@ -179,7 +180,7 @@ include('verificaSessao.php');
                 </div>
                 </span></td>
                 <td>
-                <!-- Modal Editar -->
+                <-- ###Modal Editar 
                 <span class="badge badge-dot mr-4">
                     <button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                         + Editar
@@ -285,6 +286,7 @@ include('verificaSessao.php');
                     </div>
                 </span>
             </td>
+            -->
             </tr>
             </tbody>
             </table>
