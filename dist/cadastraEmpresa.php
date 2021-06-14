@@ -16,7 +16,24 @@ if($_POST){
             popup: 'animate__animated animate__fadeOutUp'
         }
       })
-      </script>");       
+      </script>");     
+
+      $vnome_fantasia=$_POST["nome"];
+      
+      if (strlen($vnome_fantasia <= 3)) {
+        echo ("<script>
+      Swal.fire({
+        title: 'Mínimo três dígitos no campo nome!',
+        icon: 'error',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+      </script>"); 
+      }
     }
 
     else {
