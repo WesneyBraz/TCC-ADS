@@ -171,28 +171,28 @@ include('verificaSessao.php');
                                         <div class="modal-footer">
                                             <button  type="button" class="btn btn-danger"
                                                 data-dismiss="modal">Fechar</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                </span></td>
-                <td>
-                <-- ###Modal Editar 
-                <span class="badge badge-dot mr-4">
-                    <button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                        + Editar
-                    </button>
-                    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header border-bottom-0">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                            </div>
+                            </span></td>
+                            <td>
+                            <-- ###Modal Editar 
+                            <span class="badge badge-dot mr-4">
+                            <button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
+                                + Editar
+                            </button>
+                            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header border-bottom-0">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-title text-center">
@@ -283,10 +283,10 @@ include('verificaSessao.php');
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </span>
-            </td>
-            -->
+                                </div>
+                            </span>
+                        </td>
+                        -->
             </tr>
             </tbody>
             </table>

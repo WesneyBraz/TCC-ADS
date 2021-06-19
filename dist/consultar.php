@@ -144,7 +144,7 @@ include('verificaSessao2.php');
                                 </select>
                             </div>
                             <div class="input-group mb-3 p-2">
-                                <input type="text" class="form-control" placeholder="Pesquisar"
+                                <input type="text" id="filtro" name="filtro" class="form-control" placeholder="Pesquisar"
                                     aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                     <input class="btn btn-primary" value="Checar" type="submit">
@@ -155,7 +155,7 @@ include('verificaSessao2.php');
                         </form>
                         
                         <!-- Light table -->
-                        <table>
+                        <table class="table table-hover">
 
                             <?php
                                 //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------

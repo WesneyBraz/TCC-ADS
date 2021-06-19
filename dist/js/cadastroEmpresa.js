@@ -45,13 +45,13 @@ $(document).ready(function () {
 
 //aceita somente letras
 jQuery('.meucampo').keyup(function () {
-    this.value = this.value.replace(/[^a-zA-Z]/g,' ');
+    this.value = this.value.replace(/[^a-zA-Z]/g, ' ');
 });
 
 
 //validar cadastro
 function validarCadastro() {
-    
+
     //email
     let email = document.getElementById('email').value;
     let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;

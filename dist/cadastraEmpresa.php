@@ -66,7 +66,6 @@ if($_POST){
     $vconfirma1=$_POST["confirma_senha"];
     $vconfirma = md5($vconfirma1);
 
-    $vusuario=$vmail;
     $vcat=$vcnpj;
 
     //----------------- VERIFICANDO SENHAS -----------------
@@ -91,7 +90,7 @@ if($_POST){
 
      //----------------- FIM -----------------
 
-     $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vusuario'");
+     $verifica = ("SELECT USUARIO_EMP FROM TBL_EMPRESA WHERE USUARIO_EMP = '$vmail'");
 
      $resultadoVerifica = mysqli_query ($conn, $verifica );
 
@@ -163,11 +162,11 @@ if($_POST){
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_EMPRESA
-     (NOME_FANTASIA_EMP, CNPJ_EMP, EMAIL_EMP, SENHA_EMP, COD_CAT)
+     (NOME_FANTASIA_EMP, CNPJ_EMP, USUARIO_EMP, SENHA_EMP, COD_CAT)
      VALUES
      (?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vusuario, $vsenha, $vcat);
+     $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vmail, $vsenha, $vcat);
 
      $sql -> execute() or exit("ErroBanco 11 ");
 
@@ -178,7 +177,7 @@ if($_POST){
      VALUES
      (?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vusuario , $vcat);
+     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
 
      $sql -> execute() or exit("ErroBanco 21 ");
 

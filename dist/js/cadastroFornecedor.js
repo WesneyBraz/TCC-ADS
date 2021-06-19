@@ -31,7 +31,7 @@ $(document).ready(function () {
 
 //aceita somente letras
 jQuery('.meucampo').keyup(function () {
-    this.value = this.value.replace(/[^a-zA-Z]/g, '');
+    this.value = this.value.replace(/[^a-zA-Z]/g, ' ');
 });
 
 //validar cadastro
@@ -116,7 +116,7 @@ function validarCadastro() {
         alerta();
         return false;
     }
-    
+
     //telefone
     let telefone = frmCadastro.telefone;
     if (telefone.value == "" || telefone.value == null) {

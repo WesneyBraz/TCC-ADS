@@ -209,14 +209,14 @@ include('verificaSessao2.php');
                                             <label for="example-datetime-local-input"
                                                 class=" my-1 mr-2">Entrada:</label>
                                             <input class="form-control" type="datetime-local"
-                                                value="2018-11-23T10:30:00" id="dataEntrada" name="dataEntrada">
+                                                value="2021-06-15T10:30:00" id="dataEntrada" name="dataEntrada">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-datetime-local-input" class=" my-1 mr-2">Saída:</label>
                                             <input class="form-control" type="datetime-local"
-                                                value="2018-11-23T10:30:00" id="dataSaida" name="dataSaida">
+                                                value="2021-06-15T10:30:00" id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
                                 </div>
