@@ -44,7 +44,7 @@ if($_POST){
      VALUES
      (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssssssssss", $vcusto, $vlucro, $vinicio, $vfim, $vdescricao, $vdiagnostico, $vstatus, $vproduto, $vfuncionario, $vcliente );
+     $sql -> bind_param("ddssssssss", $vcusto, $vlucro, $vinicio, $vfim, $vdescricao, $vdiagnostico, $vstatus, $vproduto, $vfuncionario, $vcliente );
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
