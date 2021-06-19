@@ -49,7 +49,6 @@ if($_POST){
     $vconfirma1=$_POST["confirma_senha"];
     $vconfirma = md5($vconfirma1);
 
-    $vusuario=$vmail;
     $vcat=$vcnpj;
 
     //----------------- VERIFICANDO SENHAS -----------------
@@ -74,9 +73,9 @@ if($_POST){
 
      //----------------- FIM -----------------
 
-     $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vusuario'");
+     $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vmail'");
 
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
+     $resultadoVerifica = mysqli_query ($conn, $verifica);
 
      $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
@@ -150,7 +149,7 @@ if($_POST){
      VALUES
      (?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vusuario, $vsenha, $vcat);
+     $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vmail, $vsenha, $vcat);
 
      $sql -> execute() or exit("ErroBanco 11 ");
 
@@ -161,7 +160,7 @@ if($_POST){
      VALUES
      (?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vusuario , $vcat);
+     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
 
      $sql -> execute() or exit("ErroBanco 21 ");
 
@@ -186,7 +185,7 @@ if($_POST){
      echo ("<script>
      Swal.fire({
       title: 'Empresa cadastrada com sucesso!',
-      icon: 'error',
+      icon: 'success',
       showClass: {
           popup: 'animate__animated animate__fadeInDown'
       },
