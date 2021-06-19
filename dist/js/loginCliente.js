@@ -23,12 +23,6 @@ function validarCPF() {
     let cpf = document.getElementById("cpf").value;
     if (typeof cpf !== "string") return false
     cpf = cpf.replace(/[\s.-]*/igm, '')
-    if (
-        cpf.length !== 11 || !Array.from(cpf).filter(e => e !== cpf[0]).length
-    ) {
-        alerta();
-        return false
-    }
     let soma = 0
     let resto
     for (let i = 1; i <= 9; i++)
