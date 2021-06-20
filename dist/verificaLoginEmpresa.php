@@ -10,7 +10,7 @@ $Senha = md5($Senha1);
 
 
 //Verifica se tem cadastro no banco de dados
-$Query = "SELECT COD_EMP, USUARIO_EMP FROM TBL_EMPRESA WHERE USUARIO_EMP = '{$Email}' AND SENHA_EMP = '{$Senha}'";
+$Query = "SELECT COD_EMP, EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '{$Email}' AND SENHA_EMP = '{$Senha}'";
 
 $result = mysqli_query($conn, $Query);
 

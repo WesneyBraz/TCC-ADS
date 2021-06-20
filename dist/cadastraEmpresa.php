@@ -17,23 +17,6 @@ if($_POST){
         }
       })
       </script>");     
-
-      $vnome_fantasia=$_POST["nome"];
-      
-      if (strlen($vnome_fantasia <= 3)) {
-        echo ("<script>
-        Swal.fire({
-          title: 'Mínimo três dígitos no campo nome!',
-          icon: 'error',
-          showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-          },
-          hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-          }
-        })
-      </script>"); 
-      }
     }
 
     else {
@@ -90,9 +73,13 @@ if($_POST){
 
      //----------------- FIM -----------------
 
+<<<<<<< HEAD
      $verifica = ("SELECT USUARIO_EMP FROM TBL_EMPRESA WHERE USUARIO_EMP = '$vmail'");
+=======
+     $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vmail'");
+>>>>>>> f9c285c7d4f80d7d1df382dbb4e593df90183f2a
 
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
+     $resultadoVerifica = mysqli_query ($conn, $verifica);
 
      $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
 
@@ -202,7 +189,7 @@ if($_POST){
      echo ("<script>
      Swal.fire({
       title: 'Empresa cadastrada com sucesso!',
-      icon: 'error',
+      icon: 'success',
       showClass: {
           popup: 'animate__animated animate__fadeInDown'
       },

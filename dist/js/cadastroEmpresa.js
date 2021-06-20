@@ -1,7 +1,7 @@
 //Alerta
 function alerta() {
     Swal.fire({
-        title: 'Preencha os campos vazios!',
+        title: 'Preencha os campos vazios js!',
         icon: 'error',
         showClass: {
             popup: 'animate__animated animate__fadeInDown'
@@ -52,6 +52,16 @@ jQuery('.meucampo').keyup(function () {
 //validar cadastro
 function validarCadastro() {
 
+<<<<<<< HEAD
+=======
+    //nome
+    let nome = document.getElementById('nome').value;
+    if(nome.length <= 3){
+        alerta();
+        return false;
+    }
+
+>>>>>>> f9c285c7d4f80d7d1df382dbb4e593df90183f2a
     //email
     let email = document.getElementById('email').value;
     let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;

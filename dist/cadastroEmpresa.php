@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -83,19 +83,18 @@
                             <h3 class="text-center font-weight-light my-4">Cadastre sua Empresa!</h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" id="frmCadastro" name="frmCadastro" class="formEmp" action=""
-                                onsubmit="validarCadastro();">
+                            <form method="POST" id="frmCadastro" name="frmCadastro" class="formEmp">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="">Nome:</label>
+                                            <label class="mb-1" for="nome">Nome:</label>
                                             <input class="form-control meucampo py-4" id="nome" name="nome" type="text"
                                                 placeholder="Nome fantasia..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="#">Email:</label>
+                                            <label class=" mb-1" for="email">Email:</label>
                                             <input class="form-control py-4" id="email" name="email" type="email"
                                                 aria-describedby="emailHelp"
                                                 placeholder="Coloque seu melhor email..." />
@@ -114,7 +113,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
-                                            <input class="form-control py-4 numeric" id="telefone" name="telefone"
+                                            <input class="form-control py-4" id="telefone" name="telefone"
                                                 type="text" placeholder="(00) 00000-0000" />
                                         </div>
 
@@ -131,7 +130,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cep">Cep:</label>
-                                            <input class="form-control py-4" name="cep" type="text" id="cep" value=""
+                                            <input class="form-control py-4" name="cep" type="text" id="cep"
                                                 size="10" maxlength="9" onblur="pesquisacep(this.value);"
                                                 placeholder="00.000-000" />
                                         </div>
@@ -140,14 +139,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">Lougradoro:</label>
+                                            <label class=" mb-1" for="rua">Lougradoro:</label>
                                             <input class="form-control py-4" id="rua" name="rua" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">Complemento:</label>
+                                            <label class=" mb-1" for="complemento">Complemento:</label>
                                             <input class="form-control py-4" id="complemento" name="complemento"
                                                 type="text" placeholder="Digite seu endereço..." />
                                         </div>
@@ -162,14 +161,14 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">Bairro:</label>
+                                            <label class=" mb-1" for="bairro">Bairro:</label>
                                             <input class="form-control py-4" id="bairro" name="bairro" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">Cidade:</label>
+                                            <label class=" mb-1" for="cidade">Cidade:</label>
                                             <input class="form-control py-4" id="cidade" name="cidade" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
@@ -178,14 +177,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">Estado:</label>
+                                            <label class=" mb-1" for="uf">Estado:</label>
                                             <input class="form-control py-4" id="uf" name="uf" type="text"
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class=" mb-1" for="">País:</label>
+                                            <label class=" mb-1" for="pais">País:</label>
                                             <input class="form-control py-4" id="pais" name="pais" type="text"
                                                 placeholder="Digite seu País..." />
                                         </div>
@@ -194,14 +193,14 @@
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="inputPassword">Senha:</label>
+                                            <label class="mb-1" for="senha">Senha:</label>
                                             <input class="form-control py-4" id="senha" name="senha" type="password"
                                                 placeholder="Digite sua senha..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="inputConfirmPassword">Confirme
+                                            <label class="mb-1" for="confirma_senha">Confirme
                                                 sua senha:
                                             </label>
                                             <input class="form-control py-4" id="confirma_senha" name="confirma_senha"
@@ -221,8 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block"
-                                        id="botao" type="submit" onclick="validarCadastro();"
-                                        value="Criar Conta"></input>
+                                        id="botao" type="submit" onclick="return validarCadastro();"></input>
                                 </div>
                             </form>
                         </div>
@@ -245,7 +243,6 @@
             </footer>
         </div>
     </div>
-
     <!--  teste -->
     <div class="emp"></div>
     <!-- Core -->
@@ -277,8 +274,6 @@
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/cadastroEmpresa.js"></script>
 
 </body>
