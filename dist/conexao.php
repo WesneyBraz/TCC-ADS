@@ -45,8 +45,6 @@ $senha = "bancodedados01";
 $dbname = "BD_TCC";
 */
 
-
-
 /* WESNEY
 $servidor = "localhost";
 $usuario = "root";

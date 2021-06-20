@@ -181,7 +181,10 @@
                     $sql = $conn->prepare(" SELECT CPF_FUN, NOME_FUN
                     FROM TBL_FUNCIONARIO
                     WHERE NOME_FUN like '%$vfiltro%' ");
+<<<<<<< HEAD
                     //WHERE NOME_PROD LIKE "%t%";
+=======
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                         
                     $sql -> execute() or exit("Erro Banco 3");
                 
@@ -339,13 +342,21 @@
                     FROM TBL_FORNECEDOR
                     WHERE NOME_FANTASIA_FOR like '%$vfiltro%' ");
                         
+<<<<<<< HEAD
                     $sql -> execute() or exit("Erro Banco 1");
+=======
+                    $sql -> execute() or exit("Erro Banco 5");
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                 
                     $result = $sql -> get_result();
 
                     echo'
                     <tr>
+<<<<<<< HEAD
                         <th title="id">COD</th>
+=======
+                        <th title="id">CNPJ</th>
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                         <th title="user">NOME</th>
                         <th> VER</th>
                         <th> EDITAR </th>
@@ -375,7 +386,11 @@
                 else {
                         $sql = $conn->prepare(" SELECT CNPJ_FOR, NOME_FANTASIA_FOR FROM TBL_FORNECEDOR");
                                             
+<<<<<<< HEAD
                         $sql -> execute() or exit("ErroBanco5");
+=======
+                        $sql -> execute() or exit("Erro Banco 05");
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                         
                         $result = $sql -> get_result();
                         echo'
@@ -410,6 +425,7 @@
             //----------------------------------------------------------------------------------    
             case "Ordem_de_Servico":
             // ------------------------------------- ORDEM DE SERVIÇO -------------------------------------
+<<<<<<< HEAD
                     $sql = $conn->prepare(" SELECT COD_SER, STATOS FROM TBL_ORDEM_DE_SERVICO");
                                         
                     $sql -> execute() or exit("ErroBanco6");
@@ -417,10 +433,24 @@
                     $result = $sql -> get_result();
                     echo'
                     <tr>
+=======
+            if (isset($vfiltro)) {
+                $sql = $conn->prepare(" SELECT COD_SER, STATOS
+                FROM TBL_ORDEM_DE_SERVICO
+                WHERE COD_SER like '%$vfiltro%' ");
+                    
+                $sql -> execute() or exit("Erro Banco 6");
+            
+                $result = $sql -> get_result();
+
+                echo'
+                <tr>
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                     <th title="id">Nº-OS</th>
                     <th title="user">STATUS</th>
                     <th> VER</th>
                     <th> EDITAR </th>
+<<<<<<< HEAD
                     </tr>
                     ';
                     
@@ -445,7 +475,66 @@
                     break;
                     
                     
+=======
+                </tr>
+                ';
+            
+                if ($result -> num_rows > 0){
+            
+                    while ($row = $result -> fetch_assoc()){
+                    
+                    echo '
+                            <tr>            
+                                <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
+                                <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
+                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
+                                data-target="#verModa">+ Ver </button> </td>  
+                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
+                                + Editar </button> </td> 
+                            </tr>';
+                    
+                    }
+            
+                }
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
 
+            }
+                else {
+                    $sql = $conn->prepare(" SELECT COD_SER, STATOS FROM TBL_ORDEM_DE_SERVICO");
+                                        
+                    $sql -> execute() or exit("ErroBanco6");
+                    
+                    $result = $sql -> get_result();
+                    echo'
+                    <tr>
+                        <th title="id">Nº-OS</th>
+                        <th title="user">STATUS</th>
+                        <th> VER</th>
+                        <th> EDITAR </th>
+                    </tr>
+                    ';
+                    
+                    if ($result -> num_rows > 0){
+            
+                        while ($row = $result -> fetch_assoc()){
+                            
+                        echo '
+                            <tr>            
+                                <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
+                                <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
+                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
+                                data-target="#verModa">+ Ver </button> </td>  
+                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
+                                + Editar </button> </td> 
+                            </tr>
+                        ';
+                            
+                        }
+            
+                    }               
+                 }
+                   
+                    break;
 
                 default:
                 echo"<script>alert('SELECIONE UM CAMPO');</script>"; 

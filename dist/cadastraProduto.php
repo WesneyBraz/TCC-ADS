@@ -64,7 +64,11 @@ if($_POST){
      VALUES
      (?, ?, ?, ?, ?, ?) ");
 
+<<<<<<< HEAD
      $sql -> bind_param("ssssds", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor, $vfornecedor);
+=======
+     $sql -> bind_param("sssdds", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor, $vfornecedor);
+>>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 

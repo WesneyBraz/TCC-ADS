@@ -1,3 +1,7 @@
+<head>
+    <script src="./js/sweetalert.js"></script>
+</head>
+
 <?php
 
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
@@ -51,7 +55,19 @@
         }
         else
         {
-            echo'Não tem OS cadastrada neste CPF:'.$vcpf.' ';
+            echo 
+            ("<script>
+            Swal.fire({
+                title: 'Cpf não cadastrado!',
+                icon: 'error',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+            </script>");
         }
 
         $sql -> close();
