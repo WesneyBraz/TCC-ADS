@@ -45,13 +45,15 @@ $(document).ready(function () {
 
 //aceita somente letras
 jQuery('.meucampo').keyup(function () {
-    this.value = this.value.replace(/[^a-zA-Z]/g,' ');
+    this.value = this.value.replace(/[^a-zA-Z]/g, ' ');
 });
 
 
 //validar cadastro
 function validarCadastro() {
 
+<<<<<<< HEAD
+=======
     //nome
     let nome = document.getElementById('nome').value;
     if(nome.length <= 3){
@@ -59,6 +61,7 @@ function validarCadastro() {
         return false;
     }
 
+>>>>>>> f9c285c7d4f80d7d1df382dbb4e593df90183f2a
     //email
     let email = document.getElementById('email').value;
     let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;

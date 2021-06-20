@@ -18,6 +18,9 @@ include('verificaSessao.php');
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 <body>
     <!-- Sidenav -->
@@ -122,26 +125,10 @@ include('verificaSessao.php');
 
 
                     <table class="table table-hover">
-                    <thead>
 
-                    <tr>
-                        <th scope="col">Cód</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Estoque</th>
-                        <th scope="col">Fornecedor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
                         <?php
+                        //chama lista de produtos
                             include_once 'detalhesProduto.php'
-
-                        ?>
-                        <?php
-                        //retorno produtos
-                        //include_once 'listaProdutoFuncionario.php';
                         ?>
      
                     </tr>
@@ -190,7 +177,7 @@ include('verificaSessao.php');
     </div>
 </div>
 </div>
-    <!-- Scripts 
+    <!-- Scripts -->
     <div class="prod"></div>
     <script>
         //Função ajax
@@ -207,7 +194,7 @@ include('verificaSessao.php');
                 return false;
             });
         });
-    </script>-->
+    </script>
 
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>

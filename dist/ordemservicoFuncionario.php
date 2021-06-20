@@ -127,6 +127,7 @@ include('verificaSessao.php');
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
                        <!-- <tr>-->
                             <?php
                                 include_once 'retornoOsFuncionario.php';
@@ -136,6 +137,171 @@ include('verificaSessao.php');
                         </tr>-->
                     </tbody>
                 </table>
+=======
+                        <tr>
+                        <?php
+                        include_once 'retornoOsFuncionario.php';
+
+                        ?>
+                        <td>
+                        <!-- 
+                        <--## Modal Ver 
+                        <span class="badge badge-dot mr-4">
+                            <button class="btn-sm btn-group btn-primary" data-toggle="modal"
+                                data-target="#verModa">
+                                + Ver
+                            </button>
+                            <div class="modal fade" id="verModa" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title row">Ordem de Serviço:</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4 class="row" >Descrição:</h4>
+                                            <p class="row">Esteira Parou,o equipamento se encontra em pessimo estado ...</p>
+                                            <h4 class="row" >Diagnostico:</h4>
+                                            <p class="row">O diagnostico foi feito de acordo com ...</p>
+                                            <h4 class="row" >Departamento:</h4>
+                                            <p class="row">TI</p>
+                                            <h4 class="row" >Funcionario:</h4>
+                                            <p class="row">José</p>
+                                            <h4 class="row" >Entrada:</h4>
+                                            <p class="row">05/04/2021</p>
+                                            <h4 class="row" >Saída:</h4>
+                                            <p class="row">05/04/2021</p>
+                                            <h4 class="row" >Status:</h4>
+                                            <p class="row">Atrasado</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button  type="button" class="btn btn-danger"
+                                                data-dismiss="modal">Fechar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            </span></td>
+                            <td>
+                            <-- ###Modal Editar 
+                            <span class="badge badge-dot mr-4">
+                            <button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
+                                + Editar
+                            </button>
+                            <div class="modal fade" id="editarModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header border-bottom-0">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-title text-center">
+                                        <h3>Editar Ordem de Serviço</h3>
+                                    </div>
+                                    <div class="d-flex flex-column mx-5 my-5">
+                                        <form>
+                                            <div class="form-group row ">
+                                                <label for="exampleFormControlTextarea1" class="">
+                                                    Descrição:</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="2"
+                                                    placeholder="Esteira Parou,o equipamento se encontra em pessimo estado ..."></textarea>
+                                            </div>
+                                            <div class="form-group row ">
+                                                <label for="exampleFormControlTextarea1"
+                                                    class="">Diagnostico:</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="2"
+                                                    placeholder="O diagnostico foi feito de acordo com........"></textarea>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="my-1 mr-2"
+                                                    for="inlineFormCustomSelectPref">Departamento:</label>
+                                                <select class="custom-select my-1 mr-sm-2"
+                                                    id="inlineFormCustomSelectPref">
+                                                    <option selected>Eletrico...</option>
+                                                    <option value="1">Mecanico</option>
+                                                    <option value="2">TI</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="my-1 mr-2"
+                                                    for="inlineFormCustomSelectPref">Funcionario:</label>
+                                                <select class="custom-select my-1 mr-sm-2"
+                                                    id="inlineFormCustomSelectPref">
+                                                    <option selected>José...</option>
+                                                    <option value="1">João</option>
+                                                    <option value="2">Pedro</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="my-1 mr-2"
+                                                    for="inlineFormCustomSelectPref">Cliente:</label>
+                                                <select class="custom-select my-1 mr-sm-2"
+                                                    id="inlineFormCustomSelectPref">
+                                                    <option selected>Alice...</option>
+                                                    <option value="1">Maria</option>
+                                                    <option value="2">Lucas</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="my-1 mr-2"
+                                                    for="inlineFormCustomSelectPref">Produto:</label>
+                                                <select class="custom-select my-1 mr-sm-2"
+                                                    id="inlineFormCustomSelectPref">
+                                                    <option selected>Esteira...</option>
+                                                    <option value="1">Placa</option>
+                                                    <option value="2">Tela</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-datetime-local-input"
+                                                    class=" my-1 mr-2">Entrada:</label>
+                                                <input class="form-control" type="datetime-local"
+                                                    value="2018-11-23T10:30:00" id="example-datetime-local-input">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-datetime-local-input"
+                                                    class=" my-1 mr-2">Saída:</label>
+                                                <input class="form-control" type="datetime-local"
+                                                    value="2018-11-23T10:30:00" id="example-datetime-local-input">
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="my-1 mr-2"
+                                                    for="inlineFormCustomSelectPref">Status:</label>
+                                                <select class="custom-select my-1 mr-sm-2"
+                                                    id="inlineFormCustomSelectPref">
+                                                    <option selected>Atrasado</option>
+                                                    <option value="1">Concluido</option>
+                                                    <option value="2">Em processo</option>
+                                                </select>
+                                            </div>
+                                            <button type="button"
+                                                class="btn btn-success btn-block btn-round">Salvar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                </div>
+                            </span>
+                        </td>
+                        -->
+            </tr>
+            </tbody>
+            </table>
+>>>>>>> 8f6b588b5ae9bb3b1f5de627cb8f368e2bb1c87f
             <!-- Card footer -->
             <div class="card-footer py-4">
                 <nav aria-label="...">
