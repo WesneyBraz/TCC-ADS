@@ -1,6 +1,16 @@
 <?php
 include('verificaSessao.php');
-include 'teste.php';
+require 'conexao.php';
+$id=addslashes($_GET['COD_SER']);
+
+$verifica = ("SELECT CUSTO, LUCRO, DATA_INICIO, DATA_FIM, 
+DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, 
+COD_CLI, COD_SER  FROM TBL_ORDEM_DE_SERVICO WHERE COD_SER = '$id'");
+
+
+$resultadoVerifica = mysqli_query ($conn, $verifica );
+
+$retorno = mysqli_fetch_assoc($resultadoVerifica);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -112,20 +122,22 @@ include 'teste.php';
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro" onsubmit="validarOS()">
+                                
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                        <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_SER'];?>"></input>
                                             <label for="exampleFormControlTextarea1" class="">
                                                 Descrição:</label>
                                             <input class="form-control" id="descricaoOs" name="descricaoOs" rows="2"
-                                                value="<?php echo $retorno['DESCRICAO_DA_ATIVIDADE'];?>"></textarea>
+                                                value="<?php echo $retorno['DESCRICAO_DA_ATIVIDADE'];?>"></input>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1" class="">Diagnostico:</label>
                                             <input class="form-control" id="diagnostico" name="diagnostico" rows="2"
-                                            value="<?php echo $retorno['DIAGNOSTICO'];?>"></textarea>
+                                            value="<?php echo $retorno['DIAGNOSTICO'];?>"></input>
                                         </div>
                                     </div>
                                 </div>

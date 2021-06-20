@@ -208,25 +208,15 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label for="example-datetime-local-input"
                                                 class=" my-1 mr-2">Entrada:</label>
-<<<<<<< HEAD
                                             <input class="form-control" type="date"
-                                                value="2018-11-23T10:30:00" id="dataEntrada" name="dataEntrada">
-=======
-                                            <input class="form-control" type="datetime-local"
-                                                value="2021-06-15T10:30:00" id="dataEntrada" name="dataEntrada">
->>>>>>> 8f6b588b5ae9bb3b1f5de627cb8f368e2bb1c87f
+                                            id="dataEntrada" name="dataEntrada">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-datetime-local-input" class=" my-1 mr-2">Saída:</label>
-<<<<<<< HEAD
                                             <input class="form-control" type="date"
-                                                value="2018-11-23T10:30:00" id="dataSaida" name="dataSaida">
-=======
-                                            <input class="form-control" type="datetime-local"
-                                                value="2021-06-15T10:30:00" id="dataSaida" name="dataSaida">
->>>>>>> 8f6b588b5ae9bb3b1f5de627cb8f368e2bb1c87f
+                                            id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,10 @@
 <?php
+
 if($_POST){
     //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
     if(empty($_POST['dataEntrada']) || empty($_POST['descricaoOs']) || empty($_POST['diagnostico']) 
      || empty($_POST['produto']) || empty($_POST['status']) || empty($_POST['lucro']) 
-     || empty($_POST['dataSaida']) || empty($_POST['valorOs'])   ){
+     || empty($_POST['dataSaida']) || empty($_POST['valorOs']) ){
         echo ("<script>
         $(document).ready(function(){ 
             Swal.fire({
@@ -29,29 +30,20 @@ if($_POST){
     $vfim= addslashes ($_POST["dataSaida"]);
     $vcusto= addslashes ($_POST["valorOs"]);
     $vlucro= addslashes ($_POST["lucro"]);
+    $vid= addslashes ($_POST["id"]);
 
     //----------------------------------FIM---------------------------------------------
 
-    //----------------------------------FIM---------------------------------------------
-
-
-
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
+    //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
      $sql = $conn->prepare(" UPDATE TBL_ORDEM_DE_SERVICO SET
-     DESCRICAO_DA_ATIVIDADE = '$vdescricao', DIAGNOSTICO = '$vdiagnostico', STATOS = '$vstatus',
+     DESCRICAO_DA_ATIVIDADE = '$vdescricao' , DIAGNOSTICO = '$vdiagnostico', STATOS = '$vstatus',
      PRODUTO = '$vproduto', CUSTO = '$vcusto', LUCRO = '$vlucro', DATA_INICIO = '$vinicio',
      DATA_FIM = '$vfim'
-     WHERE COD_SER = '1'");
-
-     //  DATA_INICIO, DATA_FIM, , , , 
-
+     WHERE COD_SER = '$vid'");
 
      //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
 
      $sql -> execute() or exit("ErroBanco1");
-
-
-     echo "Sucesso no Cadastro <br/>";
 
      $sql -> close();
      $conn -> close();
