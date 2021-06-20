@@ -4,7 +4,7 @@
 //mysqli_connect = efetua a conexão com a base de dados
 //mysqli_query = efetua uma consulta a base de dados
 //$i = usuario
-$i = 1;
+$i = 2;
 switch ($i) {
     case 0:
         //DUANY
@@ -29,6 +29,7 @@ switch ($i) {
         break;
     default:
     echo"<script>alert('SEM ACESSO AO BANCO DE DADOS');</script>";
+    exit();
 }
 
 /* DUANY

@@ -144,10 +144,10 @@ include('verificaSessao2.php');
                                 </select>
                             </div>
                             <div class="input-group mb-3 p-2">
-                                <input type="text" id="filtro" name="filtro" class="form-control" placeholder="Pesquisar"
+                                <input type="text" id="filtro" name="filtro" class="form-control" placeholder="Digite"
                                     aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
-                                    <input class="btn btn-primary" value="Checar" type="submit">
+                                    <input class="btn btn-primary" value="Pesquisar" type="submit">
                                         
                                     </input>
                                 </div>
