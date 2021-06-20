@@ -38,7 +38,7 @@
                     <tr>
                         <th title="id">CPF</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -53,7 +53,7 @@
                                 <td title="'.$row['CPF_CLI'].'">'.$row['CPF_CLI'].'</td>
                                 <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                   
                             </tr>';
@@ -73,7 +73,7 @@
                         <tr>
                         <th title="id">CPF</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                         </tr>
                         ';
@@ -87,7 +87,7 @@
                                     <td title="'.$row['CPF_CLI'].'">'.$row['CPF_CLI'].'</td>
                                     <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">+ Ver </button> </td>  
+                                    data-target="#verModa">- Excluir </button> </td>  
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                     + Editar </button> </td>                  
                                 </tr>
@@ -114,7 +114,7 @@
                     <tr>
                         <th title="id">COD</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -129,7 +129,7 @@
                                 <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
                                 <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                   
                             </tr>';
@@ -149,7 +149,7 @@
                         <tr>
                             <th title="id">COD</th>
                             <th title="user">NOME</th>
-                            <th> VER</th>
+                            <th> EXCLUIR</th>
                             <th> EDITAR </th>
                         </tr>
                         ';
@@ -163,7 +163,7 @@
                                     <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
                                     <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">+ Ver </button> </td>  
+                                    data-target="#verModa">- Excluir </button> </td>  
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                     + Editar </button> </td>                  
                                 </tr>
@@ -177,15 +177,11 @@
             //----------------------------------------------------------------------------------
             case "Funcionario":
             // ------------------------------------- FUNCIONARIO -------------------------------------
-                if (isset($vfiltro)){
-                    $sql = $conn->prepare(" SELECT CPF_FUN, NOME_FUN
-                    FROM TBL_FUNCIONARIO
-                    WHERE NOME_FUN like '%$vfiltro%' ");
-<<<<<<< HEAD
-                    //WHERE NOME_PROD LIKE "%t%";
-=======
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
-                        
+            if (isset($vfiltro)){
+                $sql = $conn->prepare(" SELECT CPF_FUN, NOME_FUN
+                FROM TBL_FUNCIONARIO
+                WHERE NOME_FUN like '%$vfiltro%' ");
+
                     $sql -> execute() or exit("Erro Banco 3");
                 
                     $result = $sql -> get_result();
@@ -194,7 +190,7 @@
                     <tr>
                         <th title="id">CPF</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -209,7 +205,7 @@
                                 <td title="'.$row['CPF_FUN'].'">'.$row['CPF_FUN'].'</td>
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                   
                             </tr>';
@@ -230,7 +226,7 @@
                     <tr>
                     <th title="id">CPF</th>
                     <th title="user">NOME</th>
-                    <th> VER</th>
+                    <th> EXCLUIR</th>
                     <th> EDITAR </th>
                     </tr>
                     ';
@@ -244,7 +240,7 @@
                                 <td title="'.$row['CPF_FUN'].'">'.$row['CPF_FUN'].'</td>
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td> 
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                 
                             </tr>
@@ -256,8 +252,10 @@
                 }
                 break;
             //----------------------------------------------------------------------------------
-            case "Produto":
+            
             // ------------------------------------- PRODUTO -------------------------------------
+            case "Produto":
+
                 if(isset($vfiltro)){
 
                     $sql = $conn->prepare(" SELECT COD_PROD, NOME_PROD
@@ -272,7 +270,7 @@
                     <tr>
                         <th title="id">COD</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -287,7 +285,7 @@
                                 <td title="'.$row['COD_PROD'].'">'.$row['COD_PROD'].'</td>
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                 
                             </tr>                
@@ -309,7 +307,7 @@
                     <tr>
                         <th title="id">COD</th>
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -323,7 +321,7 @@
                                 <td title="'.$row['COD_PROD'].'">'.$row['COD_PROD'].'</td>
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                 
                             </tr>
@@ -342,23 +340,15 @@
                     FROM TBL_FORNECEDOR
                     WHERE NOME_FANTASIA_FOR like '%$vfiltro%' ");
                         
-<<<<<<< HEAD
-                    $sql -> execute() or exit("Erro Banco 1");
-=======
                     $sql -> execute() or exit("Erro Banco 5");
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                 
                     $result = $sql -> get_result();
 
                     echo'
                     <tr>
-<<<<<<< HEAD
-                        <th title="id">COD</th>
-=======
                         <th title="id">CNPJ</th>
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                         <th title="user">NOME</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -373,7 +363,7 @@
                                 <td title="'.$row['CNPJ_FOR'].'">'.$row['CNPJ_FOR'].'</td>
                                 <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
+                                data-target="#verModa">- Excluir </button> </td>  
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                 + Editar </button> </td>                   
                             </tr>';
@@ -385,19 +375,15 @@
                 }
                 else {
                         $sql = $conn->prepare(" SELECT CNPJ_FOR, NOME_FANTASIA_FOR FROM TBL_FORNECEDOR");
-                                            
-<<<<<<< HEAD
-                        $sql -> execute() or exit("ErroBanco5");
-=======
+                    
                         $sql -> execute() or exit("Erro Banco 05");
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
-                        
+
                         $result = $sql -> get_result();
                         echo'
                         <tr>
                             <th title="id">CNPJ</th>
                             <th title="user">NOME</th>
-                            <th> VER</th>
+                            <th> EXCLUIR</th>
                             <th> EDITAR </th>
                         </tr>
                         ';
@@ -411,7 +397,7 @@
                                     <td title="'.$row['CNPJ_FOR'].'">'.$row['CNPJ_FOR'].'</td>
                                     <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>    
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">+ Ver </button> </td>  
+                                    data-target="#verModa">- Excluir </button> </td>  
                                     <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
                                     + Editar </button> </td>              
                                 </tr>
@@ -425,15 +411,6 @@
             //----------------------------------------------------------------------------------    
             case "Ordem_de_Servico":
             // ------------------------------------- ORDEM DE SERVIÇO -------------------------------------
-<<<<<<< HEAD
-                    $sql = $conn->prepare(" SELECT COD_SER, STATOS FROM TBL_ORDEM_DE_SERVICO");
-                                        
-                    $sql -> execute() or exit("ErroBanco6");
-                    
-                    $result = $sql -> get_result();
-                    echo'
-                    <tr>
-=======
             if (isset($vfiltro)) {
                 $sql = $conn->prepare(" SELECT COD_SER, STATOS
                 FROM TBL_ORDEM_DE_SERVICO
@@ -445,37 +422,10 @@
 
                 echo'
                 <tr>
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
                     <th title="id">Nº-OS</th>
                     <th title="user">STATUS</th>
-                    <th> VER</th>
+                    <th> EXCLUIR</th>
                     <th> EDITAR </th>
-<<<<<<< HEAD
-                    </tr>
-                    ';
-                    
-                    if ($result -> num_rows > 0){
-            
-                        while ($row = $result -> fetch_assoc()){
-                            
-                        echo '
-                            <tr>            
-                                <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
-                                <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td> 
-                            </>
-                        ';
-                            
-                        }
-            
-                    }
-                    break;
-                    
-                    
-=======
                 </tr>
                 ';
             
@@ -488,15 +438,21 @@
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td> 
-                            </tr>';
+                                data-target="#verModa">- Excluir </button> </td>'?>
+                                <td>
+                                
+                                <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <span class="nav-link-text">EDITAR</span>
+                                </a></td>
+                                
+                                <?php echo'  
                     
+                            </tr>             
+                        ';
                     }
             
                 }
->>>>>>> 21c0a011b16cf17b5a7a0c8cb9209b9535a0eceb
 
             }
                 else {
@@ -509,7 +465,7 @@
                     <tr>
                         <th title="id">Nº-OS</th>
                         <th title="user">STATUS</th>
-                        <th> VER</th>
+                        <th> EXCLUIR</th>
                         <th> EDITAR </th>
                     </tr>
                     ';
@@ -523,10 +479,17 @@
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
                                 <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">+ Ver </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td> 
-                            </tr>
+                                data-target="#verModa">- Excluir </button> </td>'?>
+                                <td>
+                                
+                                <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <span class="nav-link-text">EDITAR</span>
+                                </a></td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
                         ';
                             
                         }

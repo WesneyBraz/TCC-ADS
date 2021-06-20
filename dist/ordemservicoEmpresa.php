@@ -173,7 +173,6 @@ include('verificaSessao2.php');
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                     include_once 'listaFuncionario.php';
                                                     //----------------------------------FIM---------------------------------------------
-
                                                 ?>
                                             </select>
 
@@ -190,7 +189,6 @@ include('verificaSessao2.php');
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                     include_once 'listaCliente.php';
                                                     //----------------------------------FIM---------------------------------------------
-
                                                 ?>
                                             </select>
                                         </div>

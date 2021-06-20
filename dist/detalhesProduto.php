@@ -4,31 +4,6 @@
     if($_POST){
     $vnome=$_POST["nomeProd"];
 
-    //-------------------CASO NÃO EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
-
-    /*VERIFICA SE O CAMPO EXISTE
-    $verifica = ("SELECT NOME_PROD FROM TBL_PRODUTO WHERE NOME_PROD = '$vnome'");
-
-    $resultadoVerifica = mysqli_query ($conn, $verifica);
-
-    $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
-
-    //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
-    if($erroResultadoVerifica = 0)
-    {
-       echo ("<script>
-       $(document).ready(function(){ 
-           Swal.fire({
-               icon: 'error',
-               text: 'Produto sem cadastrado!'
-             })   
-       });
-       </script>");
-
-       return false;
-    }*/
-    //----------------------------------FIM---------------------------------------------
-
     //-------------------------------------EXCLUIR------------------------------------- 
 
     //$sql = $conn->prepare("DELETE FROM TBL_PRODUTO WHERE COD_PROD = ?");
@@ -103,6 +78,21 @@ else{
     $sql -> execute() or exit("ErroBanco2");
 
     $result = $sql -> get_result();
+    echo'
+    <thead>
+
+    <tr>
+        <th scope="col">Cód</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Estoque</th>
+        <th scope="col">Fornecedor</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    ';
 
     if ($result -> num_rows > 0){
 

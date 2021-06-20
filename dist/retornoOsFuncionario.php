@@ -23,7 +23,7 @@ if ($result -> num_rows > 0){
             <td>
             
             <a class="nav-link" href="alterarOsFun.php?COD_SER=<?php echo $row['COD_SER'];?>">         
-            <i class="ni ni-cart text-primary"></i>
+            <i class="ni ni-bullet-list-67 text-primary"></i>
             <span class="nav-link-text">EDITAR</span>
             </a></td>
             
