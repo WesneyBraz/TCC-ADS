@@ -436,15 +436,20 @@
                     echo '
                             <tr>            
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
-                                <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>'?>
+                                <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td>'?> 
                                 <td>
-                                
-                                <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
-                                <span class="nav-link-text">EDITAR</span>
-                                </a></td>
+                                    <a class="nav-link" href="excluirOs.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
                                 
                                 <?php echo'  
                     
@@ -478,14 +483,19 @@
                             <tr>            
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>'?>
+                                '?> 
                                 <td>
-                                
-                                <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
-                                <span class="nav-link-text">EDITAR</span>
-                                </a></td>
+                                    <a class="nav-link" href="excluirOs.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="nav-link" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
                                 
                                 <?php echo'  
                     

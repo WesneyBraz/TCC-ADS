@@ -19,8 +19,6 @@
     //VERIFICA SE O CAMPO EXISTE
 
 
-
-
     // ------------------ EFETUA A CONSULTA A BASE DE DADOS ----------------------------
 
         $sql = $conn->prepare(" SELECT CPF_CLI, NOME_CLI, DATA_INICIO, DATA_FIM, DIAGNOSTICO, STATOS
@@ -35,8 +33,6 @@
         if ($result -> num_rows > 0){
 
             while ($row = $result -> fetch_assoc()){
-
-                //NÃO ESQUECER O " >" NO FINAL DA TAG 
                
             echo '
             <br>

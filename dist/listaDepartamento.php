@@ -15,15 +15,11 @@
         if ($result -> num_rows > 0){
 
             while ($row = $result -> fetch_assoc()){
-
-                //NÃO ESQUECER O " >" NO FINAL DA TAG 
                
             echo '
 
                 <option value="' . $row['COD_DEP']. '">'.$row['NOME_DEP'].'</option>
                ';
-               
-                                
 
             }
 
