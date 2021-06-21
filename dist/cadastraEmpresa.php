@@ -73,11 +73,7 @@ if($_POST){
 
      //----------------- FIM -----------------
 
-<<<<<<< HEAD
-     $verifica = ("SELECT USUARIO_EMP FROM TBL_EMPRESA WHERE USUARIO_EMP = '$vmail'");
-=======
      $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '$vmail'");
->>>>>>> f9c285c7d4f80d7d1df382dbb4e593df90183f2a
 
      $resultadoVerifica = mysqli_query ($conn, $verifica);
 

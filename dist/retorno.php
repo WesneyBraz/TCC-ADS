@@ -7,7 +7,6 @@
     $vconsulta=$_POST["consulta"];
     $vfiltro=$_POST["filtro"];
 
-
         if(empty($vconsulta)){
 
             if(empty($vfiltro)){
@@ -18,7 +17,6 @@
 
         }
 
-
         else {
             switch($vconsulta){
             //----------------------------------------------------------------------------------
@@ -26,7 +24,7 @@
             // ------------------------------------- CLIENTE -------------------------------------
 
                 if(isset($vfiltro)){
-                    $sql = $conn->prepare(" SELECT CPF_CLI, NOME_CLI 
+                    $sql = $conn->prepare(" SELECT COD_CLI, CPF_CLI, NOME_CLI 
                     FROM TBL_CLIENTE
                     WHERE CPF_CLI like '%$vfiltro%' ");
                         
@@ -52,11 +50,25 @@
                             <tr>            
                                 <td title="'.$row['CPF_CLI'].'">'.$row['CPF_CLI'].'</td>
                                 <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                   
-                            </tr>';
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
+                        ';
                         
                         }
                 
@@ -64,7 +76,7 @@
 
                 }
                 else{
-                        $sql = $conn->prepare(" SELECT CPF_CLI, NOME_CLI FROM TBL_CLIENTE");
+                        $sql = $conn->prepare(" SELECT COD_CLI, CPF_CLI, NOME_CLI FROM TBL_CLIENTE");
                                 
                         $sql -> execute() or exit("Erro Banco 01");
 
@@ -86,11 +98,24 @@
                                 <tr>            
                                     <td title="'.$row['CPF_CLI'].'">'.$row['CPF_CLI'].'</td>
                                     <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">- Excluir </button> </td>  
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                    + Editar </button> </td>                  
-                                </tr>
+                                    '?> 
+                                    <td>
+                                        <a class="nav-link" href="excluir.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EXCLUIR</span>
+                                        </a>
+                                    </td>
+    
+                                    <td>
+                                        <a class="nav-link" href="">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EDITAR</span>
+                                        </a>
+                                    </td>
+                                    
+                                    <?php echo'  
+                        
+                                </tr>             
                             ';
                             
                             }
@@ -127,12 +152,25 @@
                     
                             <tr>            
                                 <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
-                                <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                   
-                            </tr>';
+                                <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>'?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
+                        ';
                         
                         }
                 
@@ -161,12 +199,24 @@
                             echo '
                                 <tr>            
                                     <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
-                                    <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">- Excluir </button> </td>  
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                    + Editar </button> </td>                  
-                                </tr>
+                                    <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>'?> 
+                                    <td>
+                                        <a class="nav-link" href="excluir.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EXCLUIR</span>
+                                        </a>
+                                    </td>
+    
+                                    <td>
+                                        <a class="nav-link" href="">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EDITAR</span>
+                                        </a>
+                                    </td>
+                                    
+                                    <?php echo'  
+                        
+                                </tr>             
                             ';
                             
                             }
@@ -178,7 +228,7 @@
             case "Funcionario":
             // ------------------------------------- FUNCIONARIO -------------------------------------
             if (isset($vfiltro)){
-                $sql = $conn->prepare(" SELECT CPF_FUN, NOME_FUN
+                $sql = $conn->prepare(" SELECT COD_FUN, CPF_FUN, NOME_FUN
                 FROM TBL_FUNCIONARIO
                 WHERE NOME_FUN like '%$vfiltro%' ");
 
@@ -204,11 +254,25 @@
                             <tr>            
                                 <td title="'.$row['CPF_FUN'].'">'.$row['CPF_FUN'].'</td>
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                   
-                            </tr>';
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
+                        ';
                             
                         }
                 
@@ -217,7 +281,7 @@
                     
                 }
                 else {
-                    $sql = $conn->prepare(" SELECT CPF_FUN, NOME_FUN FROM TBL_FUNCIONARIO");
+                    $sql = $conn->prepare(" SELECT COD_FUN, CPF_FUN, NOME_FUN FROM TBL_FUNCIONARIO");
                                 
                     $sql -> execute() or exit("Erro Banco 03");
             
@@ -239,11 +303,24 @@
                             <tr>            
                                 <td title="'.$row['CPF_FUN'].'">'.$row['CPF_FUN'].'</td>
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                 
-                            </tr>
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
                         ';
                             
                         }
@@ -284,12 +361,24 @@
                             <tr>            
                                 <td title="'.$row['COD_PROD'].'">'.$row['COD_PROD'].'</td>
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                 
-                            </tr>                
-                            </tr>';
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
+                        ';
                         
                         }
                 
@@ -320,11 +409,23 @@
                             <tr>            
                                 <td title="'.$row['COD_PROD'].'">'.$row['COD_PROD'].'</td>
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                 
-                            </tr>
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
                         ';
                             
                         }
@@ -336,7 +437,7 @@
             case "Fornecedor":
             // ------------------------------------- FORNECEDOR -------------------------------------
                 if (isset($vfiltro)) {
-                    $sql = $conn->prepare(" SELECT CNPJ_FOR, NOME_FANTASIA_FOR
+                    $sql = $conn->prepare(" SELECT COD_FOR, CNPJ_FOR, NOME_FANTASIA_FOR
                     FROM TBL_FORNECEDOR
                     WHERE NOME_FANTASIA_FOR like '%$vfiltro%' ");
                         
@@ -362,11 +463,25 @@
                             <tr>            
                                 <td title="'.$row['CNPJ_FOR'].'">'.$row['CNPJ_FOR'].'</td>
                                 <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                data-target="#verModa">- Excluir </button> </td>  
-                                <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                + Editar </button> </td>                   
-                            </tr>';
+                                '?> 
+                                <td>
+                                    <a class="nav-link" href="excluir.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EXCLUIR</span>
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a class="nav-link" href="">         
+                                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                                    <span class="nav-link-text">EDITAR</span>
+                                    </a>
+                                </td>
+                                
+                                <?php echo'  
+                    
+                            </tr>             
+                        ';
                         
                         }
                 
@@ -374,7 +489,7 @@
 
                 }
                 else {
-                        $sql = $conn->prepare(" SELECT CNPJ_FOR, NOME_FANTASIA_FOR FROM TBL_FORNECEDOR");
+                        $sql = $conn->prepare(" SELECT COD_FOR, CNPJ_FOR, NOME_FANTASIA_FOR FROM TBL_FORNECEDOR");
                     
                         $sql -> execute() or exit("Erro Banco 05");
 
@@ -396,11 +511,24 @@
                                 <tr>            
                                     <td title="'.$row['CNPJ_FOR'].'">'.$row['CNPJ_FOR'].'</td>
                                     <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>    
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal"
-                                    data-target="#verModa">- Excluir </button> </td>  
-                                    <td><button class="btn-sm btn-group btn-primary" data-toggle="modal" data-target="#editarModal">
-                                    + Editar </button> </td>              
-                                </tr>
+                                    '?> 
+                                    <td>
+                                        <a class="nav-link" href="excluir.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EXCLUIR</span>
+                                        </a>
+                                    </td>
+    
+                                    <td>
+                                        <a class="nav-link" href="">         
+                                        <i class="ni ni-bullet-list-67 text-primary"></i>
+                                        <span class="nav-link-text">EDITAR</span>
+                                        </a>
+                                    </td>
+                                    
+                                    <?php echo'  
+                        
+                                </tr>             
                             ';
                                 
                             }
@@ -438,7 +566,7 @@
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td>'?> 
                                 <td>
-                                    <a class="nav-link" href="excluirOs.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <a class="nav-link" href="excluir.php?COD_SER=<?php echo $row['COD_SER'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -485,7 +613,7 @@
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluirOs.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <a class="nav-link" href="excluir.php?COD_SER=<?php echo $row['COD_SER'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>

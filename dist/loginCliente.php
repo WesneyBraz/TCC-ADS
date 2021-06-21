@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -104,7 +107,6 @@
                                     </div>
                                 </div>
                             </form>
-
                             <!-- Light table -->
                             <table class="table table-hover">
                                 <thead>
@@ -115,7 +117,6 @@
                                         <th scope="col">SAÍDA</th>
                                         <th scope="COL">DIAGNOSTICO</th>
                                         <th scope="COL">STATUS</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,10 +131,6 @@
                                 </tbody>
                             </table>
                             <!-- Card footer -->
-
-
-
-
                             <div class="card-footer py-4">
                                 <nav aria-label="...">
                                     <ul class="pagination justify-content-end mb-0">
@@ -175,6 +172,23 @@
             </div>
         </footer>
         <!-- Scripts -->
+        <div class="cli"></div>
+    <script>
+        //Função ajax
+        $(function () {
+            $('.frmCliente').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'retornoCliente.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.frmCliente').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
         <!-- Core -->
         <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

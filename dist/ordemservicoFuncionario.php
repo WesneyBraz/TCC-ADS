@@ -109,7 +109,6 @@ include('verificaSessao.php');
                     <h2 class="mb-0">Ordem de serviço:</h2>
                 </div>
                 <!-- Light table -->
-
                 <form name="frmOs" class="frmOs" id="frmOs" action="" method="POST"> 
                     <div class="input-group mb-3 p-2">
                         <input type="text" class="form-control" id="os" name="os" 
@@ -141,7 +140,6 @@ include('verificaSessao.php');
 
                     </tbody>               
                 </table>
-                
             <!-- Card footer -->
             <div class="card-footer py-4">
                 <nav aria-label="...">
