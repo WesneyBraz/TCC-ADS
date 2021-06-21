@@ -17,6 +17,9 @@ include('verificaSessao.php');
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -106,15 +109,19 @@ include('verificaSessao.php');
                     <h2 class="mb-0">Ordem de serviço:</h2>
                 </div>
                 <!-- Light table -->
-                <div class="input-group mb-3 p-2">
-                    <input type="text" class="form-control" placeholder="Pesquisar"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="submit">
-                            <span class="ni ni-active-40">
-                        </button>
+
+                <form name="frmOs" class="frmOs" id="frmOs" action="" method="POST"> 
+                    <div class="input-group mb-3 p-2">
+                        <input type="text" class="form-control" id="os" name="os" 
+                        placeholder="Pesquisar" 
+                        aria-label="Recipient's username" 
+                        aria-describedby="basic-addon2"></input>
+                        <div class="input-group-append">
+                            <input class="btn btn-primary btn-block btn-round" type="submit" 
+                            value="Checar"></input>
+                        </div>
                     </div>
-                </div>
+                </form>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -122,6 +129,7 @@ include('verificaSessao.php');
                             <th scope="col">Entrada</th>
                             <th scope="col">Saida</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Técnico</th>
                             <th scope="col">Ver</th>
                             <th scope="col">Editar</th>
                         </tr>
@@ -177,6 +185,23 @@ include('verificaSessao.php');
 </div>
 </div>
     <!-- Scripts -->
+    <div class="os"></div>
+    <script>
+        //Função ajax
+        $(function () {
+            $('.formOs').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: 'retornoOsFuncionario.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formOs').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

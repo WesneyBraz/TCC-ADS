@@ -109,7 +109,6 @@ include('verificaSessao.php');
                         <h2 class="mb-0">Consultar Produtos:</h2>
                     </div>
                     <!-- Light table -->
-
                     <form name="frmProd" class="frmProd" id="frmProd" action="" method="POST"> 
                     <div class="input-group mb-3 p-2">
                         <input type="text" class="form-control" id="nomeProd" name="nomeProd" 
@@ -122,18 +121,24 @@ include('verificaSessao.php');
                         </div>
                         </div>
                      </form>
-
-
                     <table class="table table-hover">
-
-                        <?php
-                        //chama lista de produtos
+                        <thead>
+                            <tr>
+                                <th scope="col">Cód</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Estoque</th>
+                                <th scope="col">Fornecedor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            //chama lista de produtos
                             include_once 'detalhesProduto.php'
-                        ?>
-     
-                    </tr>
-                </tbody>
-                </table>
+                            ?>
+                        </tbody>               
+                    </table>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
                     <nav aria-label="...">
