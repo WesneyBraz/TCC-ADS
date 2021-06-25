@@ -3,7 +3,7 @@ if($_POST){
     //Campos vazios
     if(empty($_POST['nome']) || empty($_POST['cnpj']) || empty($_POST['email']) || empty($_POST['telefone']) 
     || empty($_POST['celular']) || empty($_POST['cep']) || empty($_POST['rua']) || empty($_POST['cidade']) 
-    || empty($_POST['numero']) || empty($_POST['bairro']) || empty($_POST['uf']) || empty($_POST['pais']) )
+    || empty($_POST['numero']) || empty($_POST['bairro']) || empty($_POST['uf']) || empty($_POST['pais']) || empty($_POST['senha']) || empty($_POST['confirma_senha']) )
     {
       echo ("<script>
       Swal.fire({
@@ -145,7 +145,7 @@ if($_POST){
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ----------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_EMPRESA
-     (NOME_FANTASIA_EMP, CNPJ_EMP, USUARIO_EMP, SENHA_EMP, COD_CAT)
+     (NOME_FANTASIA_EMP, CNPJ_EMP, EMAIL_EMP, SENHA_EMP, COD_CAT)
      VALUES
      (?, ?, ?, ?, ?) ");
 

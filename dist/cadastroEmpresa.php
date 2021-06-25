@@ -220,7 +220,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block"
-                                        id="botao" type="submit" onclick="return validarCadastro();"></input>
+                                        id="botao" type="submit" onclick="validarCadastro();"></input>
                                 </div>
                             </form>
                         </div>
