@@ -146,8 +146,6 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                             <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h3>
                         </div>
                         <div class="card-body">
-
-
                             <form method="POST" action="" class="formOS" id="frmCadastro" onsubmit="validarOS()">
                                 <div class="form-row">
                                     <div class="col-md-6">
@@ -176,7 +174,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                                 <option selected>Selecione...</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once 'listaFuncionario.php';
+                                                    include_once './php/readFun.php';
                                                     //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
@@ -189,7 +187,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                                 <option selected>Selecione...</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once 'listaCliente.php';
+                                                    include_once './php/readCli.php';
                                                     //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
@@ -255,9 +253,6 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                 <input type="submit" class="btn btn-outline-primary btn-block btn-round" id="botao"
                                     value="SALVAR ALTERAÇÃO" onclick="validarOS();"></input>
                             </form>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -282,7 +277,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
         $(function () {
             $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'alterarOsEmp2.php', //Arquivo php que fará as validações
+                    url: './php/updateOsEmp.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOS').serialize(), //Pega as informações inseridas
                     success: function (data) {

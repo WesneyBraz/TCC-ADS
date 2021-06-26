@@ -1,12 +1,12 @@
 <?php
 
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conexao.php';
+    include_once 'conect.php';
     // -----------------------------------FIM-------------------------------------------
 
     // ------------------ EFETUA A CONSULTA A BASE DE DADOS ----------------------------
 
-        $sql = $conn->prepare(" SELECT COD_DEP, NOME_DEP FROM TBL_DEPARTAMENTO ");
+        $sql = $conn->prepare(" SELECT COD_FOR, NOME_FANTASIA_FOR FROM TBL_FORNECEDOR ");
         
         $sql -> execute() or exit("ErroBanco2");
 
@@ -16,10 +16,7 @@
 
             while ($row = $result -> fetch_assoc()){
                
-            echo '
-
-                <option value="' . $row['COD_DEP']. '">'.$row['NOME_DEP'].'</option>
-               ';
+                echo '<option value="' . $row['COD_FOR']. '">'.$row['NOME_FANTASIA_FOR'].'</option> ';                              
 
             }
 

@@ -135,7 +135,7 @@ include('verificaSessao.php');
                         <tbody>
                             <?php
                             //chama lista de produtos
-                            include_once 'detalhesProduto.php'
+                            include_once './php/readProdFun.php'
                             ?>
                         </tbody>               
                     </table>
@@ -189,7 +189,7 @@ include('verificaSessao.php');
         $(function () {
             $('.formProd').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'detalhesProduto.php', //Arquivo php que fará as validações
+                    url: './php/readProdFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formProd').serialize(), //Pega as informações inseridas
                     success: function (data) {

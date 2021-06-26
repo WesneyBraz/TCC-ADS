@@ -270,7 +270,7 @@ include('verificaSessao2.php');
         $(function () {
             $('.formFor').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraFornecedor.php', //Arquivo php que fará as validações
+                    url: './php/createFor.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formFor').serialize(), //Pega as informações inseridas
                     success: function (data) {

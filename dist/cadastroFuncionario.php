@@ -211,7 +211,7 @@ include('verificaSessao2.php');
                                                 <option selected>Selecione</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once 'listaDepartamento.php';
+                                                    include_once './php/readDep.php';
                                                     //----------------------------------FIM---------------------------------------------
 
                                                 ?>
@@ -278,7 +278,7 @@ include('verificaSessao2.php');
         $(function () {
             $('.formDep').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraDepartamento.php', //Arquivo php que fará as validações
+                    url: './php/createDep.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formDep').serialize(), //Pega as informações inseridas
                     success: function (data) {
@@ -292,7 +292,7 @@ include('verificaSessao2.php');
         $(function () {
             $('.formFun').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraFuncionario.php', //Arquivo php que fará as validações
+                    url: './php/createFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formFun').serialize(), //Pega as informações inseridas
                     success: function (data) {

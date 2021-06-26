@@ -206,7 +206,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
         $(function () {
             $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'alterarOsFun2.php', //Arquivo php que fará as validações
+                    url: './php/updateOsFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOS').serialize(), //Pega as informações inseridas
                     success: function (data) {

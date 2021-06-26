@@ -1,10 +1,8 @@
 <?php
+
 if($_POST){
     //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
-    if(empty($_POST['nome']) || empty($_POST['cnpj']) || empty($_POST['email']) || empty($_POST['telefone']) 
-    || empty($_POST['celular']) || empty($_POST['cep']) || empty($_POST['rua']) || empty($_POST['cidade']) 
-    || empty($_POST['numero']) || empty($_POST['bairro']) || empty($_POST['uf']) || empty($_POST['pais']) )
-    {
+    if(empty($_POST['nome']) || empty($_POST['cpf'])){
         echo ("<script>
         $(document).ready(function(){ 
             Swal.fire({
@@ -14,23 +12,24 @@ if($_POST){
         });
         </script>");
     }
-
+    
     else {
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conexao.php';
+    include_once 'conect.php';
     //----------------------------------FIM---------------------------------------------
 
 
-    //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES     
-    $vnome_fantasia=$_POST["nome"];
-    $vcnpj=$_POST["cnpj"];
+    //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
 
-    $vmail=$_POST["email"];
+    $vnome=$_POST["nome"];
+    $vcpf=$_POST["cpf"];
+
+    $vmail=$_POST["email"]; 
     $vtelefone=$_POST["telefone"];
     $vcelular=$_POST["celular"];
-
+    
     $vcep=$_POST["cep"];
-    $vlougradouro=$_POST["rua"];
+    $vrua=$_POST["rua"];
     $vcomplemento=$_POST["complemento"];
     $vnumero=$_POST["numero"];
     $vbairro=$_POST["bairro"];
@@ -38,14 +37,16 @@ if($_POST){
     $vestado=$_POST["uf"];
     $vpais=$_POST["pais"];
 
-    $vcat=$vcnpj;
+    $vcat=$vcpf;
+
+
 
     //----------------------------------FIM---------------------------------------------
 
     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
     //mysqli_query = consulta a base de dados 
     //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT CNPJ_FOR FROM TBL_FORNECEDOR WHERE CNPJ_FOR = '$vcnpj'");
+     $verifica = ("SELECT CPF_CLI FROM TBL_CLIENTE WHERE CPF_CLI = '$vcpf'");
 
      $resultadoVerifica = mysqli_query ($conn, $verifica );
 
@@ -58,15 +59,14 @@ if($_POST){
         $(document).ready(function(){ 
             Swal.fire({
                 icon: 'error',
-                text: 'Fornecedor já cadastrado!'
+                text: 'Cliente já cadastrado!'
               })   
         });
         </script>");
- 
+
         return false;
      }
      //----------------------------------FIM---------------------------------------------
-
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
 
@@ -75,22 +75,21 @@ if($_POST){
      VALUES
      (?, ?) ");
 
-     $sql -> bind_param("ss", $vcat,$vnome_fantasia );
+     $sql -> bind_param("ss", $vcat,$vnome );
 
-     $sql -> execute() or exit("ErroBanco 00 ");
+     $sql -> execute() or exit("ErroBanco ");
 
 
-     
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_FORNECEDOR
-     (NOME_FANTASIA_FOR, CNPJ_FOR, COD_CAT)
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
+     $sql = $conn->prepare(" INSERT INTO TBL_CLIENTE
+     (CPF_CLI, NOME_CLI, COD_CAT)
      VALUES
      (?, ?, ?) ");
 
 
-     $sql -> bind_param("sss", $vnome_fantasia, $vcnpj, $vcat);
+     $sql -> bind_param("sss", $vcpf , $vnome, $vcat);
 
-     $sql -> execute() or exit("ErroBanco 10 ");
+     $sql -> execute() or exit("ErroBanco1 ");
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
@@ -101,19 +100,18 @@ if($_POST){
 
      $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
 
-     $sql -> execute() or exit("ErroBanco 20 ");
+     $sql -> execute() or exit("ErroBanco2 ");
 
-
-    //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
+     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
 
      $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
      (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
      VALUES
      (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssssssss", $vlougradouro, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
+     $sql -> bind_param("sssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
 
-     $sql -> execute() or exit("ErroBanco 30 ");
+     $sql -> execute() or exit("ErroBanco3 ");
 
 
 
@@ -126,7 +124,7 @@ if($_POST){
      $(document).ready(function(){ 
          Swal.fire({
              icon: 'success',
-             text: 'Fornecedor cadastrado com sucesso!'
+             text: 'Cliente cadastrado com sucesso!'
            })   
      });
      </script>");
@@ -135,4 +133,4 @@ if($_POST){
      //----------------------------------FIM---------------------------------------------
     }
     }
-     ?>
+?>

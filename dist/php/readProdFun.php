@@ -1,5 +1,5 @@
 <?php
-include_once 'conexao.php';
+include_once 'conect.php';
 if($_POST){
     $vnome=$_POST["nomeProd"];
 

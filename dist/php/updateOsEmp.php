@@ -19,7 +19,7 @@ if($_POST){
     
     else {
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conexao.php';
+    include_once 'conect.php';
     //----------------------------------FIM---------------------------------------------
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
@@ -46,10 +46,7 @@ if($_POST){
 
      //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
      /*
- 
-   STATOS = '$vstatus',
-     PRODUTO = '$vproduto', DATA_INICIO = '$vinicio', DATA_FIM = '$vfim', CUSTO = '$vcusto', 
-     LUCRO = '$vlucro'
+
      */
      $sql -> execute() or exit("Erro Banco 1 UPDATE");
 

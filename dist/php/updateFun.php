@@ -3,7 +3,7 @@
 if($_POST){
 
    //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
-   if(empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['senha']) || empty($_POST['mail'])){
+   if(empty($_POST['nome']) || empty($_POST['cpf']) || empty($_POST['mail']) || empty($_POST['nomeDepartamento'])){
       echo ("<script>
       $(document).ready(function(){ 
           Swal.fire({
@@ -16,40 +16,17 @@ if($_POST){
 
    else {
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conexao.php';
+    include_once 'conect.php';
     //----------------------------------FIM---------------------------------------------
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
-    $vnome=$_POST["nome"];
-    $vcpf=$_POST["cpf"];
-    $vmail=$_POST["mail"];
-    $vdepartamento=$_POST["nomeDepartamento"];
-    $vcelular=$_POST["celular"];
+    $vnome= addslashes ($_POST["nome"]);
+    $vcpf= addslashes ($_POST["cpf"]);
+    $vmail= addslashes ($_POST["mail"]);
+    $vdepartamento= addslashes ($_POST["nomeDepartamento"]);
+    $vcelular= addslashes ($_POST["celular"]);
+    $vid= addslashes ($_POST["id"]);
 
-    
-    $vsenha1=$_POST["senha"]; 
-    $vsenhaf1 = md5($vsenha1);
-    $vsenha2=$_POST["senha2"]; 
-    $vsenhaf2 = md5($vsenha2);
-
-    //-----------------------------VERIFICANDO SENHAS------------------------------------
-    
-
-    if($vsenhaf1!=$vsenhaf2)
-    {
-     echo ("<script>
-     $(document).ready(function(){ 
-         Swal.fire({
-             icon: 'error',
-             text: 'Senhas divergem!'
-           })   
-     });
-     </script>");
-
-      return false;
-   }
-
-    //----------------------------------FIM---------------------------------------------
 
     //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
     //mysqli_query = consulta a base de dados 
@@ -77,18 +54,12 @@ if($_POST){
      //----------------------------------FIM---------------------------------------------
 
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
+     //-----------------------REALIZA A ALTERAÇÃO DOS DADOS NO BANCO TBL_FUNCIONARIO ---------------------- 
 
-     $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
-     (CPF_FUN,NOME_FUN,EMAIL_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN, COD_DEP)
-     VALUES (?, ?, ?, ?, ?, ?) ");
+     $sql = $conn->prepare(" UPDATE TBL_FUNCIONARIO SET CPF_FUN = '$vcpf', NOME_FUN = '$vnome', EMAIL_FUN = '$vmail',
+     TELEFONE_MOVEL_FUN = '$vcelular', COD_DEP = '$vdepartamento' WHERE COD_FUN = '$vid' ");
 
-     $sql -> bind_param("ssssss", $vcpf,$vnome,$vmail,$vsenhaf1,$vcelular,$vdepartamento);
-
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
-
-
-     //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
+     //-----------------------REALIZA A ALTERAÇÃO DOS DADOS NO BANCO TBL_FUNCIONARIO ---------------------- 
 
      $sql -> execute() or exit("ErroBanco1");
 
@@ -102,7 +73,7 @@ if($_POST){
      $(document).ready(function(){ 
          Swal.fire({
              icon: 'success',
-             text: 'Cadastrado com sucesso!'
+             text: 'Alterado com sucesso!'
            })   
      });
      </script>");

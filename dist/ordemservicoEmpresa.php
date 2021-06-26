@@ -171,7 +171,7 @@ include('verificaSessao2.php');
                                                 <option selected>Selecione...</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once 'listaFuncionario.php';
+                                                    include_once './php/readFun.php';
                                                     //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
@@ -186,7 +186,7 @@ include('verificaSessao2.php');
                                                 <option selected>Selecione...</option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once 'listaCliente.php';
+                                                    include_once './php/readCli.php';
                                                     //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
@@ -259,7 +259,7 @@ include('verificaSessao2.php');
         $(function () {
             $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraOS.php', //Arquivo php que fará as validações
+                    url: './php/createOS.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOS').serialize(), //Pega as informações inseridas
                     success: function (data) {

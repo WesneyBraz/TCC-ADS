@@ -1,6 +1,6 @@
 <?php
-include('../verificaSessao2.php');
-require '../conexao.php';
+include('verificaSessao2.php');
+require 'conexao.php';
 $id=addslashes($_GET['COD_DEP']);
 
 $verifica = ("SELECT COD_DEP, NOME_DEP  FROM TBL_DEPARTAMENTO WHERE COD_DEP = '$id'");
@@ -18,19 +18,19 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cadastro Produto</title>
     <!-- Favicon -->
-    <link rel="icon" href="../../assets/img/brand/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../../assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="../../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!---CSS -->
-    <link rel="stylesheet" href="../../assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/sweetalert2.all.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
             <!-- Brand -->
             <div class="sidenav-header  align-items-center">
                 <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="../img/logo.jpeg" class="navbar-brand-img" alt="...">
+                    <img src="./img/logo.jpeg" class="navbar-brand-img" alt="...">
                     <h2>DMW</h2>
                 </a>
             </div>
@@ -56,37 +56,37 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="../cadastraCliente.php">
+                            <a class="nav-link" href="cadastraCliente.php">
                                 <i class="ni ni-single-02 text-primary"></i>
                                 <span class="nav-link-text">Cliente</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../cadastroFuncionario.php">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="../produto.php">
+                            <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../cadastroFornecedor.php">
+                            <a class="nav-link" href="cadastroFornecedor.php">
                                 <i class="ni ni-delivery-fast text-primary"></i>
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../ordemservicoEmpresa.php">
+                            <a class="nav-link" href="ordemservicoEmpresa.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../consultar.php">
+                            <a class="nav-link" href="consultar.php">
                                 <i class="ni ni-bullet-list-67 text-primary"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
@@ -151,7 +151,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <label class="mb-1" for="nome">Departamento:</label>
                                     <input class="form-control py-4 meucampo" id="nome" name="nome" type="text" value="<?php echo $retorno['NOME_DEP'];?>" />
                                 </div>
-                                <input type="submit" class="btn btn-outline-primary btn-block btn-round" id="botao" onclick="validarProduto();" value="Alterar"></input>
+                                <input type="submit" class="btn btn-outline-primary btn-block btn-round" id="botao" onclick="validarProduto();" value="SALVAR ALTERAÇÃO"></input>
                             </form>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
         $(function () {
             $('.formDep').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'updateDep.php', //Arquivo php que fará as validações
+                    url: './php/updateDep.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formDep').serialize(), //Pega as informações inseridas
                     success: function (data) {
@@ -188,20 +188,20 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
             });
         });
     </script>
-    <script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Puxando o jquery e plugin "mask" do jquery  js/jquery-3.6.0.min.js -->
-    <script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS ./js/sweetalert.js -->
-    <script src="../js/sweetalert.js"></script>
-    <script src="../js/scripts.js"></script>
-    <script src="../js/consultar.js"></script>
-    <script src="../js/sair.js"></script>
+    <script src="./js/sweetalert.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="./js/consultar.js"></script>
+    <script src="./js/sair.js"></script>
 
 </body>
 

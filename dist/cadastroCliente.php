@@ -269,7 +269,7 @@ include('verificaSessao2.php');
         $(function () {
             $('.formCli').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraCliente.php', //Arquivo php que fará as validações
+                    url: './php/createCliente.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formCli').serialize(), //Pega as informações inseridas
                     success: function (data) {

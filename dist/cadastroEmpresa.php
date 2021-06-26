@@ -251,7 +251,7 @@
         $(function () {
             $('.formEmp').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'cadastraEmpresa.php', //Arquivo php que fará as validações
+                    url: './php/createEmp.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formEmp').serialize(), //Pega as informações inseridas
                     success: function (data) {

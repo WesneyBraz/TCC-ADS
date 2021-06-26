@@ -123,7 +123,7 @@
                                     <tr>
                                         <?php
                                         //------------------- CHAMA O PROG DE CONSULTA A BASE DE DADOS LOCAL -------------------
-                                        include_once 'retornoCliente.php';
+                                        include_once './php/readOsCli.php';
                                         // -----------------------------------FIM--------------------------------------------
                                         ?>
 
@@ -178,7 +178,7 @@
         $(function () {
             $('.frmCliente').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'retornoCliente.php', //Arquivo php que fará as validações
+                    url: './php/readOsCli.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.frmCliente').serialize(), //Pega as informações inseridas
                     success: function (data) {

@@ -135,7 +135,7 @@ include('verificaSessao.php');
                     </thead>
                     <tbody>
                             <?php
-                                include_once 'retornoOsFuncionario.php';
+                                include_once './php/readOsFun.php';
                             ?>
 
                     </tbody>               
@@ -189,7 +189,7 @@ include('verificaSessao.php');
         $(function () {
             $('.formOs').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: 'retornoOsFuncionario.php', //Arquivo php que fará as validações
+                    url: './php/readOsFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOs').serialize(), //Pega as informações inseridas
                     success: function (data) {

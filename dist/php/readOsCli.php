@@ -4,7 +4,7 @@
 
 <?php
 //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-include_once 'conexao.php';
+include_once 'conect.php';
 // -----------------------------------FIM-------------------------------------------
 if($_POST){
     $vcpf=$_POST["cpf"];

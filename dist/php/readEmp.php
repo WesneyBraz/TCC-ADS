@@ -1,9 +1,8 @@
 <?php
-
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conexao.php';
     // -----------------------------------FIM-------------------------------------------
     if($_POST){
+    require 'conect.php';
     $vconsulta=$_POST["consulta"];
     $vfiltro=$_POST["filtro"];
 
@@ -52,7 +51,7 @@
                                 <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -100,7 +99,7 @@
                                     <td title="'.$row['NOME_CLI'].'">'.$row['NOME_CLI'].'</td>
                                     '?> 
                                     <td>
-                                        <a class="nav-link" href="excluir.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
+                                        <a class="nav-link" href="./php/delete.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
                                         <i class="ni ni-bullet-list-67 text-primary"></i>
                                         <span class="nav-link-text">EXCLUIR</span>
                                         </a>
@@ -154,14 +153,14 @@
                                 <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
                                 <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>'?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_DEP=<?php echo $row['COD_DEP'];?>">   
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
                                 </td>
 
                                 <td>
-                                    <a class="nav-link" href="CRUD/alterarDepartamento.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
+                                    <a class="nav-link" href="alterarDepartamento.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
@@ -201,14 +200,14 @@
                                     <td title="'.$row['COD_DEP'].'">'.$row['COD_DEP'].'</td>
                                     <td title="'.$row['NOME_DEP'].'">'.$row['NOME_DEP'].'</td>'?> 
                                     <td>
-                                        <a class="nav-link" href="excluir.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
+                                        <a class="nav-link" href="./php/delete.php?COD_DEP=<?php echo $row['COD_DEP'];?>">         
                                         <i class="ni ni-bullet-list-67 text-primary"></i>
                                         <span class="nav-link-text">EXCLUIR</span>
                                         </a>
                                     </td>
     
                                     <td>
-                                    <a class="nav-link" href="CRUD/alterarDepartamento.php?COD_DEP=<?php echo $row['COD_DEP'];?>">          
+                                    <a class="nav-link" href="alterarDepartamento.php?COD_DEP=<?php echo $row['COD_DEP'];?>">          
                                         <i class="ni ni-bullet-list-67 text-primary"></i>
                                         <span class="nav-link-text">EDITAR</span>
                                         </a>
@@ -256,14 +255,14 @@
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
                                 </td>
 
                                 <td>
-                                    <a class="nav-link" href="">         
+                                    <a class="nav-link" href="alterarFuncionario.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
@@ -305,14 +304,14 @@
                                 <td title="'.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td> 
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
                                 </td>
 
                                 <td>
-                                    <a class="nav-link" href="">         
+                                    <a class="nav-link" href="alterarFuncionario.php?COD_FUN=<?php echo $row['COD_FUN'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
@@ -363,7 +362,7 @@
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -411,7 +410,7 @@
                                 <td title="'.$row['NOME_PROD'].'">'.$row['NOME_PROD'].'</td> 
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -465,7 +464,7 @@
                                 <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -513,7 +512,7 @@
                                     <td title="'.$row['NOME_FANTASIA_FOR'].'">'.$row['NOME_FANTASIA_FOR'].'</td>    
                                     '?> 
                                     <td>
-                                        <a class="nav-link" href="excluir.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
+                                        <a class="nav-link" href="./php/delete.php?COD_FOR=<?php echo $row['COD_FOR'];?>">         
                                         <i class="ni ni-bullet-list-67 text-primary"></i>
                                         <span class="nav-link-text">EXCLUIR</span>
                                         </a>
@@ -566,7 +565,7 @@
                                 <td title="'.$row['COD_SER'].'">'.$row['COD_SER'].'</td>
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td>'?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_SER=<?php echo $row['COD_SER'];?>">  
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>
@@ -613,7 +612,7 @@
                                 <td title="'.$row['STATOS'].'">'.$row['STATOS'].'</td> 
                                 '?> 
                                 <td>
-                                    <a class="nav-link" href="excluir.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                                    <a class="nav-link" href="./php/delete.php?COD_SER=<?php echo $row['COD_SER'];?>">  
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EXCLUIR</span>
                                     </a>

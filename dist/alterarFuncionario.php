@@ -1,5 +1,15 @@
 <?php
 include('verificaSessao2.php');
+require 'conexao.php';
+$id=addslashes($_GET['COD_FUN']);
+
+$verifica = ("SELECT COD_FUN, CPF_FUN, NOME_FUN, EMAIL_FUN, SENHA_FUN, TELEFONE_MOVEL_FUN
+FROM TBL_FUNCIONARIO WHERE COD_FUN = '$id'");
+
+$resultadoVerifica = mysqli_query ($conn, $verifica );
+
+$retorno = mysqli_fetch_assoc($resultadoVerifica);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -7,7 +17,7 @@ include('verificaSessao2.php');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cadastro Produto</title>
+    <title>alterar Funcionario</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -52,13 +62,13 @@ include('verificaSessao2.php');
                                 <span class="nav-link-text">Cliente</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="ni ni-circle-08 text-primary"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="produto.php">
                                 <i class="ni ni-cart text-primary"></i>
                                 <span class="nav-link-text">Produto</span>
@@ -82,11 +92,11 @@ include('verificaSessao2.php');
                                 <span class="nav-link-text">Consultar</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                           <button  id="sair" type="button" class="text-dark nav-link" style="background-color: transparent;
-                            border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
-                             <i  class="ni ni-ui-04 text-danger"></i>
-                             Sair</button>
+                         <li class="nav-item">
+                                <button  id="sair" type="button" class="text-dark nav-link" style="background-color: transparent;
+                                border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
+                                    <i  class="ni ni-ui-04 text-danger"></i>
+                                    Sair</button>
                         </li>
                     </ul>
                 </div>
@@ -129,78 +139,83 @@ include('verificaSessao2.php');
         <div class="container-fluid mt--6">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card shadow-lg border-0 rounded-lg mt-3">
-                    <!-- card header -->
+                    <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
+                            <h3 class="text-center font-weight-light my-4">Alterar funcionario:
+                            <?php echo 'Nº '.$retorno['COD_FUN'].''; ?></h3>
                         </div>
-                        <!-- Cadastro Produto -->
+                        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header border-bottom-0">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
-                            <form method="POST" action="" class="formPro" id="frmCadastro" onsubmit="validarProduto()">
+                            <form name="frmCadastro2" method="POST" action="" id="frmCadastro2" class="formFun"
+                                onsubmit="validarCadastro();">
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_FUN'];?>"></input>
+                                            <label class="mb-1" for="nome">Nome Completo:</label>
+                                            <input class="form-control py-4 meucampo" id="nome" name="nome" type="text"
+                                                value="<?php echo $retorno['NOME_FUN'];?>" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1" for="#">E-mail:</label>
+                                            <input class="form-control py-4" id="mail" name="mail" type="email"
+                                            aria-describedby="emailHelp" value="<?php echo $retorno['EMAIL_FUN'];?>" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="nomeProduto">Nome do produto</label>
-                                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto"
-                                                placeholder="EX: Placa de vídeo">
+                                            <label class="mb-1" for="cpf">CPF:</label>
+                                            <input class="form-control py-4 numeric cpf" id="cpf" name="cpf" type="text"
+                                                value="<?php echo $retorno['CPF_FUN'];?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="nomeFornecedor">Fornecedor:</label>
-                                            <select class="form-control" id="nomeFornecedor" name="nomeFornecedor">
+                                            <label class="mb-1" for="celular">Celular:</label>
+                                            <input class="form-control py-4 numeric" id="celular" name="celular"
+                                                type="text" value="<?php echo $retorno['TELEFONE_MOVEL_FUN'];?>" maxlength="12" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="mb-1">Departamento:</label>
+                                            <select name="nomeDepartamento" class="custom-select" id="nomeDepartamento">
                                                 <option selected>Selecione</option>
                                                 <?php
-                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                include_once './php/readFor.php';
-                                                //----------------------------------FIM---------------------------------------------
-
+                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                    include_once './php/readDep.php';
+                                                    //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="descricao">Descrição:</label>
-                                            <textarea class="form-control" id="descricao" name="descricao"
-                                                placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="nomeProduto">Categoria:</label>
-                                            <input type="text" class="form-control" id="categoria" name="categoria"
-                                                placeholder="EX: Nome da categoria do Produto">
-                                        </div>
-                                    </div>
+                                <div class="form-group mt-4 mb-0 text-white">
+                                <input type="submit" class="btn btn-outline-primary btn-block btn-round" id="botao"
+                                    onclick="validarCadastro();" value="SALVAR ALTERAÇÃO"></input>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="valorProduto">Valor do produto:</label>
-                                            <input type="text" class="form-control valorProduto" id="valorProduto"
-                                                name="valorProduto" placeholder="EX: Valor">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="estoque">Estoque do produto:</label>
-                                            <input type="number" class="form-control" id="estoque" name="estoque"
-                                                placeholder="EX: Valor">
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
-                                    onclick="validarProduto();" value="Cadastrar"></input>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Footer -->
-            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+            <footer class="footer pt-0">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6">
                         <div class="copyright text-center  text-lg-left  text-muted">
@@ -211,19 +226,19 @@ include('verificaSessao2.php');
             </footer>
         </div>
     </div>
-    <div class="pro"></div>
+    <div class="fun"></div>
     <!-- Scripts -->
     <!-- Core -->
     <script>
         //Função ajax
         $(function () {
-            $('.formPro').submit(function () { //Linha para submit, quando o usuário apertar o botão
+            $('.formFun').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: './php/createProd.php', //Arquivo php que fará as validações
+                    url: './php/updateFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
-                    data: $('.formPro').serialize(), //Pega as informações inseridas
+                    data: $('.formFun').serialize(), //Pega as informações inseridas
                     success: function (data) {
-                        $('.pro').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        $('.fun').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
                 return false;
@@ -237,12 +252,11 @@ include('verificaSessao2.php');
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Puxando o jquery e plugin "mask" do jquery -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
     <script src="./js/sweetalert.js"></script>
     <script src="./js/scripts.js"></script>
-    <script src="./js/produto.js"></script>
+    <script src="./js/cadastroFuncionario.js"></script>
     <script src="./js/sair.js"></script>
 
 </body>
