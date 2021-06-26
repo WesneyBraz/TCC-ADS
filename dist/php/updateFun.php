@@ -28,32 +28,6 @@ if($_POST){
     $vid= addslashes ($_POST["id"]);
 
 
-    //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
-    //mysqli_query = consulta a base de dados 
-    //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT CPF_FUN FROM TBL_FUNCIONARIO WHERE CPF_FUN = '$vcpf'");
-
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
-
-     $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
-
-     //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
-     if($erroResultadoVerifica > 0)
-     {
-        echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Funcionario já cadastrado!'
-              })   
-        });
-        </script>");
-
-        return false;
-     }
-     //----------------------------------FIM---------------------------------------------
-
-
      //-----------------------REALIZA A ALTERAÇÃO DOS DADOS NO BANCO TBL_FUNCIONARIO ---------------------- 
 
      $sql = $conn->prepare(" UPDATE TBL_FUNCIONARIO SET CPF_FUN = '$vcpf', NOME_FUN = '$vnome', EMAIL_FUN = '$vmail',

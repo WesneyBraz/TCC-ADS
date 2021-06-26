@@ -368,7 +368,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="nav-link" href="">         
+                                    <a class="nav-link" href="alterarProduto.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
@@ -416,7 +416,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="nav-link" href="">         
+                                    <a class="nav-link" href="alterarProduto.php?COD_PROD=<?php echo $row['COD_PROD'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
