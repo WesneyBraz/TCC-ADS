@@ -58,7 +58,7 @@
                                 </td>
 
                                 <td>
-                                    <a class="nav-link" href="">         
+                                <a class="nav-link" href="alterarCliente.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
                                     <i class="ni ni-bullet-list-67 text-primary"></i>
                                     <span class="nav-link-text">EDITAR</span>
                                     </a>
@@ -106,7 +106,7 @@
                                     </td>
     
                                     <td>
-                                        <a class="nav-link" href="">         
+                                    <a class="nav-link" href="alterarCliente.php?COD_CLI=<?php echo $row['COD_CLI'];?>">         
                                         <i class="ni ni-bullet-list-67 text-primary"></i>
                                         <span class="nav-link-text">EDITAR</span>
                                         </a>
