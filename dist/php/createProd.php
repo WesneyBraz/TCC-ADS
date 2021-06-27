@@ -64,9 +64,9 @@ if($_POST){
      VALUES
      (?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssdds", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor, $vfornecedor);
+     $sql -> bind_param("sssdds", $vnome_produto, $vcategoria, $vdescricao, $vestoque, $vvalor, $vfornecedor );
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
+     //----------------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
 
      //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------

@@ -21,7 +21,6 @@ if($_POST){
     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
     include_once 'conect.php';
     //----------------------------------FIM---------------------------------------------
-
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
     $vinicio= addslashes($_POST["dataEntrada"]);
     $vdescricao= addslashes ($_POST["descricaoOs"]);
@@ -31,8 +30,11 @@ if($_POST){
     $vfuncionario= addslashes ($_POST["nomeFuncionario"]);
     $vcliente= addslashes ($_POST["nomeCliente"]);
     $vfim= addslashes ($_POST["dataSaida"]);
-    $vcusto= addslashes ($_POST["valorOs"]);
-    $vlucro= addslashes ($_POST["lucro"]);
+    $vcusto1= addslashes ($_POST["valorOs"]);
+    $vcusto = floatval($vcusto1);
+
+    $vlucro1= addslashes ($_POST["lucro"]);
+    $vlucro = floatval($vlucro1);
     $vid= addslashes ($_POST["id"]);
 
     //----------------------------------FIM---------------------------------------------
@@ -40,15 +42,14 @@ if($_POST){
     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
      $sql = $conn->prepare(" UPDATE TBL_ORDEM_DE_SERVICO SET
      DESCRICAO_DA_ATIVIDADE = '$vdescricao', DIAGNOSTICO = '$vdiagnostico', STATOS = '$vstatus',
-     PRODUTO = '$vproduto', DATA_INICIO = '$vinicio', DATA_FIM = '$vfim',
-     CUSTO = '$vcusto',  LUCRO = '$vlucro'
+     PRODUTO = '$vproduto', DATA_INICIO = '$vinicio', DATA_FIM = '$vfim', CUSTO = '$vcusto'
      WHERE COD_SER = '$vid'");
 
      //----------------RETORNA A MENSAGEM DE ERRO OU SUCESSO ----------------------------
      /*
-
+     , LUCRO = '$vlucro'
      */
-     $sql -> execute() or exit("Erro Banco 1 UPDATE");
+     $sql -> execute() or exit("Erro Banco 1 UPDATE".gettype($vcusto)."-".$vlucro."");
 
      $sql -> close();
      $conn -> close();
