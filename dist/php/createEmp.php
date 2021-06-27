@@ -49,7 +49,7 @@ if($_POST){
     $vconfirma1=$_POST["confirma_senha"];
     $vconfirma = md5($vconfirma1);
 
-    $vcat=$vcnpj;
+    //$vcat=$vcnpj;
 
     //----------------- VERIFICANDO SENHAS -----------------
     
@@ -132,7 +132,7 @@ if($_POST){
      //----------------- FIM -----------------
 
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA ----------------- 
-
+/*
      $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
      (COD_CAT, NOME_CAT)
      VALUES
@@ -141,6 +141,20 @@ if($_POST){
      $sql -> bind_param("ss", $vcat, $vnome_fantasia);
 
      $sql -> execute() or exit("ErroBanco 01 ");
+*/
+      $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
+      (NOME_CAT, NUMERO_CAT, ID)
+      VALUES
+      (?, ?, ?) ");
+
+      $sql -> bind_param("sss", $vnome_fantasia, $vcnpj, $vcnpj );
+
+      $sql -> execute() or exit("ErroBanco ");
+
+      $verifica = ("SELECT COD_CAT FROM TBL_CATEGORIA WHERE NUMERO_CAT = '$vcnpj'");
+      $resultadoVerifica = mysqli_query ($conn, $verifica );
+      $vcat1 = mysqli_fetch_assoc($resultadoVerifica);
+      $vcat=$vcat1['COD_CAT'];
 
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_FORNECEDOR ----------------- 
 
@@ -151,7 +165,7 @@ if($_POST){
 
      $sql -> bind_param("sssss", $vnome_fantasia, $vcnpj, $vmail, $vsenha, $vcat);
 
-     $sql -> execute() or exit("ErroBanco 11 ");
+     $sql -> execute() or exit("ErroBanco 11-".$vcat." ");
 
      //----------------- REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------- 
 

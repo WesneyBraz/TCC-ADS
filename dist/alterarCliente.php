@@ -3,8 +3,8 @@ include('verificaSessao2.php');
 require 'conexao.php';
 $id=addslashes($_GET['COD_CLI']);
 
-$verifica = ("SELECT COD_CLI, CPF_CLI, NOME_CLI, EMAIL, TELEFONE_MOVEL, TELEFONE_FIXO, 
-LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO
+$verifica = ("SELECT COD_CLI, COD_END, COD_CON, CPF_CLI, NOME_CLI, EMAIL, TELEFONE_MOVEL, TELEFONE_FIXO, 
+LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, ID
 FROM TBL_CLIENTE CL
 INNER JOIN TBL_CATEGORIA CA ON CA.COD_CAT = CL.COD_CAT
 INNER JOIN TBL_CONTATO CO ON CO.COD_CAT = CA.COD_CAT
@@ -13,7 +13,6 @@ WHERE COD_CLI = '$id'");
 
 $resultadoVerifica = mysqli_query ($conn, $verifica );
 $retorno = mysqli_fetch_assoc($resultadoVerifica);
-
 
 ?>
 <!DOCTYPE html>
@@ -157,7 +156,10 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_CLI'];?>"></input>
+                                            <input type="hidden" name="cli" id="cli" value="<?php echo $retorno['COD_CLI'];?>"></input>
+                                            <input type="hidden" name="end" id="end" value="<?php echo $retorno['COD_END'];?>"></input>
+                                            <input type="hidden" name="con" id="con" value="<?php echo $retorno['COD_CON'];?>"></input>
+                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['ID'];?>"></input>
                                             <label class="mb-1" for="">Nome Completo:</label>
                                             <input class="form-control py-4 meucampo" id="nome" name="nome" type="text"
                                             value="<?php echo $retorno['NOME_CLI'];?>" />

@@ -41,29 +41,34 @@ if($_POST){
     $vpais= addslashes ($_POST["pais"]);
 
     $vid= addslashes($_POST["id"]);
+    $vcli= addslashes($_POST["cli"]);
+    $vend= addslashes($_POST["end"]);
+    $vcon= addslashes($_POST["con"]);
 
-    $vcat=$vcpf;
+
+
+    //$vcat=$vcpf;
 
     //----------------------------------FIM---------------------------------------------
 
     //-----------------------REALIZA A ALTERÇÃO NO CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA ---------------------- 
     $sql = $conn->prepare(" UPDATE TBL_CATEGORIA SET
-    COD_CAT = '$vcat' , NOME_CAT = '$vnome'
-    WHERE COD_CAT = '$vcat'");
+    NOME_CAT = '$vnome', NUMERO_CAT = '$vcpf'
+    WHERE ID = '$vid'");
 
     $sql -> execute() or exit("Erro Banco1");
 
     //-----------------------REALIZA A ALTERÇÃO NO CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
     $sql = $conn->prepare(" UPDATE TBL_CLIENTE SET
-    CPF_CLI = '$vcpf' , NOME_CLI = '$vnome', COD_CAT = '$vcat' 
-    WHERE COD_CLI = '$vid'");
+    CPF_CLI = '$vcpf' , NOME_CLI = '$vnome'
+    WHERE COD_CLI = '$vcli'");
 
     $sql -> execute() or exit("Erro Banco2");
 
     //-----------------------REALIZA A ALTERÇÃO NO CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
     $sql = $conn->prepare(" UPDATE TBL_CONTATO SET
     EMAIL = '$vmail' , TELEFONE_FIXO = '$vtelefone', TELEFONE_MOVEL = '$vcelular' 
-    WHERE COD_CAT = '$vcat'");
+    WHERE COD_CON = '$vcon'");
 
     $sql -> execute() or exit("Erro Banco3");
 
@@ -71,7 +76,7 @@ if($_POST){
     $sql = $conn->prepare(" UPDATE TBL_ENDERECO SET
     CEP = '$vcep', LOUGRADOURO = '$vrua', NUMERO = '$vnumero', PAIS = '$vpais', ESTADO = '$vestado', 
     CIDADE = '$vcidade', BAIRRO = '$vbairro', COMPLEMENTO = '$vcomplemento'
-    WHERE COD_CAT = '$vcat'");
+    WHERE COD_END = '$vend'");
 
     $sql -> execute() or exit("Erro Banco4");
 
