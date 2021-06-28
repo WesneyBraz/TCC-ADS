@@ -1,31 +1,3 @@
-//Alerta
-function alerta() {
-    Swal.fire({
-        title: 'Preencha os campos vazios js!',
-        icon: 'error',
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-        }
-    })
-}
-
-//AlertaSenha
-function alertaSenha() {
-    Swal.fire({
-        title: 'Senhas diferentes, digite senhas iguais!',
-        icon: 'error',
-        showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-        },
-        hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-        }
-    })
-}
-
 //Máscaras, puxadas pelos id dos inputs>
 $(document).ready(function () {
     $("#cnpj").mask("00.000.000/0000-00");
@@ -48,181 +20,59 @@ jQuery('.meucampo').keyup(function () {
     this.value = this.value.replace(/[^a-zA-Z]/g, ' ');
 });
 
+//Validar Campos 
+$(document).ready(function(){
+				$("#frmCadastro").validate({
+					rules:{
+						nome: {
+							required: true,
+							maxlength: 100,
+							minlength: 3,
+						},
+                        email: {
+                            required: true,
+                        },
+                        cnpj: {
+                            required: true,
+                        },
+                        telefone: {
+                            required: true,
+                        },
+                        celular: {
+                            required: true,
+                        },
+                        cep: {
+                            required: true,
+                        },
+                        rua: {
+                            required: true,
+                        },
+                        bairro: {
+                            required: true,
+                        },
+                        cidade: {
+                            required: true,
+                        },
+                        uf: {
+                            required: true,
+                        },
+                        numero: {
+                            required: true,
+                        },
+                        pais: {
+                            required: true,
+                        },
+                        senha: {
+                            required: true,
+                        },
+                        confirma_senha: {
+                            required: true,
+                        }
+					}
+				})
+			})
 
-//validar cadastro
-function validarCadastro() { 
-
-    //email
-    let email = document.getElementById('email').value;
-    let validationEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi;
-    if (email.value == "") {
-        alerta();
-        return false;
-    }
-    else if (!validationEmail.test(email)) {
-        alerta();
-        return false;
-    }
-
-    //CNPJ
-    let cnpj = document.getElementById("cnpj").value;
-    cnpj = cnpj.replace(/[^\d]+/g, '');
-
-    if (cnpj.length != 14) {
-        alerta();
-        return false;
-    }
-
-    // Elimina CNPJs invalidos conhecidos
-    if (cnpj == "00000000000000" ||
-        cnpj == "11111111111111" ||
-        cnpj == "22222222222222" ||
-        cnpj == "33333333333333" ||
-        cnpj == "44444444444444" ||
-        cnpj == "55555555555555" ||
-        cnpj == "66666666666666" ||
-        cnpj == "77777777777777" ||
-        cnpj == "88888888888888" ||
-        cnpj == "99999999999999") {
-        alerta();
-        return false;
-    }
-
-    // Valida DVs
-    tamanho = cnpj.length - 2
-    numeros = cnpj.substring(0, tamanho);
-    digitos = cnpj.substring(tamanho);
-    soma = 0;
-    pos = tamanho - 7;
-    for (i = tamanho; i >= 1; i--) {
-        soma += numeros.charAt(tamanho - i) * pos--;
-        if (pos < 2)
-            pos = 9;
-    }
-    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(0)) {
-        alerta();
-        return false;
-    }
-    tamanho = tamanho + 1;
-    numeros = cnpj.substring(0, tamanho);
-    soma = 0;
-    pos = tamanho - 7;
-    for (i = tamanho; i >= 1; i--) {
-        soma += numeros.charAt(tamanho - i) * pos--;
-        if (pos < 2)
-            pos = 9;
-    }
-    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado != digitos.charAt(1)) {
-        alerta();
-        return false;
-    }
-
-    //telefone
-    let telefone = frmCadastro.telefone;
-    if (telefone.value == "" || telefone.value == null) {
-        telefone.focus();
-        alerta();
-        return false;
-
-    } else if (telefone.value == "00000000000" ||
-        telefone.value == "11111111111" ||
-        telefone.value == "22222222222" ||
-        telefone.value == "33333333333" ||
-        telefone.value == "44444444444" ||
-        telefone.value == "55555555555" ||
-        telefone.value == "66666666666" ||
-        telefone.value == "77777777777" ||
-        telefone.value == "88888888888" ||
-        telefone.value == "99999999999") {
-
-        telefone.focus();
-        alerta();
-        return false;
-    }
-
-    //Celular
-    let celular = frmCadastro.celular;
-    if (celular.value == "" || celular.value == null) {
-        celular.focus();
-        alerta();
-        return false;
-
-    } else if (celular.value == "00000000000" ||
-        celular.value == "11111111111" ||
-        celular.value == "22222222222" ||
-        celular.value == "33333333333" ||
-        celular.value == "44444444444" ||
-        celular.value == "55555555555" ||
-        celular.value == "66666666666" ||
-        celular.value == "77777777777" ||
-        celular.value == "88888888888" ||
-        celular.value == "99999999999") {
-        celular.focus();
-        alerta();
-        return false;
-
-    }
-
-    //cep
-    let cep = frmCadastro.cep;
-    if (cep.value == "" || cep.value == null) {
-        cep.focus();
-        alerta();
-        return false;
-
-    }
-
-    //complemento
-    let complemento = frmCadastro.complemento;
-    if (complemento.value == "" || complemento.value == null) {
-        complemento.focus();
-        alerta();
-        return false;
-
-    }
-
-    //numero
-    let numero = frmCadastro.numero;
-    if (numero.value == "" || numero.value == null) {
-        numero.focus();
-        alerta();
-        return false;
-
-    }
-
-    //Validação da senha
-    // Pelo menos uma letra maiúscula
-    // Pelo menos uma letra minúscula
-    // Pelo menos um dígito
-    // Pelo menos um caractere especial
-    let senha = document.getElementById('senha').value;
-    let regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    if (senha.value == "") {
-        alerta();
-        return false;
-    }
-    else if (!regex.test(senha)) {
-        alerta();
-        return false;
-    }
-    var confirma_senha = frmCadastro.confirma_senha;
-    if (confirma_senha.value == "" || confirma_senha.value == null) {
-        confirma_senha.focus();
-        alertaSenha();
-        return false;
-
-    }
-    senha = document.frmCadastro.senha.value;
-    confirma_senha = document.frmCadastro.confirma_senha.value;
-
-    if (senha != confirma_senha)
-        alertaSenha();
-
-    return true;
-}
-//cep
+//Função validar cep
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById('rua').value = ("");
@@ -242,7 +92,6 @@ function meu_callback(conteudo) {
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        alerta();
     }
 }
 
@@ -283,7 +132,6 @@ function pesquisacep(valor) {
         else {
             //cep é inválido.
             limpa_formulário_cep();
-            alerta();
         }
     } //end if.
     else {

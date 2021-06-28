@@ -19,6 +19,11 @@
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script src="./js/sweetalert.js"></script>
+    <style>
+       .error{
+             color:red
+       }
+</style>
 </head>
 
 <body>
@@ -88,16 +93,15 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="nome">Nome:</label>
-                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text"
-                                                placeholder="Nome fantasia..." />
+                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text" placeholder="Nome fantasia..." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="email">Email:</label>
-                                            <input class="form-control py-4" id="email" name="email" type="email"
+                                            <input class="form-control py-4" id="email" name="email" type="email" 
                                                 aria-describedby="emailHelp"
-                                                placeholder="Coloque seu melhor email..." />
+                                                placeholder="Adicione um email do google.." />
                                         </div>
 
                                     </div>
@@ -106,7 +110,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="cnpj">CNPJ:</label>
-                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text"
+                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text" 
                                                 placeholder="00.000.000/0000-00" />
                                         </div>
                                     </div>
@@ -114,7 +118,7 @@
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
                                             <input class="form-control py-4" id="telefone" name="telefone"
-                                                type="text" placeholder="(00) 00000-0000" />
+                                                type="text"  placeholder="(00) 00000-0000" />
                                         </div>
 
                                     </div>
@@ -131,7 +135,7 @@
                                         <div class="form-group">
                                             <label class=" mb-1" for="cep">Cep:</label>
                                             <input class="form-control py-4" name="cep" type="text" id="cep"
-                                                size="10" maxlength="9" onblur="pesquisacep(this.value);"
+                                                size="10" maxlength="9" onblur="pesquisacep(this.value);" 
                                                 placeholder="00.000-000" />
                                         </div>
                                     </div>
@@ -140,7 +144,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="rua">Lougradoro:</label>
-                                            <input class="form-control py-4" id="rua" name="rua" type="text"
+                                            <input class="form-control py-4" id="rua" name="rua" type="text" 
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
@@ -178,7 +182,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="uf">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="uf" type="text"
+                                            <input class="form-control py-4" id="uf" name="uf" type="text" 
                                                 placeholder="Digite seu endereço..." />
                                         </div>
                                     </div>
@@ -194,7 +198,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="senha">Senha:</label>
-                                            <input class="form-control py-4" id="senha" name="senha" type="password"
+                                            <input class="form-control py-4" id="senha" name="senha" type="password" 
                                                 placeholder="Digite sua senha..." />
                                         </div>
                                     </div>
@@ -204,7 +208,8 @@
                                                 sua senha:
                                             </label>
                                             <input class="form-control py-4" id="confirma_senha" name="confirma_senha"
-                                                type="password" placeholder="Digite novamente a senha..." />
+                                                type="password"  
+                                                placeholder="Digite novamente a senha..." />
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +225,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block"
-                                        id="botao" type="submit" onclick="validarCadastro();"></input>
+                                        id="botao" type="submit"></input>
                                 </div>
                             </form>
                         </div>
@@ -273,6 +278,9 @@
     <!-- Puxando o jquery e plugin "mask" do jquery -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+    <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <!-- JS -->
     <script src="./js/cadastroEmpresa.js"></script>
 
