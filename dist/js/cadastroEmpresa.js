@@ -26,7 +26,6 @@ $(document).ready(function(){
 					rules:{
 						nome: {
 							required: true,
-							maxlength: 100,
 							minlength: 3,
 						},
                         email: {
