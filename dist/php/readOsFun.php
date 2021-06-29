@@ -22,15 +22,19 @@ if($_POST){
                 <td '.$row['DATA_INICIO'].'">'.$row['DATA_INICIO'].'</td>
                 <td '.$row['DATA_FIM'].'">'.$row['DATA_FIM'].'</td>
                 <td '.$row['STATOS'].'">'.$row['STATOS'].'</td> 
-                <td '.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td> 
-                <td><a class="btn-sm btn-group btn-primary" data-toggle="modal"
-                data-target="#verModa" href="alterarOsFun.php" >+ Ver </a> </td>'?>
+                <td '.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>' ?>
                 <td>
-                
-                <a class="nav-link" href="alterarOsFun.php?COD_SER=<?php echo $row['COD_SER'];?>">         
-                <i class="ni ni-bullet-list-67 text-primary"></i>
-                <span class="nav-link-text">EDITAR</span>
-                </a></td>
+                    <a class="nav-link" href="">         
+                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                    <span class="nav-link-text">PDF</span>
+                    </a>
+                </td>
+                <td>
+                    <a class="nav-link" href="alterarOsFun.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                    <span class="nav-link-text">EDITAR</span>
+                    </a>
+                </td>
                 
                 <?php echo'  
 
@@ -74,15 +78,19 @@ else{
                 <td '.$row['DATA_INICIO'].'">'.$row['DATA_INICIO'].'</td>
                 <td '.$row['DATA_FIM'].'">'.$row['DATA_FIM'].'</td>
                 <td '.$row['STATOS'].'">'.$row['STATOS'].'</td> 
-                <td '.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td> 
-                <td><a class="btn-sm btn-group btn-primary" data-toggle="modal"
-                data-target="#verModa" href="alterarOsFun.php" >+ Ver </a> </td>'?>
+                <td '.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>' ?>
                 <td>
-                
-                <a class="nav-link" href="alterarOsFun.php?COD_SER=<?php echo $row['COD_SER'];?>">         
-                <i class="ni ni-bullet-list-67 text-primary"></i>
-                <span class="nav-link-text">EDITAR</span>
-                </a></td>
+                    <a class="nav-link" href="pdf.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                    <span class="nav-link-text">PDF</span>
+                    </a>
+                </td>
+                <td>
+                    <a class="nav-link" href="alterarOsFun.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                    <i class="ni ni-bullet-list-67 text-primary"></i>
+                    <span class="nav-link-text">EDITAR</span>
+                    </a>
+                </td>
                 
                 <?php echo'  
 
