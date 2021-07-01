@@ -51,7 +51,39 @@ if($_POST){
 
     //$vcat=$vcnpj;
 
+    //----------------- VERIFICANDO CNPJ -----------------
+
+    if (strlen($vcnpj)!=18) 
+        {
+            echo ("<script>
+            $(document).ready(function(){ 
+                Swal.fire({
+                    icon: 'error',
+                    text: 'CNPJ precisa de 14 dígitos!'
+                  })   
+            });
+            </script>"); 
+
+            return false;
+        }
+
+    //----------------- FIM -----------------
+
     //----------------- VERIFICANDO SENHAS -----------------
+
+    if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[\w$@]{6,10}$/m', $vsenha1)) 
+    {
+        echo ("<script>
+        $(document).ready(function(){ 
+            Swal.fire({
+                icon: 'error',
+                text: 'Senha não atende requisitos!'
+              })   
+        });
+        </script>"); 
+
+        return false;
+    }
     
     if($vsenha!=$vconfirma)
     {

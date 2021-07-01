@@ -20,6 +20,7 @@ jQuery('.meucampo').keyup(function () {
     this.value = this.value.replace(/[^a-zA-Z]/g, ' ');
 });
 
+/*
 //Validar Campos 
 $(document).ready(function(){
 				$("#frmCadastro").validate({
@@ -69,7 +70,7 @@ $(document).ready(function(){
                         }
 					}
 				})
-			})
+			})*/
 
 //Função validar cep
 function limpa_formulário_cep() {
