@@ -194,9 +194,15 @@ include('verificaSessao2.php');
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="mb-1" for="">Produto:</label>
-                                            <input class="form-control meucampo py-4" id="produto" name="produto"
-                                                type="text" placeholder="Adicione o nome do produto..." />
+                                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
+                                                <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
+                                                    <option selected>Selecione...</option>
+                                                    <?php
+                                                        //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                        include_once './php/readProd.php';
+                                                        //----------------------------------FIM---------------------------------------------
+                                                    ?>
+                                                </select>
                                         </div>
                                     </div>
                                 </div>
