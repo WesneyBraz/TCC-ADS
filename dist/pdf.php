@@ -17,6 +17,6 @@ $dompdf->render();
 $dompdf->stream( "relatorio.pdf",
 
    array(
-       "Attachment" => true
+       "Attachment" => false
    )
 );

@@ -80,7 +80,7 @@ else{
                 <td '.$row['STATOS'].'">'.$row['STATOS'].'</td> 
                 <td '.$row['NOME_FUN'].'">'.$row['NOME_FUN'].'</td>' ?>
                 <td>
-                    <a class="nav-link" href="pdf.php?COD_SER=<?php echo $row['COD_SER'];?>">         
+                    <a class="nav-link" href="pdf.php?COD_SER=<?php echo $row['COD_SER'];?>" target="_blank">         
                     <i class="ni ni-bullet-list-67 text-primary"></i>
                     <span class="nav-link-text">PDF</span>
                     </a>

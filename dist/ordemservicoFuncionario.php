@@ -129,7 +129,7 @@ include('verificaSessao.php');
                             <th scope="col">Saida</th>
                             <th scope="col">Status</th>
                             <th scope="col">Técnico</th>
-                            <th scope="col">Ver</th>
+                            <th scope="col">Gerar PDF</th>
                             <th scope="col">Editar</th>
                         </tr>
                     </thead>
