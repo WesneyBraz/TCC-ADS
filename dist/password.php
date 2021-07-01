@@ -16,7 +16,14 @@
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- alerta css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
+    <!-- Ajax -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
+     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
+</head> 
 
 <body>
     <!-- Sidenav -->
@@ -95,15 +102,14 @@
                             <h3 class="text-center font-weight-light my-4">Recuperação de senha:</h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="" name="frmCadastro" onsubmit=" validarEmail();">
+                            <form method="POST" class="formPass" name="frmNovaSenha">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
                                     <input class="form-control py-4" id="email" name="email" type="email"
-                                        placeholder="Coloque seu email..." />
+                                        placeholder="Coloque seu gmail..." />
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                    <a class="btn btn-primary" href="#" id="botao" type="submit"
-                                        onclick="validarEmail()";>Enviar</a>
+                                    <input class="btn btn-primary" id="botao" type="submit"></input>
                                 </div>
                             </form>
                         </div>
@@ -123,6 +129,26 @@
         </div>
     </div>
     </div>
+    <!-- ajax -->
+    <input type="hidden" class="pass">
+    <!-- Core -->
+    <script>
+        //Função ajax
+        $(function () {
+            $('.formPass').submit(function () { //Linha para submit, quando o usuário apertar o botão
+                $.ajax({
+                    url: './php/envioEmail.php', //Arquivo php que fará as validações
+                    type: 'post', //Método utilizado
+                    data: $('.formPass').serialize(), //Pega as informações inseridas
+                    success: function (data) {
+                        $('.pass').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+    <!--  teste -->
     <!-- Core -->
     <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -131,12 +157,10 @@
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Puxando o jquery e plugin "mask" do jquery -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
     <script src="./js/scripts.js"></script>
-    <script src="./js/password.js"></script>
+    <!--<script src="./js/password.js"></script>-->
 </body>
 
 </html>

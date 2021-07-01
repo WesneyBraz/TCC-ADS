@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-3">
-                                    <a class="small" href="password.html">Esqueci minha Senha</a>
+                                    <a class="small" href="password.php">Esqueci minha Senha</a>
                                     <input class="btn btn-primary text-white" id="botao" type="submit" value="Login"
                                         onclick="checkForm()"></input>
                                 </div>

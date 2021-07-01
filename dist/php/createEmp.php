@@ -56,13 +56,17 @@ if($_POST){
     if (strlen($vcnpj)!=18) 
         {
             echo ("<script>
-            $(document).ready(function(){ 
-                Swal.fire({
-                    icon: 'error',
-                    text: 'CNPJ precisa de 14 dígitos!'
-                  })   
-            });
-            </script>"); 
+            Swal.fire({
+              title: 'CNPJ não tem 14 dígitos!',
+              icon: 'error',
+              showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+            </script>");  
 
             return false;
         }
@@ -74,13 +78,17 @@ if($_POST){
     if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[\w$@]{6,10}$/m', $vsenha1)) 
     {
         echo ("<script>
-        $(document).ready(function(){ 
             Swal.fire({
-                icon: 'error',
-                text: 'Senha não atende requisitos!'
-              })   
-        });
-        </script>"); 
+              title: 'Senha não atende requisitos!',
+              icon: 'error',
+              showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+            </script>");
 
         return false;
     }
