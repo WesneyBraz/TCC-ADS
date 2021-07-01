@@ -17,12 +17,14 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <link rel="stylesheet" href="./css/validar.css" type="text/css">
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
     <script src="./js/sweetalert.js"></script>
-
 </head>
 
 <body>
@@ -291,6 +293,7 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
+    <script src="../assets/js/argon.js?v=1.2.0"></script>
     <script src="./js/cadastroCliente.js"></script>
     <script src="./js/sair.js"></script>
 </body>

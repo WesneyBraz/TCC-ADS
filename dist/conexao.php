@@ -4,11 +4,11 @@
 //mysqli_connect = efetua a conexão com a base de dados
 //mysqli_query = efetua uma consulta a base de dados
 //$i = usuario
-$i = 2;
+$i = 0;
 switch ($i) {
     case 0:
         //DUANY
-        $servidor = "localhost:3307";
+        $servidor = "localhost";
         $usuario = "root";
         $senha = "root";
         $dbname = "BD_TCC";

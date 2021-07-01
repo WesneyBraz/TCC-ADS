@@ -8,7 +8,7 @@ $i = 0;
 switch ($i) {
     case 0:
         //DUANY
-        $servidor = "localhost:3307";
+        $servidor = "localhost";
         $usuario = "root";
         $senha = "root";
         $dbname = "BD_TCC";
