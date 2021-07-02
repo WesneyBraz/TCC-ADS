@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -43,13 +44,13 @@
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                                <i class="fas fa-home text-primary"></i>
+                                <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -94,19 +95,19 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Recuperação de senha:</h3>
+                            <h3 class="text-center my-2">Recuperação de senha:</h3>
                         </div>
                         <div class="card-body">
                             <form method="POST" class="formPass" name="frmNovaSenha">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
                                     <input class="form-control py-4" id="email" name="email" type="email"
-                                        placeholder="Coloque seu gmail..." />
+                                        placeholder="contato@gmail.com" />
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                     <input class="btn btn-primary" id="botao" type="submit"></input>
