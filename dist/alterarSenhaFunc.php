@@ -148,7 +148,7 @@
         $(function () {
             $('.formNewPass').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: './php/updateSen.php', //Arquivo php que fará as validações
+                    url: './php/updateSenFunc.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formNewPass').serialize(), //Pega as informações inseridas
                     success: function (data) {

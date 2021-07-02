@@ -75,6 +75,24 @@ if($_POST){
 
     //----------------- VERIFICANDO SENHAS -----------------
 
+    if($vsenha!=$vconfirma)
+    {
+        echo ("<script>
+        Swal.fire({
+          title: 'Senhas divergem!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
+        </script>");
+
+      return false;
+    }
+
     if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[\w$@]{6,10}$/m', $vsenha1)) 
     {
         echo ("<script>
@@ -92,24 +110,6 @@ if($_POST){
 
         return false;
     }
-    
-    if($vsenha!=$vconfirma)
-    {
-        echo ("<script>
-        Swal.fire({
-          title: 'Senhas divergem!',
-          icon: 'error',
-          showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-          },
-          hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-          }
-        })
-        </script>");
-
-      return false;
-   }
 
      //----------------- FIM -----------------
 

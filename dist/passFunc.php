@@ -102,21 +102,11 @@
                             <h3 class="text-center font-weight-light my-4">Recuperação de senha:</h3>
                         </div>
                         <div class="card-body">
-                            <form method="POST" class="formNewPass" name="frmAlteracao">
-                            <div class="form-group">
-                                    <label class="small mb-1" for="inputEmailAddress">Digite seu email novamente</label>
+                            <form method="POST" class="formPass" name="frmNovaSenha">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
                                     <input class="form-control py-4" id="email" name="email" type="email"
-                                        placeholder="Digite seu gmail..." />
-                                </div>
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputPassword">Nova senha</label>
-                                    <input class="form-control py-4" id="senha" name="senha" type="password"
-                                        autocomplete="off" placeholder="Informe sua senha..." />
-                                </div>
-                                <div class="form-group">
-                                    <label class="small mb-1" for="inputPassword">Confirme a nova senha</label>
-                                    <input class="form-control py-4" id="confSenha" name="confSenha" type="password"
-                                        autocomplete="off" placeholder="Informe sua senha..." />
+                                        placeholder="Coloque seu gmail..." />
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                     <input class="btn btn-primary" id="botao" type="submit"></input>
@@ -140,17 +130,16 @@
     </div>
     </div>
     <!-- ajax -->
-    <div class="pass"></div>
-    <!--<input type="hidden" class="pass">-->
+    <input type="hidden" class="pass">
     <!-- Core -->
     <script>
         //Função ajax
         $(function () {
-            $('.formNewPass').submit(function () { //Linha para submit, quando o usuário apertar o botão
+            $('.formPass').submit(function () { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
-                    url: './php/updateSen.php', //Arquivo php que fará as validações
+                    url: './php/envioFunc.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
-                    data: $('.formNewPass').serialize(), //Pega as informações inseridas
+                    data: $('.formPass').serialize(), //Pega as informações inseridas
                     success: function (data) {
                         $('.pass').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }

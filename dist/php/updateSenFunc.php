@@ -61,7 +61,7 @@ else {
         return false;
     }
 
-    $verifica = ("SELECT RASH_SOL FROM TBL_SOLICITACAO WHERE EMAIL_SOL = '$vmail' AND STATS_SOL = 0");
+    $verifica = ("SELECT RASH_SOL FROM TBL_SOLICITACAOFUNC WHERE EMAIL_SOL = '$vmail' AND STATS_SOL = 0");
 
     $resultadoVerifica = mysqli_query ($conn, $verifica);
 
@@ -85,9 +85,9 @@ else {
 
     else 
         {
-            $sql = $conn->prepare("UPDATE TBL_EMPRESA SET SENHA_EMP = '$vrashsenha' WHERE EMAIL_EMP = '$vmail'");
+            $sql = $conn->prepare("UPDATE TBL_FUNCIONARIO SET SENHA_FUN = '$vrashsenha' WHERE EMAIL_FUN = '$vmail'");
 
-            $sql = $conn->prepare("DELETE FROM TBL_SOLICITACAO WHERE EMAIL_SOL = ?");
+            $sql = $conn->prepare("DELETE FROM TBL_SOLICITACAOFUNC WHERE EMAIL_SOL = ?");
             $sql->bind_param("s", $vmail);
             $sql -> execute()  or exit("Erro Banco delete");
 

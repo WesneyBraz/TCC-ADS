@@ -30,7 +30,7 @@ else {
     //Variável pegando o id do formulário
     $vmail=$_POST["email"];
 
-    $verifica = ("SELECT EMAIL_EMP FROM TBL_EMPRESA WHERE EMAIL_EMP = '{$vmail}'");
+    $verifica = ("SELECT EMAIL_FUN FROM TBL_FUNCIONARIO WHERE EMAIL_FUN = '{$vmail}'");
 
     $resultadoVerifica = mysqli_query ($conn, $verifica);
 
@@ -59,7 +59,7 @@ else {
     else { 
 
         $rash = md5(rand());
-        $sql = $conn->prepare("INSERT INTO tbl_solicitacao
+        $sql = $conn->prepare("INSERT INTO tbl_solicitacaofunc
         (email_sol, rash_sol)
         VALUES
         (?, ?)");
@@ -94,7 +94,7 @@ else {
                 $mail->Body = '
                 <h3>Aqui está o link para você recuperar a sua senha:</h3>
 
-                <p>Acesse o link: <a href="http://localhost/php-mail/alterar.php">Alteração de senha</a></p>
+                <p>Acesse o link: <a href="http://localhost/tcc-ads1/dist/alterarSenhaFunc.php">Alteração de senha</a></p>
             
                 <h3>Se não foi você, desconsidere este email. Porém, alguém tentou alterar seus dados.</h3>
                 <h3>Atenciosamente, DMW</h3>
