@@ -16,13 +16,15 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -47,18 +49,18 @@ include('verificaSessao2.php');
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cadastroFuncionario.php">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="bi bi-tools" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cadastroFornecedor.php">
+                            <a class="nav-link" href="cadastroFornecedor.php">
                                 <i class="ni ni-delivery-fast" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>
-                        
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="produto.php">
@@ -67,7 +69,7 @@ include('verificaSessao2.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cadastroCliente.php">
+                            <a class="nav-link" href="cadastroCliente.php">
                                 <i class="bi bi-person-lines-fill" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Cliente</span>
                             </a>
@@ -105,8 +107,7 @@ include('verificaSessao2.php');
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -132,9 +133,9 @@ include('verificaSessao2.php');
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
-                    <!-- card header -->
+                        <!-- card header -->
                         <div class="card-header">
-                            <h3 class="text-center my-3">Insira seus Produtos:</h3>
+                            <h2 class="text-center my-3">Insira seus Produtos:</h2>
                         </div>
                         <!-- Cadastro Produto -->
                         <div class="card-body">
@@ -143,8 +144,7 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nomeProduto">Nome do produto</label>
-                                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto"
-                                                placeholder="EX: Placa de vídeo">
+                                            <input type="text" class="form-control" id="nomeProduto" name="nomeProduto" placeholder="Ex: Placa de vídeo.">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -166,15 +166,13 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="descricao">Descrição:</label>
-                                            <textarea class="form-control" id="descricao" name="descricao"
-                                                placeholder="EX: Descreva seus produtos aqui!" rows="2"></textarea>
+                                            <textarea class="form-control" id="descricao" name="descricao" placeholder="Ex: Descreva seus produtos aqui." rows="2"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="nomeProduto">Categoria:</label>
-                                            <input type="text" class="form-control" id="categoria" name="categoria"
-                                                placeholder="EX: Nome da categoria do Produto">
+                                            <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Ex: Nome da categoria do Produto.">
                                         </div>
                                     </div>
                                 </div>
@@ -182,15 +180,13 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="valorProduto">Valor do produto:</label>
-                                            <input type="text" class="form-control valorProduto" id="valorProduto"
-                                                name="valorProduto" placeholder="EX: Valor">
+                                            <input type="text" class="form-control valorProduto" id="valorProduto" name="valorProduto" placeholder="Ex: 1.000">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="estoque">Estoque do produto:</label>
-                                            <input type="number" class="form-control" id="estoque" name="estoque"
-                                                placeholder="EX: Valor">
+                                            <input type="number" class="form-control" id="estoque" name="estoque" placeholder="Ex: 20">
                                         </div>
                                     </div>
                                 </div>
@@ -217,13 +213,13 @@ include('verificaSessao2.php');
     <!-- Core -->
     <script>
         //Função ajax
-        $(function () {
-            $('.formPro').submit(function () { //Linha para submit, quando o usuário apertar o botão
+        $(function() {
+            $('.formPro').submit(function() { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
                     url: './php/createProd.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formPro').serialize(), //Pega as informações inseridas
-                    success: function (data) {
+                    success: function(data) {
                         $('.pro').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
@@ -241,8 +237,6 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/produto.js"></script>
     <script src="./js/sair.js"></script>
 

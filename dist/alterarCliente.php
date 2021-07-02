@@ -32,11 +32,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -57,7 +59,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
@@ -146,8 +148,8 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Cliente:
-                                <?php echo 'Nº ' . $retorno['COD_CLI'] . ''; ?></h3>
+                            <h2 class="text-center my-3">Alterar Cliente
+                                <?php echo 'Nº ' . $retorno['COD_CLI'] . ''; ?></h2>
                         </div>
                         <div class="card-body">
                             <!-- Form Cadastro -->
@@ -290,10 +292,8 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Puxando o jquery e plugin "mask" do jquery -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
     <script src="./js/cadastroCliente.js"></script>
     <script src="./js/sair.js"></script>
 </body>

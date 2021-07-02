@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,9 +14,15 @@
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
+
 <body>
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
@@ -59,8 +66,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -82,65 +88,59 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
-        <div class="col-md-10 ml-auto mr-auto">
-        <div class="card card-upgrade">
-            <div class="card-header">
-                <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
-            </div>
-            <div class="card-body">
-                <form method="POST" action="verificaloginFuncionario.php" name="frmCadastro" onsubmit="checkForm();">
-                    <div class="form-group">
-                        <label class="small mb-1" for="inputEmailAddress">Email</label>
-                        <input class="form-control py-4" id="email" name="email" type="email"
-                            placeholder="Coloque seu melhor email..." />
-                    </div>
-                    <div class="form-group">
-                        <label class="small mb-1" for="inputPassword">Senha</label>
-                        <input class="form-control py-4" id="senha" name="senha" type="password"
-                            placeholder="Informe sua senha..." />
-                    </div>
-                    <div class="form-group">
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" id="rememberPasswordCheck"
-                                type="checkbox" />
-                            <label class="custom-control-label" for="rememberPasswordCheck">Lembrar
-                                da Senha</label>
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div class="card card-upgrade">
+                        <div class="card-header">
+                            <h2 class="text-center my-3">Olá!, indentifique-se:</h2>
                         </div>
-                    </div>
-                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                        <a class="small" href="passFunc.php">Esqueci minha Senha</a>
-                        <input class="btn btn-primary text-white" id="botao" type="submit" 
-                            onclick="checkForm()" value="Entrar"></input>
-                    </div>
-                </form>
-               </div>
-            </div>
-        </div>
-    </div>
-    <!--Footer -->
-        <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
-            <div class="row align-items-center justify-content-lg-between">
-                <div class="col-lg-6">
-                    <div class="copyright text-center  text-lg-left  text-muted">
-                        &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
+                        <div class="card-body">
+                            <form method="POST" action="verificaloginFuncionario.php" name="frmCadastro">
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="Coloque seu melhor email..." />
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputPassword">Senha</label>
+                                    <input class="form-control py-4" id="senha" name="senha" type="password" placeholder="Informe sua senha..." />
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                        <label class="custom-control-label" for="rememberPasswordCheck">Lembrar
+                                            da Senha</label>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                    <a class="small" href="passFunc.php">Esqueci minha Senha</a>
+                                    <input class="btn btn-primary text-white" id="botao" type="submit" value="Entrar"></input>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-    <!-- Scripts -->
-    <!-- Core -->
-    <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
-    <script src="./js/loginFuncionario.js"></script>
+            <!--Footer -->
+            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+                <div class="row align-items-center justify-content-lg-between">
+                    <div class="col-lg-6">
+                        <div class="copyright text-center  text-lg-left  text-muted">
+                            &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Scripts -->
+            <!-- Core -->
+            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <!-- JS -->
+            <script src="./js/loginFuncionario.js"></script>
 
 </body>
 

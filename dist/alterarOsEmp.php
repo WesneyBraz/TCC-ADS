@@ -16,9 +16,9 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
 <html lang="pt-br">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Ordem de Serviço</title>
+    <title>Alterar OS</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -27,12 +27,14 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css ../js/jquery-3.6.0.min.js -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
     <script src="./js/sweetalert.js"></script>
 </head>
 
@@ -144,8 +146,8 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                     <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Ordem de Serviço:
-                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h3>
+                            <h2 class="text-center my-3">Alterar Ordem de Serviço:
+                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro">

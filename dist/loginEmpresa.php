@@ -14,8 +14,13 @@
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
+     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -42,7 +47,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                            <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -51,8 +56,8 @@
             </div>
         </div>
     </nav>
-   <!-- Main content -->
-   <div class="main-content" id="panel">
+    <!-- Main content -->
+    <div class="main-content" id="panel">
         <!-- Topnav -->
         <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
             <div class="container-fluid">
@@ -61,8 +66,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -89,17 +93,17 @@
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-body">
-                            <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
+                            <h2 class="text-center my-1">Olá!, indentifique-se:</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" name="frmCadastro" action="verificaLoginEmpresa.php">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="Coloque seu melhor email..." />
+                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="contato@gmail.com" />
                                 </div>
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputPassword">Senha</label>
-                                    <input class="form-control py-4" id="senha" name="senha" type="password" autocomplete="off" maxlength="10" placeholder="Informe sua senha..." />
+                                    <input class="form-control py-4" id="senha" name="senha" type="password" autocomplete="off" maxlength="10" placeholder="Informe sua senha." />
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
@@ -140,8 +144,6 @@
             <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <!-- JS -->
-            <script src="./js/sweetalert.js"></script>
-            <script src="./js/scripts.js"></script>
             <script src="./js/loginEmpresa.js"></script>
 </body>
 

@@ -46,7 +46,7 @@ include('verificaSessao2.php');
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
@@ -135,22 +135,22 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center my-4">Cadastre seus Clientes:</h3>
+                            <h2 class="text-center my-3">Cadastre seus Clientes:</h2>
                         </div>
                         <div class="card-body">
                             <!-- Form Cadastro -->
-                            <form name="frmCadastro" method="POST" action="" class="formCli" onsubmit="validarCadastro();">
+                            <form name="frmCadastro" method="POST" action="" class="formCli">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="">Nome Completo:</label>
-                                            <input class="form-control py-4 meucampo" id="nome" name="nome" type="text" placeholder="Nome Completo..." />
+                                            <input class="form-control py-4 meucampo" id="nome" name="nome" type="text" placeholder="Nome Completo." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="#">Email:</label>
-                                            <input class="form-control py-4" id="email" type="email" name="email" aria-describedby="emailHelp" placeholder="contato@domínio.com.br" />
+                                            <input class="form-control py-4" id="email" type="email" name="email" aria-describedby="emailHelp" placeholder="contato@gmail.com.br" />
                                         </div>
                                     </div>
                                 </div>
@@ -186,13 +186,13 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Lougradoro:</label>
-                                            <input class="form-control py-4" id="rua" name="rua" type="text" placeholder="Digite seu endereço..." />
+                                            <input class="form-control py-4" id="rua" name="rua" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Complemento:</label>
-                                            <input class="form-control py-4" id="complemento" name="complemento" type="text" placeholder="Digite seu endereço..." />
+                                            <input class="form-control py-4" id="complemento" name="complemento" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -206,13 +206,13 @@ include('verificaSessao2.php');
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Bairro:</label>
-                                            <input class="form-control py-4" id="bairro" name="bairro" type="text" placeholder="Digite seu endereço..." />
+                                            <input class="form-control py-4" id="bairro" name="bairro" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Cidade:</label>
-                                            <input class="form-control py-4" id="cidade" name="cidade" type="text" placeholder="Digite seu endereço..." />
+                                            <input class="form-control py-4" id="cidade" name="cidade" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -220,17 +220,17 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="uf" type="text" placeholder="Digite seu endereço..." />
+                                            <input class="form-control py-4" id="uf" name="uf" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">País:</label>
-                                            <input class="form-control py-4" id="pais" name="pais" type="text" placeholder="Digite seu País..." />
+                                            <input class="form-control py-4" id="pais" name="pais" type="text" placeholder="Digite seu País." />
                                         </div>
                                     </div>
                                 </div>
-                                <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar" onclick="validarCadastro();">
+                                <input class="btn btn-primary btn-block" type="Submit" value="Cadastrar">
                                 </input>
                             </form>
                         </div>
@@ -274,10 +274,8 @@ include('verificaSessao2.php');
     <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Puxando o jquery e plugin "mask" do jquery -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="../assets/js/argon.js?v=1.2.0"></script>
     <script src="./js/cadastroCliente.js"></script>
     <script src="./js/sair.js"></script>
 </body>

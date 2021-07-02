@@ -25,13 +25,15 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./js/sweetalert2.all.js"></script>
+    <!-- Bootstrap -->
+     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -142,11 +144,11 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     <div class="card card-upgrade">
                         <!-- card header -->
                         <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Departamento: <?php echo 'Nº ' . $retorno['COD_DEP'] . ''; ?></h3>
+                            <h2 class="text-center my-3">Alterar Departamento <?php echo 'Nº ' . $retorno['COD_DEP'] . ''; ?></h2>
                         </div>
                         <!-- Cadastro Departamento -->
                         <div class="card-body">
-                            <form method="POST" action="" class="formDep" id="frmCadastro" onsubmit="validarProduto()">
+                            <form method="POST" action="" class="formDep" id="frmCadastro">
                                 <div class="form-group">
                                     <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_DEP']; ?>"></input>
                                     <label class="mb-1" for="nome">Departamento:</label>
@@ -199,8 +201,6 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS ./js/sweetalert.js -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/consultar.js"></script>
     <script src="./js/sair.js"></script>
 

@@ -18,11 +18,13 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap -->
+     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -133,7 +135,7 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center my-3">Cadastre seus Fornecedores:</h3>
+                            <h2 class="text-center my-3">Cadastre seus Fornecedores:</h2>
                         </div>
                         <div class="card-body">
                             <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro">
@@ -142,7 +144,7 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label class="mb-1" for="">Nome:</label>
                                             <input class="form-control meucampo py-4" id="nome" name="nome" type="text"
-                                                placeholder="Nome fantasia..." />
+                                                placeholder="Nome fantasia." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -150,7 +152,7 @@ include('verificaSessao2.php');
                                             <label class=" mb-1" for="#">Email:</label>
                                             <input class="form-control py-4" id="email" name="email" type="email"
                                                 aria-describedby="emailHelp"
-                                                placeholder="Coloque seu melhor email..." />
+                                                placeholder="contato@gmail.com" />
                                         </div>
                                     </div>
                                 </div>
@@ -192,14 +194,14 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Lougradoro:</label>
                                             <input class="form-control py-4" id="rua" name="rua" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Complemento:</label>
                                             <input class="form-control py-4" id="complemento" name="complemento"
-                                                type="text" placeholder="Digite seu endereço..." />
+                                                type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -214,14 +216,14 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Bairro:</label>
                                             <input class="form-control py-4" id="bairro" name="bairro" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Cidade:</label>
                                             <input class="form-control py-4" id="cidade" name="cidade" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -230,14 +232,14 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
                                             <input class="form-control py-4" id="uf" name="uf" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">País:</label>
                                             <input class="form-control py-4" id="pais" name="pais" type="text"
-                                                placeholder="Digite seu País..." />
+                                                placeholder="Digite seu País." />
                                         </div>
                                     </div>
                                 </div>
@@ -292,8 +294,6 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/cadastroFornecedor.js"></script>
     <script src="./js/sair.js"></script>
 

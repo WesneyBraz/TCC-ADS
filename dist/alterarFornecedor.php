@@ -146,7 +146,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Fornecedor:
+                            <h3 class="text-center my-3">Alterar Fornecedor
                                 <?php echo 'Nº ' . $retorno['COD_FOR'] . ''; ?></h3>
                         </div>
                         <div class="card-body">
