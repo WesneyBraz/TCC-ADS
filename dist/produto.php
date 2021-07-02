@@ -135,7 +135,7 @@ include('verificaSessao2.php');
                     <div class="card card-upgrade">
                         <!-- card header -->
                         <div class="card-header">
-                            <h2 class="text-center my-3">Insira seus Produtos:</h2>
+                            <h2 class="text-center my-2">Insira seus Produtos:</h2>
                         </div>
                         <!-- Cadastro Produto -->
                         <div class="card-body">

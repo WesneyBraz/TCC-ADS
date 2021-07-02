@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -41,13 +41,13 @@
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                                <i class="ni ni-tv-2 text-primary"></i>
+                                <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -93,17 +93,17 @@
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h2 class="text-center my-3">Olá!, indentifique-se:</h2>
+                            <h2 class="text-center my-2">Olá!, indentifique-se:</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="verificaloginFuncionario.php" name="frmCadastro">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="Coloque seu melhor email..." />
+                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="contato@gmail.com" />
                                 </div>
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputPassword">Senha</label>
-                                    <input class="form-control py-4" id="senha" name="senha" type="password" placeholder="Informe sua senha..." />
+                                    <input class="form-control py-4" id="senha" name="senha" type="password" placeholder="Informe sua senha." />
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
@@ -121,26 +121,28 @@
                     </div>
                 </div>
             </div>
-            <!--Footer -->
-            <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-lg-6">
-                        <div class="copyright text-center  text-lg-left  text-muted">
-                            &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
-                        </div>
+        </div>
+        <!--Footer -->
+        <footer class="footer pt-0" style="margin: auto;width: 100%;bottom: 0; position: fixed;">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-lg-6">
+                    <div class="copyright text-center  text-lg-left  text-muted">
+                        &copy; 2020 <a href="" class="font-weight-bold ml-1" target="_blank">DMW</a>
                     </div>
                 </div>
-            </footer>
-            <!-- Scripts -->
-            <!-- Core -->
-            <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-            <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <!-- JS -->
-            <script src="./js/loginFuncionario.js"></script>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <!-- Core -->
+        <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
+        <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- JS -->
+        <script src="./js/loginFuncionario.js"></script>
 
 </body>
 

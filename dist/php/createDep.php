@@ -2,7 +2,7 @@
 
 if($_POST){
     //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
-    if(empty($_POST['nomeDepartamento'])){
+    if(empty($_POST['departamento'])){
         echo ("<script>
         $(document).ready(function(){ 
             Swal.fire({
@@ -21,7 +21,7 @@ if($_POST){
 
 
     //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
-    $vnome=$_POST["nomeDepartamento"];
+    $vnome=$_POST["departamento"];
 
 
     //----------------------------------FIM---------------------------------------------

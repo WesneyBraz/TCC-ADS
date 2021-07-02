@@ -16,12 +16,12 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-     <!-- CSS -->
-     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
     <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Bootstrap -->
-     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- Sweetalert -->
     <script src="./js/sweetalert.js"></script>
@@ -157,9 +157,9 @@ include('verificaSessao2.php');
                                             <form name="frmCadastro" method="post" action="" class="formDep" id="frmCadastro">
                                                 <div class="form-group row ">
                                                     <label class="my-1 mr-2" for="exampleFormControlInput1">Nome:</label>
-                                                    <input type="text" class="form-control meucampo" id="nomeDepartamento" name="nomeDepartamento" placeholder="Nome do departamento.">
+                                                    <input type="text" class="form-control meucampo" id="departamento" name="departamento" placeholder="Nome do departamento.">
                                                 </div>
-                                                <input type="submit" class="btn btn-primary  btn-block btn-round"  value="Adicionar"></input>
+                                                <input type="submit" class="btn btn-primary  btn-block btn-round" value="Adicionar"></input>
                                             </form>
                                         </div>
                                     </div>

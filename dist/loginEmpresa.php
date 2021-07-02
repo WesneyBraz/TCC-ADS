@@ -92,8 +92,8 @@
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
-                        <div class="card-body">
-                            <h2 class="text-center my-1">Olá!, indentifique-se:</h2>
+                        <div class="card-header">
+                            <h2 class="text-center my-2">Olá!, indentifique-se:</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" name="frmCadastro" action="verificaLoginEmpresa.php">

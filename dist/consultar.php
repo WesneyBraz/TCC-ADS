@@ -134,10 +134,9 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <!-- Card header -->
-
                         <form action="" method="POST" id="retorno" name="retorno" class="formCon">
                             <div class="input-group-append p-2 mt-2">
-                                <h2 class="px-2">Consultar:</h2>
+                                <h2 class="px-0">Consultar:</h2>
                                 <select name="consulta" id="consulta" class="btn-sm btn-primary dropdown-toggle" type="submit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <option selected>Selecione</option>
                                     <option class="dropdown-item text-white" value="Cliente" href="#">Cliente</option>

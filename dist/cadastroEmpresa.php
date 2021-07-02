@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -38,8 +38,20 @@
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
-                    <!-- Divider -->
-                    <hr class="my-3">
+                   <!-- Divider -->
+                   <hr class="my-3">
+                    <!-- Heading -->
+                    <h6 class="navbar-heading p-0">
+                        <span class="docs-normal">Acesso:</span>
+                    </h6>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                            <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <span class="nav-link-text">Home</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -77,12 +89,12 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                    <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Cadastre sua Empresa!</h3>
+                            <h2 class="text-center my-2">Cadastre sua Empresa:</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" id="frmCadastro" name="frmCadastro" class="formEmp">
@@ -90,7 +102,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="nome">Nome:</label>
-                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text" placeholder="Nome fantasia..." />
+                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text" placeholder="Nome fantasia." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -98,7 +110,7 @@
                                             <label class=" mb-1" for="email">Email:</label>
                                             <input class="form-control py-4" id="email" name="email" type="email" 
                                                 aria-describedby="emailHelp"
-                                                placeholder="Adicione um email do google.." />
+                                                placeholder="contato@gmail.com" />
                                         </div>
 
                                     </div>
@@ -142,14 +154,14 @@
                                         <div class="form-group">
                                             <label class=" mb-1" for="rua">Lougradoro:</label>
                                             <input class="form-control py-4" id="rua" name="rua" type="text" 
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="complemento">Complemento:</label>
                                             <input class="form-control py-4" id="complemento" name="complemento"
-                                                type="text" placeholder="Digite seu endereço..." />
+                                                type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -164,14 +176,14 @@
                                         <div class="form-group">
                                             <label class=" mb-1" for="bairro">Bairro:</label>
                                             <input class="form-control py-4" id="bairro" name="bairro" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cidade">Cidade:</label>
                                             <input class="form-control py-4" id="cidade" name="cidade" type="text"
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -180,14 +192,14 @@
                                         <div class="form-group">
                                             <label class=" mb-1" for="uf">Estado:</label>
                                             <input class="form-control py-4" id="uf" name="uf" type="text" 
-                                                placeholder="Digite seu endereço..." />
+                                                placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="pais">País:</label>
                                             <input class="form-control py-4" id="pais" name="pais" type="text"
-                                                placeholder="Digite seu País..." />
+                                                placeholder="Digite seu País." />
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +208,7 @@
                                         <div class="form-group">
                                             <label class="mb-1" for="senha">Senha:</label>
                                             <input class="form-control py-4" id="senha" name="senha" type="password" 
-                                                placeholder="Digite sua senha..." />
+                                                placeholder="Digite sua senha." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -206,7 +218,7 @@
                                             </label>
                                             <input class="form-control py-4" id="confirma_senha" name="confirma_senha"
                                                 type="password"  
-                                                placeholder="Digite novamente a senha..." />
+                                                placeholder="Digite novamente a senha." />
                                         </div>
                                     </div>
                                 </div>

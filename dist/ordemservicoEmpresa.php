@@ -16,13 +16,15 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -47,18 +49,18 @@ include('verificaSessao2.php');
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cadastroFuncionario.php">
+                        <li class="nav-item">
+                            <a class="nav-link" href="cadastroFuncionario.php">
                                 <i class="bi bi-tools" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cadastroFornecedor.php">
+                            <a class="nav-link" href="cadastroFornecedor.php">
                                 <i class="ni ni-delivery-fast" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Fornecedor</span>
                             </a>
-                        
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="produto.php">
@@ -67,7 +69,7 @@ include('verificaSessao2.php');
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="cadastroCliente.php">
+                            <a class="nav-link" href="cadastroCliente.php">
                                 <i class="bi bi-person-lines-fill" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Cliente</span>
                             </a>
@@ -105,8 +107,7 @@ include('verificaSessao2.php');
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -133,14 +134,14 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center my-3">Adicione uma Ordem de Serviço:</h3>
+                            <h2 class="text-center my-2">Adicione uma Ordem de Serviço:</h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro" onsubmit="validarOS()">
-                                
+
                                 <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Tipo:</label>
                                             <select class="custom-select my-1 mr-sm-2" id="tipo" name="tipo">
                                                 <option selected value="Preditiva">Preditiva</option>
@@ -152,8 +153,7 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1" class="">Nº Série:</label>
-                                            <input class="form-control" id="ns" name="ns" rows="2"
-                                                placeholder="0123..."></input>
+                                            <input class="form-control" id="ns" name="ns" rows="2" placeholder="0123..."></input>
                                         </div>
                                     </div>
                                 </div>
@@ -162,24 +162,22 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1" class="">
                                                 Descrição:</label>
-                                            <textarea class="form-control" id="descricaoOs" name="descricaoOs" rows="2"
-                                                placeholder="Adicone em poucas palavras a descrição..."></textarea>
+                                            <textarea class="form-control" id="descricaoOs" name="descricaoOs" rows="2" placeholder="Adicone em poucas palavras a descrição."></textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1" class="">Diagnostico:</label>
-                                            <textarea class="form-control" id="diagnostico" name="diagnostico" rows="2"
-                                                placeholder="Adicione em poucas palavras o diagnostico..."></textarea>
+                                            <textarea class="form-control" id="diagnostico" name="diagnostico" rows="2" placeholder="Adicione em poucas palavras o diagnostico."></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                    <div class="form-group">
+                                        <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Status:</label>
                                             <select class="custom-select my-1 mr-sm-2" id="status" name="status">
-                                                <option selected value="Aguardando">Aguardando</option>
+                                                <option selected value="Aguardando">Aguardando.</option>
                                                 <option value="Em processo">Em processo</option>
                                                 <option value="Concluido">Concluido</option>
                                             </select>
@@ -187,14 +185,13 @@ include('verificaSessao2.php');
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="my-1 mr-2"
-                                                for="inlineFormCustomSelectPref">Funcionario:</label>
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Funcionario:</label>
                                             <select name="nomeFuncionario" class="custom-select my-1 mr-sm-2" id="nomeFuncionario">
-                                                <option selected>Selecione...</option>
+                                                <option selected>Selecione.</option>
                                                 <?php
-                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once './php/readFun.php';
-                                                    //----------------------------------FIM---------------------------------------------
+                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                include_once './php/readFun.php';
+                                                //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
                                         </div>
@@ -205,63 +202,56 @@ include('verificaSessao2.php');
                                         <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Cliente:</label>
                                             <select class="custom-select my-1 mr-sm-2" id="nomeCliente" name="nomeCliente">
-                                                <option selected>Selecione...</option>
+                                                <option selected>Selecione.</option>
                                                 <?php
-                                                    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                    include_once './php/readCli.php';
-                                                    //----------------------------------FIM---------------------------------------------
+                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                include_once './php/readCli.php';
+                                                //----------------------------------FIM---------------------------------------------
                                                 ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
-                                                <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
-                                                    <option selected>Selecione...</option>
-                                                    <?php
-                                                        //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                        include_once './php/readProd.php';
-                                                        //----------------------------------FIM---------------------------------------------
-                                                    ?>
-                                                </select>
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
+                                                <option selected>Selecione.</option>
+                                                <?php
+                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                include_once './php/readProd.php';
+                                                //----------------------------------FIM---------------------------------------------
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-datetime-local-input"
-                                                class=" my-1 mr-2">Entrada:</label>
-                                            <input class="form-control" type="date"
-                                            id="dataEntrada" name="dataEntrada">
+                                            <label for="example-datetime-local-input" class=" my-1 mr-2">Entrada:</label>
+                                            <input class="form-control" type="date" id="dataEntrada" name="dataEntrada">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-datetime-local-input" class=" my-1 mr-2">Saída:</label>
-                                            <input class="form-control" type="date"
-                                            id="dataSaida" name="dataSaida">
+                                            <input class="form-control" type="date" id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="valorOs">Custo:</label><input type="text" id="valorOs"
-                                                name="valorOs" class="form-control valor"
-                                                style="display:inline-block" />
+                                            <label for="valorOs">Custo:</label><input type="text" id="valorOs" name="valorOs" class="form-control valor" style="display:inline-block" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="lucro">Lucro:</label><input type="text" id="lucro" name="lucro"
-                                                class="form-control valor" style="display:inline-block" />
+                                            <label for="lucro">Lucro:</label><input type="text" id="lucro" name="lucro" class="form-control valor" style="display:inline-block" />
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
-                                    value="Adicionar" onclick="validarOS();"></input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="Adicionar" onclick="validarOS();"></input>
                             </form>
                         </div>
                     </div>
@@ -284,13 +274,13 @@ include('verificaSessao2.php');
     <!-- Core -->
     <script>
         //Função ajax
-        $(function () {
-            $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
+        $(function() {
+            $('.formOS').submit(function() { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
                     url: './php/createOS.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOS').serialize(), //Pega as informações inseridas
-                    success: function (data) {
+                    success: function(data) {
                         $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
@@ -308,8 +298,6 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/ordemservicoEmpresa.js"></script>
     <script src="./js/sair.js"></script>
 

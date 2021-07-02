@@ -11,14 +11,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -39,13 +42,13 @@
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                                <i class="ni ni-tv-2 text-primary"></i>
+                                <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -64,8 +67,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -87,23 +89,21 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
-                        <div class="card-header text-left border-0 ">
-                            <div>
-                                <h3>Informe seu CPF:</h3>
+                        <div class="card-header">
+                            <div class="text-center my-2">
+                                <h2>Informe seu CPF:</h2>
                             </div>
+                            <hr class="my-3">
                             <!-- form -->
-                            <form action="" name="frmCliente" method="POST" onsubmit="validarCPF()">
+                            <form action="" name="frmCliente" class="mt-3" method="POST">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="EX: 000.000.000-00"
-                                        aria-label="Recipient's username" aria-describedby="button-addon2" id="cpf"
-                                        name="cpf">
+                                    <input type="text" class="form-control" placeholder="EX: 000.000.000-00" aria-label="Recipient's username" aria-describedby="button-addon2" id="cpf" name="cpf">
                                     <div class="input-group-append">
-                                        <input class="btn btn-primary btn-block btn-round" type="submit" name="Submit"
-                                            value="Checar" onclick="validarCPF();"></input>
+                                        <input class="btn btn-primary btn-block btn-round" type="submit" name="Submit" value="Checar" onclick="validarCPF();"></input>
                                     </div>
                                 </div>
                             </form>
@@ -173,22 +173,22 @@
         </footer>
         <!-- Scripts -->
         <div class="cli"></div>
-    <script>
-        //Função ajax
-        $(function () {
-            $('.frmCliente').submit(function () { //Linha para submit, quando o usuário apertar o botão
-                $.ajax({
-                    url: './php/readOsCli.php', //Arquivo php que fará as validações
-                    type: 'post', //Método utilizado
-                    data: $('.frmCliente').serialize(), //Pega as informações inseridas
-                    success: function (data) {
-                        $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
-                    }
+        <script>
+            //Função ajax
+            $(function() {
+                $('.frmCliente').submit(function() { //Linha para submit, quando o usuário apertar o botão
+                    $.ajax({
+                        url: './php/readOsCli.php', //Arquivo php que fará as validações
+                        type: 'post', //Método utilizado
+                        data: $('.frmCliente').serialize(), //Pega as informações inseridas
+                        success: function(data) {
+                            $('.cli').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
+                        }
+                    });
+                    return false;
                 });
-                return false;
             });
-        });
-    </script>
+        </script>
         <!-- Core -->
         <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
         <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -197,12 +197,8 @@
         <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- Puxando o jquery e plugin "mask" do jquery -->
-        <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
         <script type="text/javascript" src="js/jquery.mask.min.js"></script>
         <!-- JS -->
-        <script src="../assets/js/argon.js?v=1.2.0"></script>
-        <script src="./js/sweetalert.js"></script>
-        <script src="./js/scripts.js"></script>
         <script src="./js/loginCliente.js"></script>
 </body>
 

@@ -1,14 +1,14 @@
 <?php
 include('verificaSessao.php');
 require 'conexao.php';
-$id=addslashes($_GET['COD_SER']);
+$id = addslashes($_GET['COD_SER']);
 
 $verifica = ("SELECT CUSTO, LUCRO, DATA_INICIO, DATA_FIM, 
 DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, 
 COD_CLI, COD_SER  FROM TBL_ORDEM_DE_SERVICO WHERE COD_SER = '$id'");
 
 
-$resultadoVerifica = mysqli_query ($conn, $verifica );
+$resultadoVerifica = mysqli_query($conn, $verifica);
 
 $retorno = mysqli_fetch_assoc($resultadoVerifica);
 ?>
@@ -24,15 +24,18 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!---CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- alerta css -->
+    <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/sweetalert2.all.js"></script>
+    <!-- Sweetalert -->
+    <script src="./js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -59,23 +62,25 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" href="ordemservicoFuncionario.php">
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <i class="bi bi-clipboard-data" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Minhas Ordens de Serviço</span>
                             </a>
+
+
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="produtoFuncionario.php">
-                                <i class="ni ni-cart text-primary"></i>
+                                <i class="bi bi-cart4" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <button id="sair" class="text-dark nav-link"
-                                style="background-color: transparent;
+                            <button id="sair" class="text-dark p-1 nav-link" style="background-color: transparent;
                             border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
-                                <i class="ni ni-ui-04 text-danger"></i>
+                                <i class="bi bi-x-octagon-fill text-danger p-2" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 Sair</button>
                         </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -90,8 +95,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -113,41 +117,39 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Alterar Ordem de Serviço:
-                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h3>
+                            <h3 class="text-center my-2">Alterar Ordem de Serviço:
+                                <?php echo 'Nº ' . $retorno['COD_SER'] . ''; ?></h3>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro" onsubmit="validarOS()">
-                                
+
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_SER'];?>"></input>
+                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_SER']; ?>"></input>
                                             <label for="exampleFormControlTextarea1" class="">
                                                 Descrição:</label>
-                                            <input class="form-control" id="descricaoOs" name="descricaoOs" rows="2"
-                                                value="<?php echo $retorno['DESCRICAO_DA_ATIVIDADE'];?>"></input>
+                                            <input class="form-control" id="descricaoOs" name="descricaoOs" rows="2" value="<?php echo $retorno['DESCRICAO_DA_ATIVIDADE']; ?>"></input>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1" class="">Diagnostico:</label>
-                                            <input class="form-control" id="diagnostico" name="diagnostico" rows="2"
-                                            value="<?php echo $retorno['DIAGNOSTICO'];?>"></input>
+                                            <input class="form-control" id="diagnostico" name="diagnostico" rows="2" value="<?php echo $retorno['DIAGNOSTICO']; ?>"></input>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
-                                    <div class="form-group">
+                                        <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Status:</label>
                                             <select class="custom-select my-1 mr-sm-2" id="status" name="status">
-                                            <option selected value="<?php echo $retorno['STATOS'];?>"><?php echo $retorno['STATOS'];?></option>
+                                                <option selected value="<?php echo $retorno['STATOS']; ?>"><?php echo $retorno['STATOS']; ?></option>
                                                 <option value="Aguardando">Aguardando</option>
                                                 <option value="Em processo">Em processo</option>
                                                 <option value="Concluido">Concluido</option>
@@ -156,37 +158,33 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
-                                                <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
-                                                    <option selected>Selecione...</option>
-                                                    <?php
-                                                        //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-                                                        include_once './php/readProd.php';
-                                                        //----------------------------------FIM---------------------------------------------
-                                                    ?>
-                                                </select>
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
+                                                <option selected>Selecione.</option>
+                                                <?php
+                                                //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+                                                include_once './php/readProd.php';
+                                                //----------------------------------FIM---------------------------------------------
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="example-datetime-local-input"
-                                                class=" my-1 mr-2">Entrada:</label>
-                                            <input class="form-control" type="date"
-                                            value="<?php echo $retorno['DATA_INICIO'];?>" id="dataEntrada" name="dataEntrada">
+                                            <label for="example-datetime-local-input" class=" my-1 mr-2">Entrada:</label>
+                                            <input class="form-control" type="date" value="<?php echo $retorno['DATA_INICIO']; ?>" id="dataEntrada" name="dataEntrada">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="example-datetime-local-input" class=" my-1 mr-2">Saída:</label>
-                                            <input class="form-control" type="date"
-                                            value="<?php echo $retorno['DATA_FIM'];?>" id="dataSaida" name="dataSaida">
+                                            <input class="form-control" type="date" value="<?php echo $retorno['DATA_FIM']; ?>" id="dataSaida" name="dataSaida">
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-outline-primary btn-block btn-round" id="botao"
-                                    value="SALVAR ALTERAÇÃO" onclick="validarOS();"></input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="SALVAR ALTERAÇÃO" onclick="validarOS();"></input>
                             </form>
                         </div>
                     </div>
@@ -209,13 +207,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <!-- Core -->
     <script>
         //Função ajax
-        $(function () {
-            $('.formOS').submit(function () { //Linha para submit, quando o usuário apertar o botão
+        $(function() {
+            $('.formOS').submit(function() { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
                     url: './php/updateOsFun.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formOS').serialize(), //Pega as informações inseridas
-                    success: function (data) {
+                    success: function(data) {
                         $('.os').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
@@ -233,8 +231,6 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/sweetalert.js"></script>
-    <script src="./js/scripts.js"></script>
     <script src="./js/ordemservicofuncionario.js"></script>
     <script src="./js/sair.js"></script>
 

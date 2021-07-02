@@ -135,7 +135,7 @@ include('verificaSessao2.php');
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h2 class="text-center my-3">Cadastre seus Fornecedores:</h2>
+                            <h2 class="text-center my-2">Cadastre seus Fornecedores:</h2>
                         </div>
                         <div class="card-body">
                             <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro">
