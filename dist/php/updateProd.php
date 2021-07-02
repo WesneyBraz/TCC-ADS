@@ -26,9 +26,10 @@ if($_POST){
     $vfornecedor= addslashes ($_POST["nomeFornecedor"]);
     $vdescricao= addslashes ($_POST["descricao"]);
     $vcategoria= addslashes ($_POST["categoria"]);
-    $vvalor= addslashes ($_POST["valorProduto"]);
+    $vvalor1= addslashes ($_POST["valorProduto"]);
     $vestoque= addslashes ($_POST["estoque"]);
     $vid= addslashes ($_POST["id"]);
+    $vvalor = floatval($vvalor1);
 
     //----------------------------------FIM---------------------------------------------
 

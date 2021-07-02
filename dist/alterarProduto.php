@@ -10,6 +10,15 @@ $resultadoVerifica = mysqli_query($conn, $verifica);
 
 $retorno = mysqli_fetch_assoc($resultadoVerifica);
 
+//---------------------------------------------------------
+$FOR = $retorno['COD_FOR'];
+
+$verifica1 = ("SELECT NOME_FANTASIA_FOR FROM TBL_FORNECEDOR WHERE COD_FOR = '$FOR'");
+
+$resultadoVerifica1 = mysqli_query ($conn, $verifica1 );
+
+$retorno1 = mysqli_fetch_assoc($resultadoVerifica1);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -161,7 +170,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                         <div class="form-group">
                                             <label for="nomeFornecedor">Fornecedor:</label>
                                             <select class="form-control" id="nomeFornecedor" name="nomeFornecedor">
-                                                <option selected>Selecione</option>
+                                            <option selected value="<?php echo $retorno['COD_FOR'];?>"><?php echo $retorno1['NOME_FANTASIA_FOR'];?></option>
                                                 <?php
                                                 //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                 include_once './php/readFor.php';

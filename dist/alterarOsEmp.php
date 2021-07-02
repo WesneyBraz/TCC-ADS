@@ -3,22 +3,46 @@ include('verificaSessao2.php');
 require 'conexao.php';
 $id=addslashes($_GET['COD_SER']);
 
-$verifica = ("SELECT CUSTO, LUCRO, DATA_INICIO, DATA_FIM, 
-DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, 
-COD_CLI, COD_SER  FROM TBL_ORDEM_DE_SERVICO WHERE COD_SER = '$id'");
-
+$verifica = ("SELECT CUSTO, LUCRO, TIPO, NS, DATA_INICIO, DATA_FIM, 
+DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, TIPO, NS,
+COD_CLI, COD_SER FROM TBL_ORDEM_DE_SERVICO WHERE COD_SER = '$id'");
 
 $resultadoVerifica = mysqli_query ($conn, $verifica );
 
 $retorno = mysqli_fetch_assoc($resultadoVerifica);
+//----------------------------------------------------------------------//
+$CLI = $retorno['COD_CLI'];
+
+$verifica1 = ("SELECT NOME_CLI FROM TBL_CLIENTE WHERE COD_CLI = '$CLI'");
+
+$resultadoVerifica1 = mysqli_query ($conn, $verifica1 );
+
+$retorno1 = mysqli_fetch_assoc($resultadoVerifica1);
+//----------------------------------------------------------------------//
+$FUN = $retorno['COD_FUN'];
+
+$verifica2 = ("SELECT NOME_FUN FROM TBL_FUNCIONARIO WHERE COD_FUN = '$FUN'");
+
+$resultadoVerifica2 = mysqli_query ($conn, $verifica2 );
+
+$retorno2 = mysqli_fetch_assoc($resultadoVerifica2);
+//----------------------------------------------------------------------//
+$PROD = $retorno['PRODUTO'];
+
+$verifica3 = ("SELECT NOME_PROD FROM TBL_PRODUTO WHERE COD_PROD = '$PROD'");
+
+$resultadoVerifica3 = mysqli_query ($conn, $verifica3 );
+
+$retorno3 = mysqli_fetch_assoc($resultadoVerifica3);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Alterar OS</title>
+    <title>Ordem de Serviço</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -27,14 +51,12 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- CSS -->
+    <!---CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
-    <!-- Ajax -->
+    <!-- alerta css ../js/jquery-3.6.0.min.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <!-- Bootstrap -->
-    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- Sweetalert -->
+    <script type="text/javascript" src="./js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
     <script src="./js/sweetalert.js"></script>
 </head>
 
@@ -146,8 +168,8 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                     <div class="card-header">
-                            <h2 class="text-center my-3">Alterar Ordem de Serviço:
-                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h2>
+                            <h3 class="text-center my-3">Alterar Ordem de Serviço:
+                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h3>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro">
@@ -155,6 +177,25 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-6">
                                         <div class="form-group">
                                         <input type="hidden" name="id" id="id" value="<?php echo $retorno['COD_SER'];?>"></input>
+                                            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Tipo:</label>
+                                            <select class="custom-select my-1 mr-sm-2" id="tipo" name="tipo">
+                                                <option selected value="Preditiva">Preditiva</option>
+                                                <option value="Preventiva">Preventiva</option>
+                                                <option value="Corretiva">Corretiva</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1" class="">Nº Série:</label>
+                                            <input class="form-control" id="ns" name="ns" rows="2"
+                                            value="<?php echo $retorno['NS'];?>"></input>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">                            
                                             <label for="exampleFormControlTextarea1" class="">
                                                 Descrição:</label>
                                             <input class="form-control" id="descricaoOs" name="descricaoOs" rows="2"
@@ -175,7 +216,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                             <label class="my-1 mr-2"
                                                 for="inlineFormCustomSelectPref">Funcionario:</label>
                                             <select name="nomeFuncionario" class="custom-select my-1 mr-sm-2" id="nomeFuncionario">
-                                                <option selected>Selecione...</option>
+                                            <option selected value="<?php echo $retorno['COD_FUN'];?>"><?php echo $retorno2['NOME_FUN'];?></option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                     include_once './php/readFun.php';
@@ -188,7 +229,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                         <div class="form-group">
                                             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Cliente:</label>
                                             <select class="custom-select my-1 mr-sm-2" id="nomeCliente" name="nomeCliente">
-                                                <option selected>Selecione...</option>
+                                            <option selected value="<?php echo $retorno['COD_CLI'];?>"><?php echo $retorno1['NOME_CLI'];?></option>
                                                 <?php
                                                     //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                     include_once './php/readCli.php';
@@ -214,7 +255,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                         <div class="form-group">
                                                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Produto:</label>
                                                 <select class="custom-select my-1 mr-sm-2" id="produto" name="produto">
-                                                    <option selected>Selecione...</option>
+                                                <option selected value="<?php echo $retorno['PRODUTO'];?>"><?php echo $retorno3['NOME_PROD'];?></option>
                                                     <?php
                                                         //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
                                                         include_once './php/readProd.php';

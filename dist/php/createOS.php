@@ -3,7 +3,8 @@ if($_POST){
     //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
     if(empty($_POST['dataEntrada']) || empty($_POST['descricaoOs']) || empty($_POST['diagnostico']) 
      || empty($_POST['produto']) || empty($_POST['status']) || empty($_POST['nomeFuncionario']) 
-     || empty($_POST['nomeCliente']) || empty($_POST['dataSaida']) || empty($_POST['valorOs']) || empty($_POST['lucro'])  ){
+     || empty($_POST['nomeCliente']) || empty($_POST['dataSaida']) || empty($_POST['valorOs']) || empty($_POST['lucro']) 
+     || empty($_POST['tipo'])  ){
         echo ("<script>
         $(document).ready(function(){ 
             Swal.fire({
@@ -31,6 +32,8 @@ if($_POST){
     $vfim=$_POST["dataSaida"];
     $vcusto=$_POST["valorOs"];
     $vlucro=$_POST["lucro"];
+    $vns=$_POST["ns"];
+    $vtipo=$_POST["tipo"];
 
     //----------------------------------FIM---------------------------------------------
 
@@ -40,11 +43,11 @@ if($_POST){
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
      $sql = $conn->prepare(" INSERT INTO TBL_ORDEM_DE_SERVICO
-     (CUSTO, LUCRO, DATA_INICIO, DATA_FIM, DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, COD_CLI)
+     (CUSTO, LUCRO, NS, TIPO, DATA_INICIO, DATA_FIM, DESCRICAO_DA_ATIVIDADE, DIAGNOSTICO, STATOS, PRODUTO, COD_FUN, COD_CLI)
      VALUES
-     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
+     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("ddssssssss", $vcusto, $vlucro, $vinicio, $vfim, $vdescricao, $vdiagnostico, $vstatus, $vproduto, $vfuncionario, $vcliente );
+     $sql -> bind_param("ddssssssssss", $vcusto, $vlucro, $vns, $vtipo, $vinicio, $vfim, $vdescricao, $vdiagnostico, $vstatus, $vproduto, $vfuncionario, $vcliente );
 
      //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
