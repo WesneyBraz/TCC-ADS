@@ -1,7 +1,7 @@
 <?php
 include('verificaSessao2.php');
 require 'conexao.php';
-$id=addslashes($_GET['COD_FOR']);
+$id = addslashes($_GET['COD_FOR']);
 
 $verifica = ("SELECT COD_FOR, COD_END, COD_CON, CNPJ_FOR, NOME_FANTASIA_FOR, EMAIL, TELEFONE_MOVEL, TELEFONE_FIXO, 
 LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, ID
@@ -11,7 +11,7 @@ INNER JOIN TBL_CONTATO CO ON CO.COD_CAT = FO.COD_CAT
 INNER JOIN TBL_ENDERECO EN ON EN.COD_CAT = FO.COD_CAT
 WHERE COD_FOR = '$id'");
 
-$resultadoVerifica = mysqli_query ($conn, $verifica );
+$resultadoVerifica = mysqli_query($conn, $verifica);
 $retorno = mysqli_fetch_assoc($resultadoVerifica);
 
 ?>
@@ -28,6 +28,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -61,46 +62,46 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroCliente.php">
-                                <i class="ni ni-single-02 text-primary"></i>
-                                <span class="nav-link-text">Cliente</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="cadastroFuncionario.php">
-                                <i class="ni ni-circle-08 text-primary"></i>
+                                <i class="bi bi-tools" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" href="cadastroFornecedor.php">
+                                <i class="ni ni-delivery-fast" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <span class="nav-link-text">Fornecedor</span>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="produto.php">
-                                <i class="ni ni-cart text-primary"></i>
+                                <i class="bi bi-cart4" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="cadastroFornecedor.php">
-                                <i class="ni ni-delivery-fast text-primary"></i>
-                                <span class="nav-link-text">Fornecedor</span>
+                            <a class="nav-link" href="cadastroCliente.php">
+                                <i class="bi bi-person-lines-fill" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <span class="nav-link-text">Cliente</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ordemservicoEmpresa.php">
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <i class="bi bi-clipboard-data" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="consultar.php">
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <i class="bi bi-search" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <button id="sair" type="button" class="text-dark nav-link"
-                                style="background-color: transparent;
+                            <button id="sair" type="button" class="text-dark nav-link m-2" style="background-color: transparent;
                             border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
-                                <i class="ni ni-ui-04 text-danger"></i>
+                                <i class="bi bi-x-octagon-fill text-danger p-3" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 Sair</button>
                         </li>
                     </ul>
@@ -118,8 +119,7 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -141,35 +141,31 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                    <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Alterar Fornecedor:
-                            <?php echo 'Nº '.$retorno['COD_FOR'].''; ?></h3>
+                            <h3 class="text-center my-3">Alterar Fornecedor:
+                                <?php echo 'Nº ' . $retorno['COD_FOR'] . ''; ?></h3>
                         </div>
                         <div class="card-body">
-                            <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro"
-                                onsubmit="validarCadastro()">
+                            <form name="frmCadastro" method="post" action="" class="formFor" id="frmCadastro">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <input type="hidden" name="for" id="for" value="<?php echo $retorno['COD_FOR'];?>"></input>
-                                            <input type="hidden" name="end" id="end" value="<?php echo $retorno['COD_END'];?>"></input>
-                                            <input type="hidden" name="con" id="con" value="<?php echo $retorno['COD_CON'];?>"></input>
-                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['ID'];?>"></input>
+                                            <input type="hidden" name="for" id="for" value="<?php echo $retorno['COD_FOR']; ?>"></input>
+                                            <input type="hidden" name="end" id="end" value="<?php echo $retorno['COD_END']; ?>"></input>
+                                            <input type="hidden" name="con" id="con" value="<?php echo $retorno['COD_CON']; ?>"></input>
+                                            <input type="hidden" name="id" id="id" value="<?php echo $retorno['ID']; ?>"></input>
                                             <label class="mb-1" for="">Nome:</label>
-                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text"
-                                            value="<?php echo $retorno['NOME_FANTASIA_FOR'];?>" />
+                                            <input class="form-control meucampo py-4" id="nome" name="nome" type="text" value="<?php echo $retorno['NOME_FANTASIA_FOR']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="#">Email:</label>
-                                            <input class="form-control py-4" id="email" name="email" type="email"
-                                                aria-describedby="emailHelp"
-                                                value="<?php echo $retorno['EMAIL'];?>" />
+                                            <input class="form-control py-4" id="email" name="email" type="email" aria-describedby="emailHelp" value="<?php echo $retorno['EMAIL']; ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -177,15 +173,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="cnpj">CNPJ:</label>
-                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text"
-                                            value="<?php echo $retorno['CNPJ_FOR'];?>" />
+                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text" value="<?php echo $retorno['CNPJ_FOR']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
-                                            <input class="form-control py-4 numeric" id="telefone" name="telefone"
-                                                type="text" value="<?php echo $retorno['TELEFONE_FIXO'];?>" />
+                                            <input class="form-control py-4 numeric" id="telefone" name="telefone" type="text" value="<?php echo $retorno['TELEFONE_FIXO']; ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -193,16 +187,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="celular">Celular:</label>
-                                            <input class="form-control py-4" id="celular" type="text" name="celular"
-                                            value="<?php echo $retorno['TELEFONE_MOVEL'];?>" />
+                                            <input class="form-control py-4" id="celular" type="text" name="celular" value="<?php echo $retorno['TELEFONE_MOVEL']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cep">Cep:</label>
-                                            <input class="form-control py-4" name="cep" type="text" id="cep"
-                                                size="10" maxlength="9" onblur="pesquisacep(this.value);"
-                                                value="<?php echo $retorno['CEP'];?>" />
+                                            <input class="form-control py-4" name="cep" type="text" id="cep" size="10" maxlength="9" onblur="pesquisacep(this.value);" value="<?php echo $retorno['CEP']; ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -210,15 +201,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Lougradoro:</label>
-                                            <input class="form-control py-4" id="rua" name="rua" type="text"
-                                            value="<?php echo $retorno['LOUGRADOURO'];?>" />
+                                            <input class="form-control py-4" id="rua" name="rua" type="text" value="<?php echo $retorno['LOUGRADOURO']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Complemento:</label>
-                                            <input class="form-control py-4" id="complemento" name="complemento"
-                                                type="text" value="<?php echo $retorno['COMPLEMENTO'];?>" />
+                                            <input class="form-control py-4" id="complemento" name="complemento" type="text" value="<?php echo $retorno['COMPLEMENTO']; ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -226,22 +215,19 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class=" mb-1" for="numero">N°:</label>
-                                            <input class="form-control py-4" id="numero" name="numero" type="number"
-                                            value="<?php echo $retorno['NUMERO'];?>" />
+                                            <input class="form-control py-4" id="numero" name="numero" type="number" value="<?php echo $retorno['NUMERO']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Bairro:</label>
-                                            <input class="form-control py-4" id="bairro" name="bairro" type="text"
-                                            value="<?php echo $retorno['BAIRRO'];?>" />
+                                            <input class="form-control py-4" id="bairro" name="bairro" type="text" value="<?php echo $retorno['BAIRRO']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Cidade:</label>
-                                            <input class="form-control py-4" id="cidade" name="cidade" type="text"
-                                            value="<?php echo $retorno['CIDADE'];?>" />
+                                            <input class="form-control py-4" id="cidade" name="cidade" type="text" value="<?php echo $retorno['CIDADE']; ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -249,21 +235,18 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="uf" type="text"
-                                            value="<?php echo $retorno['ESTADO'];?>" />
+                                            <input class="form-control py-4" id="uf" name="uf" type="text" value="<?php echo $retorno['ESTADO']; ?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="">País:</label>
-                                            <input class="form-control py-4" id="pais" name="pais" type="text"
-                                            value="<?php echo $retorno['PAIS'];?>" />
+                                            <input class="form-control py-4" id="pais" name="pais" type="text" value="<?php echo $retorno['PAIS']; ?>" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group mt-4 mb-0 text-white">
-                                    <input class="btn btn-outline-primary btn-block" type="Submit" value="SALVAR ALTERAÇÃO"
-                                        onclick="validarCadastro();">
+                                    <input class="btn btn-primary btn-block" type="Submit" value="Salvar Alteração">
                                     </input>
                                 </div>
                             </form>
@@ -287,13 +270,13 @@ $retorno = mysqli_fetch_assoc($resultadoVerifica);
     <!-- Core -->
     <script>
         //Função ajax
-        $(function () {
-            $('.formFor').submit(function () { //Linha para submit, quando o usuário apertar o botão
+        $(function() {
+            $('.formFor').submit(function() { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
                     url: './php/updateFor.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formFor').serialize(), //Pega as informações inseridas
-                    success: function (data) {
+                    success: function(data) {
                         $('.for').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });

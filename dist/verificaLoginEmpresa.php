@@ -19,7 +19,7 @@ $row = mysqli_num_rows($result);
 
 if($row == 1) {
     $_SESSION['email'] = $Email;
-    header('Location: cadastroCliente.php');
+    header('Location: cadastroFuncionario.php');
     exit();
 }
 else {

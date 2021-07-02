@@ -14,6 +14,7 @@ include('verificaSessao2.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
     <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!---CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -46,47 +47,48 @@ include('verificaSessao2.php');
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="cadastroCliente.php">
-                                <i class="ni ni-single-02 text-primary"></i>
-                                <span class="nav-link-text">Cliente</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cadastroFuncionario.php">
-                                <i class="ni ni-circle-08 text-primary"></i>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastroFuncionario.php">
+                                <i class="bi bi-tools" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Funcionario</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="produto.php">
-                                <i class="ni ni-cart text-primary"></i>
+                        <li class="nav-item">
+                        <a class="nav-link" href="cadastroFornecedor.php">
+                                <i class="ni ni-delivery-fast" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <span class="nav-link-text">Fornecedor</span>
+                            </a>
+                        
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="produto.php">
+                                <i class="bi bi-cart4" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Produto</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cadastroFornecedor.php">
-                                <i class="ni ni-delivery-fast text-primary"></i>
-                                <span class="nav-link-text">Fornecedor</span>
+                        <a class="nav-link" href="cadastroCliente.php">
+                                <i class="bi bi-person-lines-fill" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <span class="nav-link-text">Cliente</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="ordemservicoEmpresa.php">
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <i class="bi bi-clipboard-data" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Ordem de Serviço</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="consultar.php">
-                                <i class="ni ni-bullet-list-67 text-primary"></i>
+                                <i class="bi bi-search" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Consultar</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                           <button  id="sair" type="button" class="text-dark nav-link" style="background-color: transparent;
+                            <button id="sair" type="button" class="text-dark nav-link m-2" style="background-color: transparent;
                             border: 0;color: #00f;cursor: pointer;display: inline-block;padding:0;margin:1em;position: relative;text-decoration: none;">
-                             <i  class="ni ni-ui-04 text-danger"></i>
-                             Sair</button>
+                                <i class="bi bi-x-octagon-fill text-danger p-3" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                Sair</button>
                         </li>
                     </ul>
                 </div>
@@ -126,17 +128,17 @@ include('verificaSessao2.php');
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid mt--6">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
-                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                    <div class="card card-upgrade">
                     <!-- card header -->
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-4">Insira seus Produtos:</h3>
+                            <h3 class="text-center my-3">Insira seus Produtos:</h3>
                         </div>
                         <!-- Cadastro Produto -->
                         <div class="card-body">
-                            <form method="POST" action="" class="formPro" id="frmCadastro" onsubmit="validarProduto()">
+                            <form method="POST" action="" class="formPro" id="frmCadastro">
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -192,8 +194,7 @@ include('verificaSessao2.php');
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao"
-                                    onclick="validarProduto();" value="Cadastrar"></input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="Cadastrar"></input>
                             </form>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
@@ -36,13 +36,13 @@
                     <!-- Divider -->
                     <hr class="my-3">
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
+                    <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                                <i class="ni ni-tv-2 text-primary"></i>
+                            <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -51,51 +51,66 @@
             </div>
         </div>
     </nav>
-    <!-- Main content -->
-    <div class="main-content" id="panel">
+   <!-- Main content -->
+   <div class="main-content" id="panel">
+        <!-- Topnav -->
+        <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Navbar links -->
+                    <ul class="navbar-nav align-items-center  ml-md-auto ">
+                        <li class="nav-item d-xl-none">
+                            <!-- Sidenav toggler -->
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
+                                data-target="#sidenav-main">
+                                <div class="sidenav-toggler-inner">
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                    <i class="sidenav-toggler-line"></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <!-- Header -->
         <div class="header bg-primary pb-6">
             <div class="container-fluid">
                 <div class="header-body">
                     <div class="row align-items-center py-4">
-
                     </div>
                 </div>
             </div>
         </div>
         <!-- Page content -->
-        <div class="container-fluid ">
+        <div class="container-fluid mt--7">
             <div class="row mt--5">
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
-                        <!-- formulario para login -->
-                        <div class="card-header">
+                        <div class="card-body">
                             <h3 class="text-center font-weight-light my-4">Olá!, indentifique-se:</h3>
                         </div>
                         <div class="card-body">
                             <form method="POST" name="frmCadastro" action="verificaLoginEmpresa.php">
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                    <input class="form-control py-4" id="email" name="email" type="email"
-                                        placeholder="Coloque seu melhor email..." />
+                                    <input class="form-control py-4" id="email" name="email" type="email" placeholder="Coloque seu melhor email..." />
                                 </div>
                                 <div class="form-group">
                                     <label class="small mb-1" for="inputPassword">Senha</label>
-                                    <input class="form-control py-4" id="senha" name="senha" type="password"
-                                        autocomplete="off" maxlength="10" placeholder="Informe sua senha..." />
+                                    <input class="form-control py-4" id="senha" name="senha" type="password" autocomplete="off" maxlength="10" placeholder="Informe sua senha..." />
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" id="rememberPasswordCheck"
-                                            type="checkbox" />
+                                        <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
                                         <label class="custom-control-label" for="rememberPasswordCheck">Lembrar
                                             da Senha</label>
                                     </div>
                                 </div>
                                 <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-3">
                                     <a class="small" href="password.php">Esqueci minha Senha</a>
-                                    <input class="btn btn-primary text-white" id="botao" type="submit" value="Login"
-                                        onclick="checkForm()"></input>
+                                    <input class="btn btn-primary text-white" id="botao" type="submit" value="Login" onclick="checkForm()"></input>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="small"><a href="cadastroEmpresa.php">Cadastrar empresa</a>
