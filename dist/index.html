@@ -10,10 +10,14 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="../assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -37,28 +41,29 @@
                         <span class="docs-normal mx-2">Acesso:</span>
                     </h6>
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link  mx-1 " href="loginEmpresa.php">
-                                <img src="./img/empresa.gif" class="mx-1" alt="" width="35px" height="35px">
-                                <span class="nav-link-text">Empresa
+                      <li class="nav-item">
+                        <a class="nav-link  mx-1 " href="loginEmpresa.php">
+                            <img src="./img/empresa.gif" class="mx-1" alt="" width="35px" height="35px">
+                            <span class="nav-link-text">Empresa
 
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-1 " href="loginFuncionario.php">
-                                <img src="./img/funcionario.gif" class="mx-1" alt="" width="35px" height="35px">
-                                <span class="nav-link-text">Funcionario
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1 " href="loginFuncionario.php">
+                            <img src="./img/funcionario.gif" class="mx-1" alt="" width="35px" height="35px">
+                            <span class="nav-link-text">Funcionario
 
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-1 " href="loginCliente.php">
-                                <img src="./img/cliente.gif" class="mx-1" alt="" width="40px" height="40px">
-                                <span class="nav-link-text">Cliente</span>
-                            </a>
-                        </li>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-1 " href="loginCliente.php">
+                            <img src="./img/cliente.gif" class="mx-1" alt="" width="40px" height="40px">
+                            <span class="nav-link-text">Cliente</span>
+                        </a>
+                    </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -101,19 +106,61 @@
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center font-weight-light my-1">DMW</h3>
+                        <h2 style="color: black;" class="text-center my-1">DMW</h2>
                         </div>   
                         <div class="card-body">
+                        </section>
+                       
+                          <section class="mt-4">
                             <img src="./img/home.png" alt="" class="float-left col-md-6 pull-left mr-2 " width="300px"
-                                height="300px">
-                            <div class="md-3">
-                                <p>
-                                    Lorem ipsum nec nam laoreet ad feugiat dui hac quisque diam fermentum, blandit cubilia rhoncus ultricies est habitasse sagittis egestas iaculis. 
-                                    a facilisis congue dictum vulputate aenean dui, nulla litora maecenas litora gravida arcu vulputate, bibendum fermentum enim a vitae. 
-                                    etiam sem litora amet pulvinar class pharetra himenaeos scelerisque, a placerat aliquet luctus morbi ornare libero, quam sodales mauris curabitur tristique per nisl. 
-                                    libero tristique suspendisse elementum malesuada lobortis rutrum mollis auctor conubia imperdiet vulputate class semper orci, imperdiet arcu sollicitudin mattis imperdiet bibendum. 
-                                </p>
+                            height="300px">
+                        <div class="md-3 text-justify">
+                            <p>
+                              Uma empresa pode evitar inúmeros problemas de diversas naturezas ao registrar os 
+                              serviços prestados por ela, diversos sistemas se propõem a resolver o problema, 
+                              mas sem nível de adequação para cada área do conhecimento. Este trabalho busca
+                              testar um sistema de ordem de serviço que serve apenas algumas áreas específicas. 
+                              <p>
+                              Suprir a demanda por organização dos serviços prestados, o que economiza tempo, pelas empresas
+                              de diversas áreas de atuação em manutenção e suporte; fazer a conexão Cliente-Empresa-Funcionário 
+                              através de um “layout”
+                              simples sobre cada ordem de serviço para ganhar reconhecimento e espaço neste ramo. 
+                              </p>
+                            </p>
+                        </div>
+                          </section>
+                        <!-- Benefits-->
+                        <section class="container pb-5 mt-5 pt-2 mb-md-2 md-7">
+                          <div class="row align-items-center">
+                            <div class="col-md-6 text-center">                     
+                              <h2>GERENCIAMENTO INTELIGENTE PARA SUA EMPRESA</h2>
+                              <a href="cadastroEmpresa.php" class="btn btn-primary mt-4">Cadastre sua Empresa</a>
                             </div>
+                            <div class="col-md-6 col-lg-5 offset-lg-1 pt-4 pt-md-0">
+                              <h2 class="mt-4 mb-3 text-center text-md-start">BENEFÍCIOS:</h2>
+                              <div class="row">
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2" src="./img/for.gif" alt="ilustração" width="46">
+                                  <h3 class="h6">Gerenciamento de Fornecedores</h3>
+                                </div>
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2" src="./img/prod.gif" alt="ilustração" width="46">
+                                  <h5 class="h6">Gerenciamento de Produtos</h5>
+                                </div>
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2" src="./img/cli.gif" alt="ilustração" width="46">
+                                  <h5 class="h6">Gerenciamento de Clientes</h5>
+                                </div>
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2 pt-2" src="./img/os.gif" alt="Private meeting room" width="46">
+                                  <h5 class="h6">Gerenciamento de OS</h5>
+                                </div>
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2 pt-2" src="./img/seg.gif" alt="High-speed internet" width="46">
+                                  <h5 class="h6">Confiabilidade das informações</h5>
+                                </div>
+                                <div class="col-6 col-sm-4 text-center mb-grid-gutter"><img class="mb-2 pt-2" src="./img/ino.gif" alt="Educational programs" width="46">
+                                  <h5 class="h6">Transformação digital</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </section>
                         </div>
                     </div>
                 </div>
