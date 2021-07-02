@@ -151,8 +151,8 @@ $retorno1 = mysqli_fetch_assoc($resultadoVerifica1);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                         <div class="card-header">
-                            <h3 class="text-center  my-3">Alterar funcionario:
-                            <?php echo 'Nº '.$retorno['COD_FUN'].''; ?></h3>
+                            <h2 class="text-center  my-2">Alterar funcionario:
+                            <?php echo 'Nº '.$retorno['COD_FUN'].''; ?></h2>
                         </div>
                         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">

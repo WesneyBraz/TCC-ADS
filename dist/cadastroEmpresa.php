@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cadastro Empresa</title>
-    <!-- Favicon --> 
+    <!-- Favicon -->
     <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
@@ -17,7 +17,7 @@
     <!-- Ajax -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- Bootstrap -->
-     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- Sweetalert -->
     <script src="./js/sweetalert.js"></script>
@@ -38,8 +38,8 @@
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
-                   <!-- Divider -->
-                   <hr class="my-3">
+                    <!-- Divider -->
+                    <hr class="my-3">
                     <!-- Heading -->
                     <h6 class="navbar-heading p-0">
                         <span class="docs-normal">Acesso:</span>
@@ -47,7 +47,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">
-                            <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
+                                <i class="bi-house-door" style="font-size: 1rem; color: cornflowerblue;"></i>
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
@@ -66,8 +66,7 @@
                     <ul class="navbar-nav align-items-center  ml-md-auto ">
                         <li class="nav-item d-xl-none">
                             <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin"
-                                data-target="#sidenav-main">
+                            <div class="pr-3 sidenav-toggler fixed-right sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                                 <div class="sidenav-toggler-inner">
                                     <i class="sidenav-toggler-line"></i>
                                     <i class="sidenav-toggler-line"></i>
@@ -108,9 +107,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="email">Email:</label>
-                                            <input class="form-control py-4" id="email" name="email" type="email" 
-                                                aria-describedby="emailHelp"
-                                                placeholder="contato@gmail.com" />
+                                            <input class="form-control py-4" id="email" name="email" type="email" aria-describedby="emailHelp" placeholder="contato@gmail.com" />
                                         </div>
 
                                     </div>
@@ -119,15 +116,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="cnpj">CNPJ:</label>
-                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text" 
-                                                placeholder="00.000.000/0000-00" />
+                                            <input class="form-control py-4" id="cnpj" name="cnpj" type="text" placeholder="00.000.000/0000-00" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="telefone">Telefone:</label>
-                                            <input class="form-control py-4" id="telefone" name="telefone"
-                                                type="text"  placeholder="(00) 00000-0000" />
+                                            <input class="form-control py-4" id="telefone" name="telefone" type="text" placeholder="(00) 00000-0000" />
                                         </div>
 
                                     </div>
@@ -136,16 +131,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="celular">Celular:</label>
-                                            <input class="form-control py-4" id="celular" type="text" name="celular"
-                                                placeholder="(00) 00000-0000" />
+                                            <input class="form-control py-4" id="celular" type="text" name="celular" placeholder="(00) 00000-0000" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cep">Cep:</label>
-                                            <input class="form-control py-4" name="cep" type="text" id="cep"
-                                                size="10" maxlength="9" onblur="pesquisacep(this.value);" 
-                                                placeholder="00.000-000" />
+                                            <input class="form-control py-4" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" placeholder="00.000-000" />
                                         </div>
                                     </div>
                                 </div>
@@ -153,15 +145,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="rua">Lougradoro:</label>
-                                            <input class="form-control py-4" id="rua" name="rua" type="text" 
-                                                placeholder="Digite seu endereço." />
+                                            <input class="form-control py-4" id="rua" name="rua" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="complemento">Complemento:</label>
-                                            <input class="form-control py-4" id="complemento" name="complemento"
-                                                type="text" placeholder="Digite seu endereço." />
+                                            <input class="form-control py-4" id="complemento" name="complemento" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -175,15 +165,13 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class=" mb-1" for="bairro">Bairro:</label>
-                                            <input class="form-control py-4" id="bairro" name="bairro" type="text"
-                                                placeholder="Digite seu endereço." />
+                                            <input class="form-control py-4" id="bairro" name="bairro" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label class=" mb-1" for="cidade">Cidade:</label>
-                                            <input class="form-control py-4" id="cidade" name="cidade" type="text"
-                                                placeholder="Digite seu endereço." />
+                                            <input class="form-control py-4" id="cidade" name="cidade" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                 </div>
@@ -191,15 +179,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="uf">Estado:</label>
-                                            <input class="form-control py-4" id="uf" name="uf" type="text" 
-                                                placeholder="Digite seu endereço." />
+                                            <input class="form-control py-4" id="uf" name="uf" type="text" placeholder="Digite seu endereço." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class=" mb-1" for="pais">País:</label>
-                                            <input class="form-control py-4" id="pais" name="pais" type="text"
-                                                placeholder="Digite seu País." />
+                                            <input class="form-control py-4" id="pais" name="pais" type="text" placeholder="Digite seu País." />
                                         </div>
                                     </div>
                                 </div>
@@ -207,8 +193,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="senha">Senha:</label>
-                                            <input class="form-control py-4" id="senha" name="senha" type="password" 
-                                                placeholder="Digite sua senha." />
+                                            <input class="form-control py-4" id="senha" name="senha" type="password" placeholder="Digite sua senha." />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -216,9 +201,7 @@
                                             <label class="mb-1" for="confirma_senha">Confirme
                                                 sua senha:
                                             </label>
-                                            <input class="form-control py-4" id="confirma_senha" name="confirma_senha"
-                                                type="password"  
-                                                placeholder="Digite novamente a senha." />
+                                            <input class="form-control py-4" id="confirma_senha" name="confirma_senha" type="password" placeholder="Digite novamente a senha." />
                                         </div>
                                     </div>
                                 </div>
@@ -233,8 +216,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block"
-                                        id="botao" type="submit"></input>
+                                <div class="form-group mt-4 mb-0 text-white"><input class="btn btn-primary btn-block" id="botao" type="submit"></input>
                                 </div>
                             </form>
                         </div>
@@ -262,13 +244,13 @@
     <!-- Core -->
     <script>
         //Função ajax
-        $(function () {
-            $('.formEmp').submit(function () { //Linha para submit, quando o usuário apertar o botão
+        $(function() {
+            $('.formEmp').submit(function() { //Linha para submit, quando o usuário apertar o botão
                 $.ajax({
                     url: './php/createEmp.php', //Arquivo php que fará as validações
                     type: 'post', //Método utilizado
                     data: $('.formEmp').serialize(), //Pega as informações inseridas
-                    success: function (data) {
+                    success: function(data) {
                         $('.emp').html(data); //Caso todas as informações foram inseridas irá aparecer o nome abaixo a partir da div "mostrar"
                     }
                 });
@@ -290,7 +272,9 @@
     <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
     <script type="text/javascript" src="js/additional-methods.min.js"></script>
     <!-- JS -->
-    <script src="./js/cadastroEmpresa.js"></script>
+    <script src="./js/cep.js"></script>
+    <script src="./js/mascara.js"></script>
+
 </body>
 
 </html>

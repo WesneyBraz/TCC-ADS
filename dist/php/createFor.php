@@ -6,12 +6,16 @@ if($_POST){
     || empty($_POST['numero']) || empty($_POST['bairro']) || empty($_POST['uf']) || empty($_POST['pais']) )
     {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Campo vazio!'
-              })   
-        });
+        Swal.fire({
+          title: 'Preencha os campos vazios!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         </script>");
     }
 
@@ -39,6 +43,28 @@ if($_POST){
     $vpais=$_POST["pais"];
 
     //$vcat=$vcnpj;
+
+    //----------------------------------FIM---------------------------------------------
+    
+    //----------------- VERIFICANDO CNPJ -----------------
+
+    if (strlen($vcnpj)!=18) 
+        {
+            echo ("<script>
+            Swal.fire({
+              title: 'CNPJ não tem 14 dígitos!',
+              icon: 'error',
+              showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+              }
+            })
+            </script>");  
+
+            return false;
+        }
 
     //----------------------------------FIM---------------------------------------------
 
@@ -140,4 +166,3 @@ if($_POST){
      //----------------------------------FIM---------------------------------------------
     }
     }
-     ?>

@@ -152,8 +152,8 @@ $retorno1 = mysqli_fetch_assoc($resultadoVerifica1);
                     <div class="card card-ipgrade">
                         <!-- card header -->
                         <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Produto:
-                                <?php echo 'Nº ' . $retorno['COD_PROD'] . ''; ?></h3>
+                            <h2 class="text-center my-2">Alterar Produto:
+                                <?php echo 'Nº ' . $retorno['COD_PROD'] . ''; ?></h2>
                         </div>
                         <!-- Cadastro Produto -->
                         <div class="card-body">

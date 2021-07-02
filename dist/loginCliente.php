@@ -199,7 +199,7 @@
         <!-- Puxando o jquery e plugin "mask" do jquery -->
         <script type="text/javascript" src="js/jquery.mask.min.js"></script>
         <!-- JS -->
-        <script src="./js/loginCliente.js"></script>
+        <script src="./js/mascara.js"></script>
 </body>
 
 </html>

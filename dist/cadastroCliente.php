@@ -276,7 +276,8 @@ include('verificaSessao2.php');
     <!-- Puxando o jquery e plugin "mask" do jquery -->
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/cadastroCliente.js"></script>
+    <script src="./js/cep.js"></script>
+    <script src="./js/mascara.js"></script>
     <script src="./js/sair.js"></script>
 </body>
 

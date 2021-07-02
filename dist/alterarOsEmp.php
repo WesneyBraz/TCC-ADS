@@ -168,8 +168,8 @@ $retorno3 = mysqli_fetch_assoc($resultadoVerifica3);
                 <div class="col-md-10 ml-auto mr-auto">
                     <div class="card card-upgrade">
                     <div class="card-header">
-                            <h3 class="text-center my-3">Alterar Ordem de Serviço:
-                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h3>
+                            <h2 class="text-center my-2">Alterar Ordem de Serviço:
+                            <?php echo 'Nº '.$retorno['COD_SER'].''; ?></h2>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="" class="formOS" id="frmCadastro">

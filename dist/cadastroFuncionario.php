@@ -176,7 +176,7 @@ include('verificaSessao2.php');
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1" for="email">E-mail:</label>
-                                            <input class="form-control py-4" id="mail" name="mail" type="email" aria-describedby="emailHelp" placeholder="contato@gmail.com.br" />
+                                            <input class="form-control py-4" id="email" name="email" type="email" aria-describedby="emailHelp" placeholder="contato@gmail.com.br" />
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="mb-1" for="cpf">CPF:</label>
-                                            <input class="form-control py-4 numeric cpf" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" />
+                                            <input class="form-control py-4" id="cpf" name="cpf" type="text" placeholder="000.000.000-00" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -222,7 +222,7 @@ include('verificaSessao2.php');
                                             <label class="mb-1" for="inputConfirmPassword">Confirme
                                                 sua senha:
                                             </label>
-                                            <input class="form-control py-4" id="senha2" name="senha2" type="password" placeholder="Digite novamente a senha." />
+                                            <input class="form-control py-4" id="confirma_senha" name="confirma_senha" type="password" placeholder="Digite novamente a senha." />
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +300,7 @@ include('verificaSessao2.php');
     <!-- Puxando o jquery e plugin "mask" do jquery -->
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/cadastroFuncionario.js"></script>
+    <script src="./js/mascara.js"></script>
     <script src="./js/sair.js"></script>
 
 </body>

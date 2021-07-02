@@ -1,57 +1,78 @@
 <?php
 
-if($_POST){
+if ($_POST) {
     //O que está entre <script> e </script> é o Sweetalert que aparecerá na tela caso o campo esteja vazio, ou seja, empty  
-    if(empty($_POST['nome']) || empty($_POST['cpf'])){
+    if (empty($_POST['nome']) || empty($_POST['cpf'])) {
         echo ("<script>
-        $(document).ready(function(){ 
-            Swal.fire({
-                icon: 'error',
-                text: 'Campo vazio!'
-              })   
-        });
+        Swal.fire({
+          title: 'Preencha os campos vazios!',
+          icon: 'error',
+          showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+          }
+        })
         </script>");
-    }
-    
-    else {
-    //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-    include_once 'conect.php';
-    //----------------------------------FIM---------------------------------------------
+    } else {
+        //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
+        include_once 'conect.php';
+        //----------------------------------FIM---------------------------------------------
 
 
-    //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
+        //ATRIBUIDO DADOS INSERIDOS NOS CAMPOS AS VARIAVEIS CORRESPONDENTES 
 
-    $vnome=$_POST["nome"];
-    $vcpf=$_POST["cpf"];
+        $vnome = $_POST["nome"];
+        $vcpf = $_POST["cpf"];
 
-    $vmail=$_POST["email"]; 
-    $vtelefone=$_POST["telefone"];
-    $vcelular=$_POST["celular"];
-    
-    $vcep=$_POST["cep"];
-    $vrua=$_POST["rua"];
-    $vcomplemento=$_POST["complemento"];
-    $vnumero=$_POST["numero"];
-    $vbairro=$_POST["bairro"];
-    $vcidade=$_POST["cidade"];
-    $vestado=$_POST["uf"];
-    $vpais=$_POST["pais"];
+        $vmail = $_POST["email"];
+        $vtelefone = $_POST["telefone"];
+        $vcelular = $_POST["celular"];
 
-    //----------------------------------FIM---------------------------------------------
+        $vcep = $_POST["cep"];
+        $vrua = $_POST["rua"];
+        $vcomplemento = $_POST["complemento"];
+        $vnumero = $_POST["numero"];
+        $vbairro = $_POST["bairro"];
+        $vcidade = $_POST["cidade"];
+        $vestado = $_POST["uf"];
+        $vpais = $_POST["pais"];
+        //----------------------------------FIM---------------------------------------------
+        
+        //----------------- VERIFICANDO CPF -----------------
 
-    //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
-    //mysqli_query = consulta a base de dados 
-    //mysqli_num_rows = efetua a contagem de array/registros obtidos
-     $verifica = ("SELECT CPF_CLI FROM TBL_CLIENTE WHERE CPF_CLI = '$vcpf'");
+        if (strlen($vcpf) != 14) {
+            echo ("<script>
+                Swal.fire({
+                title: 'CPF não tem 11 dígitos!',
+                icon: 'error',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+                })
+                </script>");
 
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
+            return false;
+        }
 
-     $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
+        //----------------------------------FIM---------------------------------------------
 
-     //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
-     if($erroResultadoVerifica > 0)
-     {
-        echo ("<script>
+        //---------------------VERIFICA SE O CAMPO JÁ FOI INSERIDO -------------------------
+        //mysqli_query = consulta a base de dados 
+        //mysqli_num_rows = efetua a contagem de array/registros obtidos
+        $verifica = ("SELECT CPF_CLI FROM TBL_CLIENTE WHERE CPF_CLI = '$vcpf'");
+
+        $resultadoVerifica = mysqli_query($conn, $verifica);
+
+        $erroResultadoVerifica = mysqli_num_rows($resultadoVerifica);
+
+        //-------------------CASO JÁ EXISTA O CAMPO RETORNA A MENSAGEM DE ERRO ------------- 
+        if ($erroResultadoVerifica > 0) {
+            echo ("<script>
         $(document).ready(function(){ 
             Swal.fire({
                 icon: 'error',
@@ -60,68 +81,68 @@ if($_POST){
         });
         </script>");
 
-        return false;
-     }
-     //----------------------------------FIM---------------------------------------------
+            return false;
+        }
+        //----------------------------------FIM---------------------------------------------
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
+        //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CATEGORIA---------------------- 
 
-     $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
+        $sql = $conn->prepare(" INSERT INTO TBL_CATEGORIA
      (NOME_CAT, NUMERO_CAT, ID)
      VALUES
      (?, ?, ?) ");
 
-     $sql -> bind_param("sss", $vnome, $vcpf, $vcpf );
+        $sql->bind_param("sss", $vnome, $vcpf, $vcpf);
 
-     $sql -> execute() or exit("ErroBanco ");
+        $sql->execute() or exit("ErroBanco ");
 
-     $verifica = ("SELECT COD_CAT FROM TBL_CATEGORIA WHERE NUMERO_CAT = '$vcpf'");
-     $resultadoVerifica = mysqli_query ($conn, $verifica );
-     $vcat1 = mysqli_fetch_assoc($resultadoVerifica);
-     $vcat=$vcat1['COD_CAT'];
+        $verifica = ("SELECT COD_CAT FROM TBL_CATEGORIA WHERE NUMERO_CAT = '$vcpf'");
+        $resultadoVerifica = mysqli_query($conn, $verifica);
+        $vcat1 = mysqli_fetch_assoc($resultadoVerifica);
+        $vcat = $vcat1['COD_CAT'];
 
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
-     $sql = $conn->prepare(" INSERT INTO TBL_CLIENTE
+        //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
+        $sql = $conn->prepare(" INSERT INTO TBL_CLIENTE
      (CPF_CLI, NOME_CLI, COD_CAT)
      VALUES
      (?, ?, ?) ");
 
 
-     $sql -> bind_param("sss", $vcpf , $vnome, $vcat);
+        $sql->bind_param("sss", $vcpf, $vnome, $vcat);
 
-     $sql -> execute() or exit("ErroBanco1 ");
+        $sql->execute() or exit("ErroBanco1 ");
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
+        //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ---------------------- 
 
-     $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
+        $sql = $conn->prepare(" INSERT INTO TBL_CONTATO
      (TELEFONE_MOVEL, TELEFONE_FIXO, EMAIL, COD_CAT)
      VALUES
      (?, ?, ?, ?) ");
 
-     $sql -> bind_param("ssss", $vcelular, $vtelefone,  $vmail , $vcat);
+        $sql->bind_param("ssss", $vcelular, $vtelefone,  $vmail, $vcat);
 
-     $sql -> execute() or exit("ErroBanco2 ");
+        $sql->execute() or exit("ErroBanco2 ");
 
-     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
+        //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_ENDEREÇO ---------------------- 
 
-     $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
+        $sql = $conn->prepare(" INSERT INTO TBL_ENDERECO
      (LOUGRADOURO, NUMERO, CEP, PAIS, ESTADO, CIDADE, BAIRRO, COMPLEMENTO, COD_CAT)
      VALUES
      (?, ?, ?, ?, ?, ?, ?, ?, ?) ");
 
-     $sql -> bind_param("sssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat );
+        $sql->bind_param("sssssssss", $vrua, $vnumero, $vcep, $vpais, $vestado, $vcidade, $vbairro, $vcomplemento, $vcat);
 
-     $sql -> execute() or exit("ErroBanco3 ");
+        $sql->execute() or exit("ErroBanco3 ");
 
 
 
-     $sql -> close();
-     $conn -> close();
-     //----------------------------------FIM---------------------------------------------
+        $sql->close();
+        $conn->close();
+        //----------------------------------FIM---------------------------------------------
 
-     //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
-     echo ("<script>
+        //----------------------------- EXIBI NA TELA OS DADOS CADASTRADOS -----------------
+        echo ("<script>
      $(document).ready(function(){ 
          Swal.fire({
              icon: 'success',
@@ -130,8 +151,7 @@ if($_POST){
      });
      </script>");
 
-     exit();
-     //----------------------------------FIM---------------------------------------------
+        exit();
+        //----------------------------------FIM---------------------------------------------
     }
-    }
-?>
+}

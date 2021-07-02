@@ -298,7 +298,7 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/ordemservicoEmpresa.js"></script>
+    <script src="./js/mascara.js"></script>
     <script src="./js/sair.js"></script>
 
 </body>
