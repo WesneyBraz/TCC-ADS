@@ -16,6 +16,11 @@ $(document).ready(function () {
     })
 })
 
+//Mascara para valor
+$(document).ready(function () {
+    $(".valor").mask('#.##0,00', { reverse: true });
+})
+
 //aceita somente letras
 jQuery('.meucampo').keyup(function () {
     this.value = this.value.replace(/[^a-zA-Z]/g, ' ');

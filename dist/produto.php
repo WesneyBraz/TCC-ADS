@@ -180,7 +180,7 @@ include('verificaSessao2.php');
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="valorProduto">Valor do produto:</label>
-                                            <input type="text" class="form-control valorProduto" id="valorProduto" name="valorProduto" placeholder="Ex: 1.000">
+                                            <input type="text" class="form-control valor" id="valorProduto" name="valorProduto" placeholder="Ex: 1.000">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -190,7 +190,7 @@ include('verificaSessao2.php');
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="Cadastrar"></input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round " id="botao" value="Cadastrar"></input>
                             </form>
                         </div>
                     </div>
@@ -237,7 +237,7 @@ include('verificaSessao2.php');
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/jquery.mask.min.js"></script>
     <!-- JS -->
-    <script src="./js/produto.js"></script>
+    <script src="./js/mascara.js"></script>
     <script src="./js/sair.js"></script>
 
 </body>

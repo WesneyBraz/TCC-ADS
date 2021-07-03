@@ -251,7 +251,7 @@ include('verificaSessao2.php');
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="Adicionar" onclick="validarOS();"></input>
+                                <input type="submit" class="btn btn-primary btn-block btn-round" id="botao" value="Adicionar"></input>
                             </form>
                         </div>
                     </div>
