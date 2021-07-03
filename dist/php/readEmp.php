@@ -1,6 +1,5 @@
 <?php
 //------------------ CHAMA O PROG DE CONEXÃO COM A BASE DE DADOS -------------------
-// -----------------------------------FIM-------------------------------------------
 if ($_POST) {
     require 'conect.php';
     $vconsulta = $_POST["consulta"];
@@ -518,6 +517,7 @@ if ($_POST) {
                     <th title="user">STATUS</th>
                     <th> EXCLUIR</th>
                     <th> EDITAR </th>
+                    <th> GERAR PDF </th>
                 </tr>
                 ';
 
@@ -540,6 +540,13 @@ if ($_POST) {
                                 <a class="nav-link mb-0 p-1" href="alterarOsEmp.php?COD_SER=<?php echo $row['COD_SER']; ?>">
                                     <i class="bi bi-file-earmark-font text-dark"></i>
                                     <span class="nav-link-text">EDITAR</span>
+                                </a>
+                            </td>
+                            
+                            <td>
+                                <a class="nav-link mb-0 p-1" href="pdf.php?COD_SER=<?php echo $row['COD_SER']; ?>" target="_blank">
+                                    <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
+                                    <span class="nav-link-text">PDF</span>
                                 </a>
                             </td>
 

@@ -24,8 +24,8 @@ if ($_POST) {
                 <td ' . $row['STATOS'] . '">' . $row['STATOS'] . '</td> 
                 <td ' . $row['NOME_FUN'] . '">' . $row['NOME_FUN'] . '</td>' ?>
             <td>
-                <a class="nav-link" href="">
-                    <i class="bi bi-file-earmark-pdf-fill" style="font-size: 1rem; color: cornflowerblue;"></i>
+                <a class="nav-link mb-0 p-1" href="pdf.php?COD_SER=<?php echo $row['COD_SER']; ?>" target="_blank">
+                    <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
                     <span class="nav-link-text">PDF</span>
                 </a>
             </td>

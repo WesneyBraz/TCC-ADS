@@ -120,13 +120,14 @@ if ($_POST) {
 
 
     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CLIENTE ---------------------- 
-
+    //
     $sql = $conn->prepare(" INSERT INTO TBL_FUNCIONARIO
-     (CPF_FUN,NOME_FUN,EMAIL_FUN,SENHA_FUN,TELEFONE_MOVEL_FUN, COD_DEP)
+     (CPF_FUN, NOME_FUN, EMAIL_FUN, SENHA_FUN, TELEFONE_MOVEL_FUN, COD_DEP)
      VALUES (?, ?, ?, ?, ?, ?) ");
 
-    $sql->bind_param("ssssss", $vcpf, $vnome, $vmail, $vsenhaf1, $vcelular, $vdepartamento);
-
+    $sql->bind_param("ssssss", $vcpf, $vnome, $vmail, $vsenha, $vcelular, $vdepartamento);
+//ssss
+//
     //-----------------------REALIZA O CADASTRO DOS DADOS NO BANCO TBL_CONTATO ----------------------
 
 
